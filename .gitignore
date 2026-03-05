@@ -12,6 +12,21 @@ app.config.timestamp_*.js
 
 # dependencies
 /node_modules
+*/node_modules
+*/.output
+
+# Build artifacts
+coverage
+.turbo
+.vite
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
 
 # IDEs and editors
 /.idea
