@@ -1,0 +1,48 @@
+---
+description: Solid.js Best Practices (Reactive Model & Patterns)
+alwaysApply: true
+---
+# Solid.js Best Practices (Reactive Model)
+
+## 1. Preserve Reactivity in Props
+
+- Always **call signal getters (`id()`) before passing to JSX props** so children receive concrete values. Do not pass signal functions unless intentional. :contentReference[oaicite:1]{index=1}
+- Do NOT **destructure props directly** — this breaks Solid’s reactive getters. Use `props.name` or `splitProps` if necessary. :contentReference[oaicite:2]{index=2}
+
+## 2. Signals and Derived Values
+
+- Component bodies execute once; they’re setup code, not render loops.
+- Create derived values with **`createMemo`**, not by computing a value outside reactive scopes. :contentReference[oaicite:3]{index=3}
+- Avoid reading signals outside reactive scopes (`JSX`, `createEffect`, `createMemo`). :contentReference[oaicite:4]{index=4}
+
+## 3. Use Control-Flow Primitives
+
+- Prefer `<Show>` over `condition && <JSX />`. :contentReference[oaicite:5]{index=5}
+- Prefer `<For>` over `.map()` for iterating reactive lists. :contentReference[oaicite:6]{index=6}
+
+## 4. Minimize `createEffect`
+
+- Use `createEffect` only for side effects (DOM interactions, subscriptions).
+- For derived/derived async state use:
+  - `createMemo`
+  - `createResource`
+  - SolidStart loaders
+- Avoid data fetching inside effects; use `createResource` instead for proper loading/error/fallback. :contentReference[oaicite:7]{index=7}
+
+## 5. Choose the Right Reactive Primitive
+
+- Use `createSignal` for **primitive state** or single values. :contentReference[oaicite:8]{index=8}
+- Use **stores (`createStore`)** for complex/nested state — supports fine-grained updates. :contentReference[oaicite:9]{index=9}
+- When using stores, avoid destructuring them; Solid tracks nested paths automatically. :contentReference[oaicite:10]{index=10}
+
+## 6. Fine-Grained Reactivity Awareness
+
+- Avoid patterns that defeat fine-grained updates:
+  - Don’t replace entire objects when only a part changes.
+  - Don’t compute derived values imperatively with effects. :contentReference[oaicite:11]{index=11}
+- Leverage Solid’s reactive primitives rather than copying React idioms. :contentReference[oaicite:12]{index=12}
+
+## 7. Naming & Code Clarity
+
+- Signal getter functions `foo()` should be named clearly to communicate reactive reads.
+- Use descriptive memo names for derived state (e.g., `totalUsers` instead of `t`).  
