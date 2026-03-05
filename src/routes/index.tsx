@@ -1,5 +1,7 @@
+/* eslint-disable solid/no-innerhtml */
 import { Accessibility, Code, Leaf, Zap } from "lucide-solid"
-import { For } from "solid-js"
+import { codeToHtml } from "shiki"
+import { createResource, For, Show } from "solid-js"
 import { Button } from "~/components/ui/button"
 import { Card, CardBody, CardDescription, CardTitle } from "~/components/ui/card"
 
@@ -33,7 +35,39 @@ const cardDelayClasses = [
 	"animate-fade-in-delay-4"
 ] as const
 
+const code = `
+	export function Button<T extends ValidComponent = "button">(
+		props: PolymorphicProps<T, ButtonProps>
+	) {
+		const [local, rest] = splitProps(props, [
+			"variant", 
+			"size", 
+			"class", 
+			"children"
+		])
+
+		return (
+			<button
+				class={cn(
+					buttonVariants({ size: local.size, variant: local.variant }),
+					local.class
+				)}
+				{...rest}
+			>
+				{local.children}
+			</button>
+		)
+	}
+`
+
 export default function Home() {
+	const [highlighted] = createResource(() =>
+		codeToHtml(code, {
+			lang: "tsx",
+			theme: "github-dark-dimmed"
+		})
+	)
+
 	return (
 		<main class="min-h-screen bg-base-100 w-full relative overflow-x-hidden bg-dot-grid">
 
@@ -101,7 +135,7 @@ export default function Home() {
 						</For>
 					</div>
 
-					<div class="grid lg:grid-cols-2 gap-12 items-center pt-6">
+					<div class="w-full flex flex-col lg:flex-row gap-8 items-center pt-6">
 
 						<div class="space-y-5 max-w-md animate-fade-in">
 							<h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -128,18 +162,17 @@ export default function Home() {
 									button.tsx
 								</span>
 							</div>
-							<div class="p-4">
-								<pre class="text-sm overflow-x-auto font-mono text-base-content/90 leading-relaxed">
-									<code>
-										{`export function Button(props) {
-  return (
-    <button class="btn btn-primary">
-      {props.children}
-    </button>
-  )
-}`}
-									</code>
-								</pre>
+							<div class="p-4 overflow-x-auto text-sm [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!">
+								<Show
+									when={highlighted()}
+									fallback={(
+										<pre class="font-mono text-base-content/60">
+											<code>{code.trim()}</code>
+										</pre>
+									)}
+								>
+									{html => <div innerHTML={html()} />}
+								</Show>
 							</div>
 						</div>
 

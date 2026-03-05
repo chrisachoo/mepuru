@@ -1,10 +1,10 @@
-import type { VariantProps } from "class-variance-authority"
-import type { JSX, ValidComponent } from "solid-js"
-import type { PolymorphicProps } from "~/lib/polymorphic"
+import type { VariantProps } from "class-variance-authority";
+import type { ValidComponent } from "solid-js";
+import type { PolymorphicProps } from "~/lib/polymorphic";
 
-import { cva } from "class-variance-authority"
-import { splitProps } from "solid-js"
-import { cn } from "~/lib/cn"
+import { cva } from "class-variance-authority";
+import { splitProps } from "solid-js";
+import { cn } from "~/lib/cn";
 
 const buttonVariants = cva(
 	"btn inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-medium transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]",
@@ -39,27 +39,21 @@ type ButtonProps = {
 function Button<T extends ValidComponent = "button">(
 	props: PolymorphicProps<T, ButtonProps>
 ) {
-	const [local, rest] = splitProps(props, [
-		"variant",
-		"size",
-		"class",
-		"as",
-		"children"
-	])
+	const [local, rest] = splitProps(props, ["variant", "size", "class", "children"])
 
 	return (
 		<button
-			type={(rest as JSX.IntrinsicElements["button"]).type ?? "button"}
 			class={cn(
 				buttonVariants({ size: local.size, variant: local.variant }),
 				local.class
 			)}
-			{...(rest as JSX.IntrinsicElements["button"])}
+			{...rest}
 		>
 			{local.children}
 		</button>
 	)
 }
 
-export { Button, buttonVariants }
-export type { ButtonProps }
+export { Button, buttonVariants };
+export type { ButtonProps };
+
