@@ -1,4 +1,5 @@
 /* eslint-disable solid/no-innerhtml */
+import { useNavigate } from "@solidjs/router"
 import { Accessibility, Code, Leaf, Zap } from "lucide-solid"
 import { codeToHtml } from "shiki"
 import { createResource, For, Show } from "solid-js"
@@ -60,7 +61,8 @@ const code = `
 	}
 `
 
-export default function Home() {
+export default function HomePage() {
+	const navigate = useNavigate()
 	const [highlighted] = createResource(() =>
 		codeToHtml(code, {
 			lang: "tsx",
@@ -96,11 +98,11 @@ export default function Home() {
 							</p>
 						</div>
 
-						<div class="flex flex-wrap items-center justify-center gap-3 pt-2">
-							<Button variant="primary" size="lg">
+						<div class="grid grid-cols-1 md:grid-cols-2 md:max-w-80 items-center justify-center gap-3 pt-2">
+							<Button variant="primary" class="w-full" onClick={() => navigate("/docs/components", { replace: true })}>
 								Components
 							</Button>
-							<Button variant="outline" size="lg">
+							<Button variant="outline" class="w-full" onClick={() => navigate("/docs/quickstart", { replace: true })}>
 								Quickstart
 							</Button>
 						</div>
@@ -148,7 +150,7 @@ export default function Home() {
 								primitives and minimal abstraction.
 							</p>
 
-							<Button variant="primary" size="lg">
+							<Button variant="primary">
 								Browse components
 							</Button>
 						</div>

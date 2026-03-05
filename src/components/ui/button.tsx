@@ -1,32 +1,25 @@
-import type { VariantProps } from "class-variance-authority";
-import type { ValidComponent } from "solid-js";
-import type { PolymorphicProps } from "~/lib/polymorphic";
+import type { VariantProps } from "class-variance-authority"
+import type { ValidComponent } from "solid-js"
+import type { PolymorphicProps } from "~/lib/polymorphic"
 
-import { cva } from "class-variance-authority";
-import { splitProps } from "solid-js";
-import { cn } from "~/lib/cn";
+import { cva } from "class-variance-authority"
+import { splitProps } from "solid-js"
+import { cn } from "~/lib/cn"
 
 const buttonVariants = cva(
-	"btn inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-medium transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]",
+	"btn",
 	{
-		defaultVariants: {
-			size: "md",
-			variant: "primary"
-		},
 		variants: {
 			size: {
-				lg: "btn-lg text-lg",
-				md: "btn-md",
-				sm: "btn-sm text-sm"
+				lg: "btn-lg",
+				sm: "btn-sm"
 			},
 			variant: {
-				accent: "btn-accent",
-				error: "btn-error",
+				destructive: "btn-error",
 				ghost: "btn-ghost",
 				link: "btn-link",
-				outline: "btn-outline",
-				primary: "btn-primary",
-				secondary: "btn-secondary"
+				outline: "btn-outline ",
+				primary: "btn-primary"
 			}
 		}
 	}
@@ -54,6 +47,6 @@ function Button<T extends ValidComponent = "button">(
 	)
 }
 
-export { Button, buttonVariants };
-export type { ButtonProps };
+export { Button, buttonVariants }
+export type { ButtonProps }
 
