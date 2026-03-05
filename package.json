@@ -1,0 +1,44 @@
+{
+	"name": "@mepuru/ui",
+	"description": "Simple, predictable, and accessible UI components for Solid. Built with reactive primitives and styled with DaisyUI.",
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"start": "vite start",
+		"preview": "vite preview",
+		"lint:fix": "eslint --fix",
+		"lint": "eslint . --max-warnings 0"
+	},
+	"dependencies": {
+		"@solidjs/meta": "^0.29.4",
+		"@solidjs/router": "^0.15.0",
+		"@solidjs/start": "2.0.0-alpha.2",
+		"solid-js": "^1.9.5",
+		"vite": "^7.0.0",
+		"nitro": "3.0.1-alpha.2"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "^7.6.1",
+		"eslint": "^10.0.2",
+		"eslint-plugin-format": "^2.0.1",
+		"eslint-plugin-perfectionist": "^5.6.0",
+		"eslint-plugin-solid": "^0.14.5",
+		"husky": "^9.1.7"
+	},
+	"keywords": [
+		"solid",
+		"solidjs",
+		"ui",
+		"components",
+		"daisyui",
+		"tailwind",
+		"accessible",
+		"reactive"
+	],
+	"lint-staged": {
+		"*": "eslint --fix"
+	},
+	"packageManager": "bun@1.3.2"
+}
