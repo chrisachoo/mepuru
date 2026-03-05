@@ -9,16 +9,20 @@
 		"start": "vite start",
 		"preview": "vite preview",
 		"lint:fix": "eslint --fix",
-		"lint": "eslint . --max-warnings 0"
+		"lint": "eslint . --max-warnings 0",
+		"prettier": "prettier . --write"
 	},
 	"dependencies": {
 		"@solidjs/meta": "^0.29.4",
 		"@solidjs/router": "^0.15.0",
 		"@solidjs/start": "2.0.0-alpha.2",
 		"@tailwindcss/vite": "^4.2.1",
+		"class-variance-authority": "^0.7.1",
 		"daisyui": "^5.5.19",
+		"lucide-solid": "^0.577.0",
 		"nitro": "3.0.1-alpha.2",
 		"solid-js": "^1.9.5",
+		"tailwind-merge": "^3.5.0",
 		"tailwindcss": "^4.2.1",
 		"vite": "^7.0.0"
 	},
@@ -28,7 +32,9 @@
 		"eslint-plugin-format": "^2.0.1",
 		"eslint-plugin-perfectionist": "^5.6.0",
 		"eslint-plugin-solid": "^0.14.5",
-		"husky": "^9.1.7"
+		"husky": "^9.1.7",
+		"prettier": "3.8.1",
+		"prettier-plugin-tailwindcss": "^0.7.2"
 	},
 	"keywords": [
 		"solid",
@@ -41,7 +47,12 @@
 		"reactive"
 	],
 	"lint-staged": {
-		"*": "eslint --fix"
+		"*.{ts,tsx,json,jsonc,yml,yaml}": [
+			"eslint --fix"
+		],
+		"*.{css,scss,postcss,md}": [
+			"prettier --write"
+		]
 	},
 	"packageManager": "bun@1.3.2"
 }
