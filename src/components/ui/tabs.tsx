@@ -1,7 +1,8 @@
 import type { VariantProps } from "class-variance-authority"
 import type { JSX } from "solid-js"
+
 import { cva } from "class-variance-authority"
-import { createSignal, For } from "solid-js"
+import { For } from "solid-js"
 import { cn } from "~/lib/cn"
 
 const tabsVariants = cva("tabs", {
@@ -33,15 +34,13 @@ type TabItem = {
 
 type TabsProps = {
 	name: string
-	tabs: readonly TabItem[]
-	defaultValue?: string
+	tabs: TabItem[]
+	value: string
+	onChange: (value: string) => void
 	class?: string
 } & VariantProps<typeof tabsVariants>
 
 export function Tabs(props: Readonly<TabsProps>) {
-	const defaultVal = () => props.defaultValue ?? props.tabs[0]?.value ?? ""
-	const [active, setActive] = createSignal(defaultVal())
-
 	return (
 		<div class={cn(tabsVariants({ size: props.size, variant: props.variant }), props.class)} role="tablist">
 			<For each={[...props.tabs]}>
@@ -52,8 +51,8 @@ export function Tabs(props: Readonly<TabsProps>) {
 							name={props.name}
 							value={tab.value}
 							aria-label={tab.label}
-							checked={active() === tab.value}
-							onInput={() => setActive(tab.value)}
+							checked={props.value === tab.value}
+							onInput={() => props.onChange(tab.value)}
 							class="tab"
 							role="tab"
 						/>

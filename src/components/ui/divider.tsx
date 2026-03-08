@@ -27,7 +27,7 @@ const dividerVariants = cva("divider", {
 		},
 		placement: {
 			end: "divider-end",
-			start: "divider-start",
+			start: "divider-start"
 		}
 	}
 })
@@ -64,4 +64,3 @@ function Divider<T extends ValidComponent = "div">(props: PolymorphicProps<T, Di
 
 export { Divider, dividerVariants }
 export type { DividerProps }
-

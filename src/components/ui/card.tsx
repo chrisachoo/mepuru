@@ -100,7 +100,6 @@ export function CardBody<T extends ValidComponent = "div">(
 	)
 }
 
-
 type CardFigureProps = {
 	src: string
 	alt: string

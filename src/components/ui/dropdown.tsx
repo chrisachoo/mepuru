@@ -21,7 +21,7 @@ const dropdownVariant = cva("dropdown space-y-1 space-x-1", {
 })
 
 type DropdownProps = {
-	name: string
+	name: JSX.Element
 	class?: string
 	children?: JSX.Element
 } & VariantProps<typeof dropdownVariant> & JSX.IntrinsicElements["div"]

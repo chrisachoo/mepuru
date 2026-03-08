@@ -19,16 +19,17 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 	const [copied, setCopied] = createSignal(false)
 	const [justCopied, setJustCopied] = createSignal(false)
 
+	const lang = () => props.language ?? "tsx"
+
 	const [highlighted] = createResource(
 		() => ({
 			code: props.code,
-			lang: props.language ?? "tsx"
+			lang: lang()
 		}),
-		async source =>
-			codeToHtml(source.code, {
-				lang: source.lang,
-				theme: "catppuccin-macchiato"
-			})
+		async source => codeToHtml(source.code, {
+			lang: source.lang,
+			theme: "catppuccin-macchiato"
+		})
 	)
 
 	const handleCopy = async () => {
@@ -46,35 +47,25 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 				props.class
 			)}
 		>
-			<div class="flex items-center justify-between gap-2 border-b border-base-300 bg-base-300/50 px-4 py-3">
+			<div class="flex flex-wrap items-center justify-between gap-2 border-b border-base-300 bg-base-300/50 px-4 py-3">
 				<div class="flex items-center gap-2 min-w-0">
 					<span class="size-3 shrink-0 rounded-full bg-error/80" />
 					<span class="size-3 shrink-0 rounded-full bg-warning/80" />
 					<span class="size-3 shrink-0 rounded-full bg-success/80" />
-					{props.title
-						? (
-								<span class="ml-2 truncate text-sm font-medium text-base-content/60">
-									{props.title}
-								</span>
-							)
-						: null}
+					<Show when={props.title}>
+						<span class="ml-2 truncate text-sm font-medium text-base-content/60">
+							{props.title}
+						</span>
+					</Show>
 				</div>
+
 				<button
 					type="button"
 					onClick={handleCopy}
-					class={cn(
-						"flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors",
-						"text-base-content/70 hover:bg-base-300 hover:text-base-content",
-						"focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-base-200"
-					)}
+					class="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium  text-base-content/70 hover:bg-base-300 hover:text-base-content focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-base-200 cursor-pointer"
 					aria-label={copied() ? "Copied" : "Copy code"}
 				>
-					<Show
-						when={copied()}
-						fallback={
-							<Copy class="size-3.5 shrink-0" />
-						}
-					>
+					<Show when={copied()} fallback={<Copy class="size-3.5 shrink-0" />}>
 						<span class={cn("flex shrink-0", justCopied() && "animate-copy-pop")}>
 							<Check class="size-3.5 text-success" />
 						</span>
@@ -82,6 +73,7 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 					<span>{copied() ? "Copied" : "Copy"}</span>
 				</button>
 			</div>
+
 			<div class="overflow-x-auto p-4 text-sm [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!">
 				<Show
 					when={highlighted()}
