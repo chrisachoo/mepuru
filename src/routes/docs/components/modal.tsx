@@ -1,4 +1,4 @@
-export default function IntroductionPage() {
+export default function ModalPage() {
 	return (
 		<main class="min-h-screen w-full bg-base-100 relative overflow-x-hidden bg-dot-grid">
 			<div class="pointer-events-none absolute inset-0 flex justify-center">
@@ -8,10 +8,11 @@ export default function IntroductionPage() {
 			<article class="relative mx-auto w-full max-w-3xl px-6 py-16">
 				<div class="space-y-3 animate-fade-in">
 					<h1 class="text-4xl font-bold tracking-tight text-base-content sm:text-5xl">
-						Introduction
+						Modal
 					</h1>
 					<p class="text-lg text-base-content/70 leading-relaxed">
-						Welcome to the documentation for Mēpuru. Mēpuru is a simple UI library for Solid.
+						Opens a menu when the trigger is clicked. Uses daisyUI dropdown classes
+						and CVA for alignment. Visibility is controlled by CSS (focus).
 					</p>
 				</div>
 			</article>

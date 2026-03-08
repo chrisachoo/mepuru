@@ -1,4 +1,4 @@
-import { } from "~/components/ui/button"
+import { createSignal } from "solid-js"
 import { CodeBlock } from "~/components/ui/code-block"
 import { Dropdown, DropdownItem } from "~/components/ui/dropdown"
 import { Tabs } from "~/components/ui/tabs"
@@ -91,13 +91,14 @@ const usageExampleCode = `<Dropdown name="Open menu">
 </Dropdown>`
 
 export default function DropdownPage() {
+	const [installTab, setInstallTab] = createSignal("manual")
 	return (
 		<main class="min-h-screen w-full bg-base-100 relative overflow-x-hidden bg-dot-grid">
 			<div class="pointer-events-none absolute inset-0 flex justify-center">
 				<div class="h-80 w-96 bg-primary/10 blur-3xl rounded-full mt-12 animate-pulse" />
 			</div>
 
-			<article class="relative mx-auto w-full max-w-4xl px-6 py-16">
+			<article class="relative mx-auto w-full max-w-3xl px-6 py-16">
 				<div class="space-y-3 animate-fade-in">
 					<h1 class="text-4xl font-bold tracking-tight text-base-content sm:text-5xl">
 						Dropdown
@@ -144,7 +145,8 @@ export default function DropdownPage() {
 					<h2 class="text-xl font-semibold text-base-content">Installation</h2>
 					<Tabs
 						name="dropdown-install"
-						defaultValue="manual"
+						value={installTab}
+						onChange={setInstallTab}
 						tabs={[
 							{
 								content: (
