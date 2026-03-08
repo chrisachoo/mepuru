@@ -36,29 +36,28 @@ const cardDelayClasses = [
 	"animate-fade-in-delay-4"
 ] as const
 
-const code = `
-	export function Button<T extends ValidComponent = "button">(
-		props: PolymorphicProps<T, ButtonProps>
-	) {
-		const [local, rest] = splitProps(props, [
-			"variant", 
-			"size", 
-			"class", 
-			"children"
-		])
+const code = `export function Button<T extends ValidComponent = "button">(
+	props: PolymorphicProps<T, ButtonProps>
+) {
+	const [local, rest] = splitProps(props, [
+		"variant", 
+		"size", 
+		"class", 
+		"children"
+	])
 
-		return (
-			<button
-				class={cn(
-					buttonVariants({ size: local.size, variant: local.variant }),
-					local.class
-				)}
-				{...rest}
-			>
-				{local.children}
-			</button>
-		)
-	}
+	return (
+		<button
+			class={cn(
+				buttonVariants({ size: local.size, variant: local.variant }),
+				local.class
+			)}
+			{...rest}
+		>
+			{local.children}
+		</button>
+	)
+}
 `
 
 export default function HomePage() {

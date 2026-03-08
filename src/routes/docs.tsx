@@ -5,25 +5,16 @@ import { A, useLocation } from "@solidjs/router"
 import { BookOpen, Component, Menu } from "lucide-solid"
 import { For } from "solid-js"
 
-const docLinks = [
-	{ href: "/docs/introduction", label: "Introduction" },
-	{ href: "/docs/installation", label: "Installation" },
-	{ href: "/docs/components", label: "Components" }
-] as const
-
-const componentLinks = [
-	{ href: "/docs/components/button", label: "Button" },
-	{ href: "/docs/components/input", label: "Input" },
-	{ href: "/docs/components/card", label: "Card" },
-	{ href: "/docs/components/dropdown", label: "Dropdown" },
-	{ href: "/docs/components/modal", label: "Modal" },
-	{ href: "/docs/components/tooltip", label: "Tooltip" }
-] as const
+import { componentDocLinks, docSections } from "~/lib/docs/registry"
 
 const navSections = [
-	{ icon: BookOpen, label: "Documentation", links: docLinks },
-	{ icon: Component, label: "Components", links: componentLinks }
-] as const
+	...docSections.map(section => ({
+		icon: BookOpen,
+		label: section.label,
+		links: section.links
+	})),
+	{ icon: Component, label: "Components", links: componentDocLinks }
+]
 
 const CONTENT_HEIGHT = "calc(100vh - 4rem)"
 
@@ -69,9 +60,7 @@ export default function DocsLayout(props: RouteSectionProps) {
 		<main class="flex min-h-screen w-full bg-base-100">
 			<div class="drawer lg:drawer-open">
 				<input id="docs-drawer" type="checkbox" class="drawer-toggle" />
-				{/* Scrollable content area only */}
 				<div class="drawer-content flex h-screen flex-col overflow-hidden">
-					{/* Mobile: menu bar */}
 					<div class="sticky top-16 z-40 flex w-full shrink-0 items-center gap-3 border-b border-base-300 bg-base-100/95 px-4 py-3 backdrop-blur-sm lg:hidden">
 						<label
 							for="docs-drawer"
@@ -82,18 +71,18 @@ export default function DocsLayout(props: RouteSectionProps) {
 						</label>
 						<span class="text-sm font-semibold text-base-content">Docs</span>
 					</div>
-					{/* Page content - only this scrolls */}
+
 					<div class="min-h-0 flex-1 overflow-y-auto px-4 py-6 lg:px-8">
 						{props.children}
 					</div>
 				</div>
+
 				<div class="drawer-side z-50 shrink-0">
 					<label
 						for="docs-drawer"
 						aria-label="Close sidebar"
 						class="drawer-overlay"
 					/>
-					{/* Sticky sidebar - does not scroll */}
 					<aside
 						class="flex fixed w-64 flex-col gap-1 border-r border-base-300 bg-base-200/40 py-5 pl-4 pr-3 lg:w-72 backdrop-blur-sm"
 						style={{ height: CONTENT_HEIGHT }}

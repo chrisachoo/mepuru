@@ -5,5 +5,5 @@ import { nitro } from "nitro/vite"
 import { defineConfig } from "vite"
 
 export default defineConfig({
-	plugins: [solidStart({ ssr: false }), nitro(), tailwindcss()]
+	plugins: [solidStart({ ssr: true }), nitro(), tailwindcss()]
 })

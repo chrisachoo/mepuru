@@ -11,7 +11,7 @@ function Head(props: Readonly<ParentProps>) {
 	return (
 		<MetaProvider>
 			<Title>Mepuru — Simple reactive UI for Solid</Title>
-			<Header/>
+			<Header />
 			<Suspense>{props.children}</Suspense>
 		</MetaProvider>
 	)
