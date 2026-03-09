@@ -21,7 +21,7 @@ const CONTENT_HEIGHT = "calc(100vh - 4rem)"
 const linkBaseClass
 	= "flex items-center rounded-r-lg px-3 py-2.5 text-sm font-medium transition-colors"
 
-function DocNavLink(props: { href: string, label: string }) {
+function DocNavLink(props: Readonly<{ href: string, label: string }>) {
 	const location = useLocation()
 	const isActive = () => location.pathname === props.href
 	return (
@@ -39,10 +39,10 @@ function DocNavLink(props: { href: string, label: string }) {
 	)
 }
 
-function SidebarSectionHeader(props: {
+function SidebarSectionHeader(props: Readonly<{
 	icon: LucideIcon
 	label: string
-}) {
+}>) {
 	return (
 		<div class="mb-2 flex items-center gap-2 px-2">
 			<div class="flex size-8 items-center justify-center rounded-lg bg-primary/15 text-primary">
@@ -55,7 +55,7 @@ function SidebarSectionHeader(props: {
 	)
 }
 
-export default function DocsLayout(props: RouteSectionProps) {
+export default function DocsLayout(props: Readonly<RouteSectionProps>) {
 	return (
 		<main class="flex min-h-screen w-full bg-base-100">
 			<div class="drawer lg:drawer-open">

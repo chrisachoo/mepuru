@@ -1,7 +1,13 @@
-import { createSignal } from "solid-js"
+import { CodePreviewTabs } from "~/components/docs/code-preview-tabs"
+import { ComponentCode } from "~/components/docs/component-code"
+import { ComponentDemo } from "~/components/docs/component-demo"
+import { DocDivider } from "~/components/docs/doc-divider"
+import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { DocSection } from "~/components/docs/doc-section"
+import { InlineCode } from "~/components/docs/inline-code"
+import { PropsTable } from "~/components/docs/props-table"
 import { CodeBlock } from "~/components/ui/code-block"
-import { FormField, Input } from "~/components/ui/input"
-import { Tabs } from "~/components/ui/tabs"
+import { Input } from "~/components/ui/input"
 
 const inputComponentCode = `import type { VariantProps } from "class-variance-authority"
 import type { JSX } from "solid-js"
@@ -49,187 +55,171 @@ function Input(props: InputProps) {
 export { Input }
 `
 
-const usageImportCode = `import { Input } from "~/components/ui/input"`
+const inputUsageCode = `import { Input } from "~/components/ui/input"
 
-const usageExampleCode = `<Input placeholder="Email address" />
+function FormComponent() {
+  return (
+    <form class="flex flex-col gap-3 w-full">
+      <Input type="email" placeholder="Email address" />
+			<Input error placeholder="Input with error state" />
+    </form>
+  )
+}`
 
-<Input size="lg" placeholder="Large input" />
+const inputSizesCode = `import { Input } from "~/components/ui/input"
 
-<Input error placeholder="Invalid input" />`
+export function InputSizesDemo() {
+  return (
+    <div class="flex flex-wrap items-center gap-3">
+      <Input size="sm" placeholder="Small" />
+      <Input placeholder="Default" />
+      <Input size="lg" placeholder="Large" />
+    </div>
+  )
+}`
+
+const inputFormFieldCode = `import { Input } from "~/components/ui/input
+
+function FormField() {
+
+	return (
+		<form class="grid space-y-4">
+			<fieldset class="fieldset">
+				<legend class="fieldset-legend capitalize">Username: </legend>
+				<Input type="text" id="username" name="username" placeholder="Username" />
+				<p class="label">Optional</p>
+			</fieldset>
+
+			<fieldset class="fieldset">
+				<legend class="fieldset-legend capitalize">Password: </legend>
+				<Input type="password" id="password" name="name" placeholder="Password" autocomplete="new-password" />
+				<p class="label">Optional</p>
+			</fieldset>
+		</form>
+	)
+}
+`
+
+const inputHint = (
+	<p class="text-base-content/60 text-xs">
+		Input forwards all native input attributes such as
+		{" "}
+		<InlineCode>placeholder</InlineCode>
+		,
+		<InlineCode>type</InlineCode>
+		, and
+		{" "}
+		<InlineCode>value</InlineCode>
+		.
+	</p>
+)
 
 export default function InputPage() {
-	const [installTab, setInstallTab] = createSignal("manual")
 	return (
-		<main class="min-h-screen w-full bg-base-100 relative overflow-x-hidden bg-dot-grid">
-			<div class="pointer-events-none absolute inset-0 flex justify-center">
-				<div class="h-80 w-96 bg-primary/10 blur-3xl rounded-full mt-12 animate-pulse" />
-			</div>
+		<DocPageLayout
+			title="Input"
+			description="A styled input component built with daisyUI. Supports multiple sizes and error states while keeping native HTML input behavior."
+			sourceCode={inputComponentCode}
+			sourceFilePath="src/components/ui/input.tsx"
+		>
+			<DocSection
+				title="Usage"
+				id="usage"
+				description="Import the component and pass any native input attributes. See how it works with different types and states."
+			>
+				<CodePreviewTabs
+					name="input-usage-demo"
+					code={inputUsageCode}
+					preview={(
+						<form class="flex flex-col gap-3 w-full">
+							<Input type="email" placeholder="Email address" />
+							<Input error placeholder="Input with error state" />
+						</form>
+					)}
+				/>
+			</DocSection>
 
-			<article class="relative mx-auto w-full max-w-3xl px-6 py-16">
-				<div class="space-y-3 animate-fade-in">
-					<h1 class="text-4xl font-bold tracking-tight text-base-content sm:text-5xl">
-						Input
-					</h1>
-					<p class="text-lg text-base-content/70 leading-relaxed">
-						A styled input component built with daisyUI. Supports multiple sizes
-						and error states while keeping native HTML input behavior.
-					</p>
-				</div>
+			<DocDivider />
 
-				<section class="mt-10 space-y-4">
-					<h2 class="text-xl font-semibold text-base-content">Examples</h2>
+			<ComponentCode name="input-install">
+				<CodeBlock
+					title="src/components/ui/input.tsx"
+					code={inputComponentCode}
+					language="tsx"
+				/>
+			</ComponentCode>
 
-					<div class="flex flex-wrap items-center gap-3 rounded-xl border border-base-300 bg-base-200/50 p-6">
-						<Input placeholder="Default input" />
-						<Input size="sm" placeholder="Small input" />
-						<Input size="lg" placeholder="Large input" />
-						<Input error placeholder="Input with error state" />
-					</div>
+			<DocDivider />
 
-					<h2 class="text-xl font-semibold text-base-content">Form Field</h2>
+			<section class="mt-10 space-y-8">
+				<ComponentDemo
+					name="input-sizes-demo"
+					href="#input-sizes"
+					title="Input sizes"
+					code={inputSizesCode}
+					preview={(
+						<div class="flex flex-wrap items-center gap-3">
+							<Input size="sm" placeholder="Small input" />
+							<Input placeholder="Default input" />
+							<Input size="lg" placeholder="Large input" />
+							<Input error placeholder="Input with error state" />
+						</div>
+					)}
+				/>
 
-					<div class="rounded-xl border border-base-300 bg-base-200/50 p-6">
-						<FormField name="email" placeholder="Email address" />
-					</div>
-				</section>
+				<ComponentDemo
+					name="with-fieldset-and-fieldset-legend"
+					href="#with-fieldset-and-fieldset-legend"
+					title="With fieldset and fieldset-legend"
+					code={inputFormFieldCode}
+					preview={(
+						<form class="grid space-y-4 w-full">
+							<fieldset class="fieldset">
+								<legend class="fieldset-legend capitalize">Username: </legend>
+								<Input type="text" id="username" name="username" placeholder="Username" />
+								<p class="label">Optional</p>
+							</fieldset>
 
-				<div class="mt-10 h-px w-full max-w-2xl mx-auto bg-linear-to-r from-transparent via-primary/30 to-transparent" />
+							<fieldset class="fieldset">
+								<legend class="fieldset-legend capitalize">Password: </legend>
+								<Input type="password" id="password" name="name" placeholder="Password" autocomplete="new-password" />
+								<p class="label">Optional</p>
+							</fieldset>
+						</form>
+					)}
+				/>
+			</section>
 
-				<section class="mt-10 space-y-4">
-					<h2 class="text-xl font-semibold text-base-content">Installation</h2>
+			<DocDivider />
 
-					<Tabs
-						name="input-install"
-						value={installTab()}
-						onChange={setInstallTab}
-						tabs={[
-							{
-								content: (
-									<div class="space-y-4">
-										<p class="text-sm text-base-content/80">
-											Copy and paste the following code into your project.
-										</p>
-
-										<CodeBlock
-											title="src/components/ui/input.tsx"
-											code={inputComponentCode}
-											language="tsx"
-										/>
-
-										<p class="text-sm text-base-content/80">
-											Update import paths if necessary (e.g.
-											{" "}
-											<code class="rounded bg-base-300 px-1 py-0.5 font-mono text-xs">
-												~/lib/cn
-											</code>
-											).
-										</p>
-									</div>
-								),
-								label: "Manual",
-								value: "manual"
-							},
-							{
-								content: (
-									<div class="rounded-lg border border-base-300 bg-base-200/50 p-4">
-										<p class="text-sm text-base-content/70">
-											<span class="font-medium text-base-content">Coming soon.</span>
-											{" "}
-											Use the Manual tab to copy the component code until the CLI
-											is available.
-										</p>
-									</div>
-								),
-								label: "CLI",
-								value: "cli"
-							}
-						]}
-					/>
-				</section>
-
-				<div class="mt-10 h-px w-full max-w-2xl mx-auto bg-linear-to-r from-transparent via-primary/30 to-transparent" />
-
-				<section class="mt-10 space-y-4">
-					<h2 class="text-xl font-semibold text-base-content">Usage</h2>
-
-					<p class="text-base-content/80 text-sm leading-relaxed">
-						Import the component and pass any native input attributes.
-					</p>
-
-					<CodeBlock title="Import" code={usageImportCode} language="tsx" />
-
-					<CodeBlock title="Example" code={usageExampleCode} language="tsx" />
-				</section>
-
-				<div class="mt-10 h-px w-full max-w-2xl mx-auto bg-linear-to-r from-transparent via-primary/30 to-transparent" />
-
-				<section class="mt-10 space-y-4">
-					<h2 class="text-xl font-semibold text-base-content">Props</h2>
-
-					<div class="overflow-x-auto rounded-xl border border-base-300">
-						<table class="table table-pin-rows w-full text-sm">
-							<thead>
-								<tr class="border-base-300 bg-base-200/80">
-									<th>Prop</th>
-									<th>Type</th>
-									<th>Default</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-
-							<tbody>
-								<tr>
-									<td class="font-mono text-primary">size</td>
-									<td>xs | sm | md | lg | xl</td>
-									<td>md</td>
-									<td>Controls the input size</td>
-								</tr>
-
-								<tr>
-									<td class="font-mono text-primary">error</td>
-									<td>boolean</td>
-									<td>false</td>
-									<td>Applies error styling and sets aria-invalid</td>
-								</tr>
-
-								<tr>
-									<td class="font-mono text-primary">class</td>
-									<td>string</td>
-									<td>—</td>
-									<td>Additional CSS classes</td>
-								</tr>
-
-								<tr>
-									<td class="font-mono text-primary">...rest</td>
-									<td>HTMLInputAttributes</td>
-									<td>—</td>
-									<td>All native input attributes</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<p class="text-base-content/60 text-xs">
-						Input forwards all native input attributes such as
-						{" "}
-						<code class="rounded bg-base-300 px-1 py-0.5 font-mono">
-							placeholder
-						</code>
-						,
-						{" "}
-						<code class="rounded bg-base-300 px-1 py-0.5 font-mono">
-							type
-						</code>
-						,
-						and
-						{" "}
-						<code class="rounded bg-base-300 px-1 py-0.5 font-mono">
-							value
-						</code>
-						.
-					</p>
-				</section>
-			</article>
-		</main>
+			<PropsTable
+				data={[
+					{
+						default: "md",
+						description: "Controls the input size",
+						prop: "size",
+						type: `"xs" | "sm" | "md" | "lg" | "xl"`
+					},
+					{
+						description: "Additional CSS classes",
+						prop: "class",
+						type: "string"
+					},
+					{
+						default: "false",
+						description: "Applies error styling and sets aria-invalid",
+						prop: "error",
+						type: "boolean"
+					},
+					{
+						description: "All native input attributes",
+						prop: "...rest",
+						type: "HTMLInputAttributes"
+					}
+				]}
+			>
+				{inputHint}
+			</PropsTable>
+		</DocPageLayout>
 	)
 }

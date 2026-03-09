@@ -1,11 +1,14 @@
-import { } from "@solidjs/router"
-import { } from "lucide-solid"
-import { createSignal } from "solid-js"
+import { ArrowUp } from "lucide-solid"
+import { CodePreviewTabs } from "~/components/docs/code-preview-tabs"
+import { ComponentCode } from "~/components/docs/component-code"
 import { ComponentDemo } from "~/components/docs/component-demo"
+import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { DocSection } from "~/components/docs/doc-section"
+import { InlineCode } from "~/components/docs/inline-code"
+import { PropsTable } from "~/components/docs/props-table"
 import { Button } from "~/components/ui/button"
 import { CodeBlock } from "~/components/ui/code-block"
-import { Tabs } from "~/components/ui/tabs"
 
 const buttonComponentCode = `import type { VariantProps } from "class-variance-authority"
 import type { ValidComponent } from "solid-js"
@@ -53,8 +56,7 @@ export { Button, buttonVariants }
 export type { ButtonProps }
 `
 
-/** Full usage example: import + demo (copyable as-is). */
-const usageExampleCode = `import { Button } from "~/components/ui/button"
+const buttonVariantsCode = `import { Button } from "~/components/ui/button"
 
 export function ButtonDemo() {
   return (
@@ -66,8 +68,7 @@ export function ButtonDemo() {
   )
 }`
 
-/** Sizes demo: full snippet from import. */
-const usageSizesCode = `import { Button } from "~/components/ui/button"
+const buttonSizesCode = `import { Button } from "~/components/ui/button"
 
 export function ButtonSizesDemo() {
   return (
@@ -79,9 +80,44 @@ export function ButtonSizesDemo() {
   )
 }`
 
-export default function ButtonPage() {
-	const [installTab, setInstallTab] = createSignal("manual")
+const buttonDemoCode = `import { ArrowUp } from "lucide-solid"
+import { Button } from "~/components/ui/button"
 
+export function ButtonWithIconDemo() {
+  return (
+    <div class="flex flex-wrap items-center gap-3">
+      <Button variant="outline">Button</Button>
+      <Button variant="outline" size="sm" aria-label="Submit">
+        <ArrowUp class="size-4" />
+      </Button>
+    </div>
+  )
+}`
+
+const buttonProps = [
+	{
+		description: "Visual style of the button",
+		prop: "variant",
+		type: `"primary" | "outline" | "ghost" | "link" | "destructive"`
+	},
+	{
+		description: "Button size",
+		prop: "size",
+		type: "sm | lg"
+	},
+	{
+		description: "Additional CSS classes",
+		prop: "class",
+		type: "string"
+	},
+	{
+		description: "Button label or content",
+		prop: "children",
+		type: "JSX.Element"
+	}
+]
+
+export default function ButtonPage() {
 	return (
 		<DocPageLayout
 			title="Button"
@@ -89,12 +125,43 @@ export default function ButtonPage() {
 			sourceCode={buttonComponentCode}
 			sourceFilePath="src/components/ui/button.tsx"
 		>
+			<DocSection
+				title="Usage"
+				id="usage"
+				description="Import the component and use it with variant and size props. See how it works with icons and other props."
+			>
+				<CodePreviewTabs
+					code={buttonDemoCode}
+					name="button-demo-code"
+					preview={(
+						<div class="flex flex-wrap items-center gap-3">
+							<Button variant="outline">Button</Button>
+							<Button variant="outline" size="sm" aria-label="Submit">
+								<ArrowUp class="size-4" />
+							</Button>
+						</div>
+					)}
+				/>
+			</DocSection>
+
+			<DocDivider />
+
+			<ComponentCode name="button-install">
+				<CodeBlock
+					title="src/components/ui/button.tsx"
+					code={buttonComponentCode}
+					language="tsx"
+				/>
+			</ComponentCode>
+
+			<DocDivider />
+
 			<section class="mt-10 space-y-8">
 				<ComponentDemo
 					name="button-variants-demo"
 					href="#button-variants"
 					title="Button variants"
-					code={usageExampleCode}
+					code={buttonVariantsCode}
 					preview={(
 						<div class="flex flex-wrap items-center gap-3">
 							<Button variant="primary">Primary</Button>
@@ -110,7 +177,7 @@ export default function ButtonPage() {
 					name="button-sizes-demo"
 					href="#buttons-sizes"
 					title="Button sizes"
-					code={usageSizesCode}
+					code={buttonSizesCode}
 					preview={(
 						<div class="flex flex-wrap items-center gap-3">
 							<Button size="sm">Small</Button>
@@ -121,146 +188,18 @@ export default function ButtonPage() {
 				/>
 			</section>
 
-			<div class="mt-10 h-px w-full max-w-2xl mx-auto bg-linear-to-r from-transparent via-primary/30 to-transparent" />
+			<DocDivider />
 
-			<section class="mt-10 space-y-4">
-				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
-				<Tabs
-					name="button-install"
-					value={installTab()}
-					onChange={setInstallTab}
-					tabs={[
-						{
-							content: (
-								<div class="space-y-4">
-									<p class="text-sm text-base-content/80">
-										Copy and paste the following code into your project.
-									</p>
-									<CodeBlock
-										title="src/components/ui/button.tsx"
-										code={buttonComponentCode}
-										language="tsx"
-									/>
-									<p class="text-sm text-base-content/80">
-										Update the import paths to match your project (e.g.
-										{" "}
-										<code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">
-											~/lib/cn
-										</code>
-										,
-										{" "}
-										<code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">
-											~/lib/polymorphic
-										</code>
-										). You also need
-										{" "}
-										<code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">
-											class-variance-authority
-										</code>
-										{" "}
-										and
-										{" "}
-										<code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">
-											clsx
-										</code>
-										{" "}
-										+
-										{" "}
-										<code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">
-											tailwind-merge
-										</code>
-										{" "}
-										for
-										{" "}
-										<code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">cn</code>
-										.
-									</p>
-								</div>
-							),
-							label: "Manual",
-							value: "manual"
-						},
-						{
-							content: (
-								<div class="rounded-lg border border-base-300 bg-base-200/50 p-4">
-									<p class="text-sm text-base-content/70">
-										<span class="font-medium text-base-content">Coming soon.</span>
-										{" "}
-										Use the Manual tab to copy the component code until the CLI is available.
-									</p>
-								</div>
-							),
-							label: "CLI",
-							value: "cli"
-						}
-					]}
-				/>
-			</section>
-
-			<div class="mt-10 h-px w-full max-w-2xl mx-auto bg-linear-to-r from-transparent via-primary/30 to-transparent" />
-
-			<section class="mt-10 space-y-4">
-				<h2 class="text-xl font-semibold text-base-content">Usage</h2>
-				<p class="text-base-content/80 text-sm leading-relaxed">
-					Import the component and use it with variant and size props. Copy the example below to get started.
-				</p>
-				<CodeBlock
-					title="Example"
-					code={usageExampleCode}
-					language="tsx"
-				/>
-			</section>
-
-			<div class="mt-10 h-px w-full max-w-2xl mx-auto bg-linear-to-r from-transparent via-primary/30 to-transparent" />
-
-			<section class="mt-10 space-y-4">
-				<h2 class="text-xl font-semibold text-base-content">Props</h2>
-				<div class="overflow-x-auto rounded-xl border border-base-300">
-					<table class="table table-pin-rows w-full text-sm">
-						<thead>
-							<tr class="border-base-300 bg-base-200/80">
-								<th class="text-left font-semibold text-base-content">Prop</th>
-								<th class="text-left font-semibold text-base-content">Type</th>
-								<th class="text-left font-semibold text-base-content">Default</th>
-								<th class="text-left font-semibold text-base-content">Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="border-base-300">
-								<td class="font-mono text-primary">variant</td>
-								<td class="text-base-content/80">primary | outline | ghost | link | destructive</td>
-								<td class="text-base-content/60">—</td>
-								<td class="text-base-content/80">Visual style of the button</td>
-							</tr>
-							<tr class="border-base-300">
-								<td class="font-mono text-primary">size</td>
-								<td class="text-base-content/80">sm | lg</td>
-								<td class="text-base-content/60">—</td>
-								<td class="text-base-content/80">Button size</td>
-							</tr>
-							<tr class="border-base-300">
-								<td class="font-mono text-primary">class</td>
-								<td class="text-base-content/80">string</td>
-								<td class="text-base-content/60">—</td>
-								<td class="text-base-content/80">Additional CSS classes</td>
-							</tr>
-							<tr class="border-base-300">
-								<td class="font-mono text-primary">children</td>
-								<td class="text-base-content/80">JSX.Element</td>
-								<td class="text-base-content/60">—</td>
-								<td class="text-base-content/80">Button label or content</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+			<PropsTable data={buttonProps}>
 				<p class="text-base-content/60 text-xs">
-					Button is polymorphic: it accepts all native button attributes and can be rendered as another element via
+					Button is polymorphic: it accepts all native button attributes and
+					can be rendered as another element via
 					{" "}
-					<code class="rounded bg-base-300 px-1 py-0.5 font-mono">as</code>
+					<InlineCode>as</InlineCode>
 					{" "}
 					(see PolymorphicProps).
 				</p>
-			</section>
+			</PropsTable>
 		</DocPageLayout>
 	)
 }
