@@ -28,7 +28,7 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 		}),
 		async source => codeToHtml(source.code, {
 			lang: source.lang,
-			theme: "catppuccin-macchiato"
+			theme: "tokyo-night"
 		})
 	)
 

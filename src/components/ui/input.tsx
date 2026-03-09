@@ -26,7 +26,7 @@ export type InputProps = JSX.IntrinsicElements["input"] & {
 } & VariantProps<typeof inputVariants>
 
 function Input(props: InputProps) {
-	const [local, rest] = splitProps(props, ["class", "error", "type", "size"])
+	const [local, rest] = splitProps(props, ["class", "error", "size"])
 
 	return (
 		<input
