@@ -167,3 +167,22 @@
 .animate-copy-pop {
 	animation: copy-pop 0.35s ease-out;
 }
+
+h2,
+h3,
+h4 {
+	scroll-margin-top: 200px;
+}
+
+pre code {
+	counter-reset: line;
+}
+
+pre code span.line::before {
+	counter-increment: line;
+	content: counter(line);
+	display: inline-block;
+	width: 2rem;
+	margin-right: 0.5rem;
+	color: #666;
+}

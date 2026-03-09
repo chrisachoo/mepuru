@@ -1,5 +1,5 @@
 import type { JSX } from "solid-js"
-import { ChevronDown, Copy } from "lucide-solid"
+import { ChevronDown, Copy, ExternalLink } from "lucide-solid"
 
 const CHATGPT_URL = "https://chat.openai.com/"
 const CLAUDE_URL = "https://claude.ai/"
@@ -26,26 +26,6 @@ type DocPageActionsProps = {
 	class?: string
 }
 
-function IconExternalLink(props: { class?: string }) {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="2"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			class={props.class}
-			aria-hidden
-		>
-			<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-			<polyline points="15 3 21 3 21 9" />
-			<line x1="10" y1="14" x2="21" y2="3" />
-		</svg>
-	)
-}
-
 type MenuItemProps = {
 	icon: JSX.Element
 	label: string
@@ -53,7 +33,7 @@ type MenuItemProps = {
 	href?: string
 }
 
-function MenuItem(props: MenuItemProps) {
+function MenuItem(props: Readonly<MenuItemProps>) {
 	return (
 		<li>
 			<a
@@ -66,7 +46,7 @@ function MenuItem(props: MenuItemProps) {
 					{props.icon}
 					{props.label}
 				</span>
-				<IconExternalLink class="ms-1 size-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-70" />
+				<ExternalLink class="ms-1 size-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-70" />
 			</a>
 		</li>
 	)
@@ -105,14 +85,13 @@ export function DocPageActions(props: Readonly<DocPageActionsProps>) {
 			</button>
 
 			<div class="dropdown dropdown-bottom dropdown-end">
-				<div
+				<button
 					tabIndex={0}
-					role="button"
 					class="join-item btn btn-square btn-sm -ms-(--border)"
 					aria-label="More actions"
 				>
 					<ChevronDown class="size-3" />
-				</div>
+				</button>
 
 				<ul
 					tabIndex={-1}
