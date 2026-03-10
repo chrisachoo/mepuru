@@ -1,18 +1,19 @@
 export default function SelectPage() {
 	return (
-		<main class="min-h-screen w-full bg-base-100 relative overflow-x-hidden bg-dot-grid">
+		<main class="bg-dot-grid relative min-h-screen w-full overflow-x-hidden bg-base-100">
 			<div class="pointer-events-none absolute inset-0 flex justify-center">
-				<div class="h-80 w-96 bg-primary/10 blur-3xl rounded-full mt-12 animate-pulse" />
+				<div class="mt-12 h-80 w-96 animate-pulse rounded-full bg-primary/10 blur-3xl" />
 			</div>
 
 			<article class="relative mx-auto w-full max-w-3xl px-6 py-16">
-				<div class="space-y-3 animate-fade-in">
+				<div class="animate-fade-in space-y-3">
 					<h1 class="text-4xl font-bold tracking-tight text-base-content sm:text-5xl">
 						Select
 					</h1>
-					<p class="text-lg text-base-content/70 leading-relaxed">
-						Opens a menu when the trigger is clicked. Uses daisyUI dropdown classes
-						and CVA for alignment. Visibility is controlled by CSS (focus).
+					<p class="text-lg leading-relaxed text-base-content/70">
+						Opens a menu when the trigger is clicked. Uses daisyUI dropdown
+						classes and CVA for alignment. Visibility is controlled by CSS
+						(focus).
 					</p>
 				</div>
 			</article>

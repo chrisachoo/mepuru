@@ -1,8 +1,7 @@
-import { CodePreviewTabs } from "~/components/docs/code-preview-tabs"
 import { ComponentCode } from "~/components/docs/component-code"
+import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
-import { DocSection } from "~/components/docs/doc-section"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
 import { CodeBlock } from "~/components/ui/code-block"
@@ -125,12 +124,20 @@ const dropdownProps = [
 		prop: "align",
 		type: `"bottom" | "center" | "end" | "left" | "right" | "start" | "top"`
 	},
-	{ description: "Additional CSS classes for the root", prop: "class", type: "string" },
-	{ description: "Menu items (DropdownItem)", prop: "children", type: "JSX.Element" }
+	{
+		description: "Additional CSS classes for the root",
+		prop: "class",
+		type: "string"
+	},
+	{
+		description: "Menu items (DropdownItem)",
+		prop: "children",
+		type: "JSX.Element"
+	}
 ]
 
 const dropdownItemHint = (
-	<p class="text-base-content/60 text-xs mt-2 ">
+	<p class="mt-2 text-xs text-base-content/60">
 		<strong>DropdownItem</strong>
 		{" "}
 		:
@@ -138,9 +145,8 @@ const dropdownItemHint = (
 		{" "}
 		,
 		<InlineCode>onClick</InlineCode>
-		.
-		{" "}
-		Clicking an item runs onClick and focuses the trigger (dropdown closes via blur).
+		. Clicking an item runs onClick and focuses
+		the trigger (dropdown closes via blur).
 	</p>
 )
 
@@ -152,38 +158,37 @@ export default function DropdownPage() {
 			sourceCode={dropdownComponentCode}
 			sourceFilePath="src/components/ui/dropdown.tsx"
 		>
-			<DocSection
-				title="Usage"
+			<ComponentDemo
+				code={dropdownDemoCode}
 				id="usage"
-				description={(
-					<span>
-						Import
-						{" "}
-						<InlineCode>Dropdown</InlineCode>
-						{" "}
-						and
-						{" "}
-						<InlineCode>DropdownItem</InlineCode>
-						. Pass a
-						{" "}
-						<InlineCode>name</InlineCode>
-						{" "}
-						for the trigger label and children (menu items).
-					</span>
+				name="dropdown-usage-demo"
+				title="Usage"
+				preview={(
+					<Dropdown name="Open menu">
+						<DropdownItem onClick={() => console.log("Item 1")}>
+							Item 1
+						</DropdownItem>
+						<DropdownItem>Item 2</DropdownItem>
+						<DropdownItem>Item 3</DropdownItem>
+					</Dropdown>
 				)}
 			>
-				<CodePreviewTabs
-					name="dropdown-usage-demo"
-					code={dropdownDemoCode}
-					preview={(
-						<Dropdown name="Open menu">
-							<DropdownItem onClick={() => console.log("Item 1")}>Item 1</DropdownItem>
-							<DropdownItem>Item 2</DropdownItem>
-							<DropdownItem>Item 3</DropdownItem>
-						</Dropdown>
-					)}
-				/>
-			</DocSection>
+				<span>
+					Import
+					{" "}
+					<InlineCode>Dropdown</InlineCode>
+					{" "}
+					and
+					{" "}
+					<InlineCode>DropdownItem</InlineCode>
+					. Pass a
+					{" "}
+					<InlineCode>name</InlineCode>
+					{" "}
+					for the trigger label and children (menu
+					items).
+				</span>
+			</ComponentDemo>
 
 			<DocDivider />
 
@@ -198,44 +203,45 @@ export default function DropdownPage() {
 			<DocDivider />
 
 			<section class="mt-10 space-y-8">
-				<DocSection
-					title="Alignment"
+				<ComponentDemo
+					code={dropdownAlignmentCode}
 					id="dropdown-alignment"
-					description={(
-						<span>
-							Use
-							{" "}
-							<InlineCode>align</InlineCode>
-							{" "}
-							to align the menu to the start or end of the trigger.
-						</span>
+					name="dropdown-alignment"
+					title="Alignment"
+					preview={(
+						<div class="flex items-center gap-4">
+							<Dropdown
+								align="start"
+								name="Align start"
+							>
+								<DropdownItem>Item 1</DropdownItem>
+								<DropdownItem>Item 2</DropdownItem>
+							</Dropdown>
+
+							<Dropdown
+								align="right"
+								name="Align right"
+							>
+								<DropdownItem>Item 1</DropdownItem>
+								<DropdownItem>Item 2</DropdownItem>
+							</Dropdown>
+						</div>
 					)}
 				>
-					<CodePreviewTabs
-						code={dropdownAlignmentCode}
-						name="dropdown-alignment"
-						preview={(
-							<div class="flex items-center gap-4">
-								<Dropdown align="start" name="Align start">
-									<DropdownItem>Item 1</DropdownItem>
-									<DropdownItem>Item 2</DropdownItem>
-								</Dropdown>
-
-								<Dropdown align="right" name="Align right">
-									<DropdownItem>Item 1</DropdownItem>
-									<DropdownItem>Item 2</DropdownItem>
-								</Dropdown>
-							</div>
-						)}
-					/>
-				</DocSection>
+					<span>
+						Use
+						{" "}
+						<InlineCode>align</InlineCode>
+						{" "}
+						to align the menu to the start or
+						end of the trigger.
+					</span>
+				</ComponentDemo>
 			</section>
 
 			<DocDivider />
 
-			<PropsTable data={dropdownProps}>
-				{dropdownItemHint}
-			</PropsTable>
+			<PropsTable data={dropdownProps}>{dropdownItemHint}</PropsTable>
 		</DocPageLayout>
 	)
 }

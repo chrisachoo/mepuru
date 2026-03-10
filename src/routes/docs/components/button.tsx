@@ -1,10 +1,8 @@
-import { ArrowUp } from "lucide-solid"
-import { CodePreviewTabs } from "~/components/docs/code-preview-tabs"
+import { ArrowRight, Heart, ShoppingCart } from "lucide-solid"
 import { ComponentCode } from "~/components/docs/component-code"
 import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
-import { DocSection } from "~/components/docs/doc-section"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
 import { Button } from "~/components/ui/button"
@@ -60,11 +58,13 @@ const buttonVariantsCode = `import { Button } from "~/components/ui/button"
 
 export function ButtonDemo() {
   return (
-    <div class="flex flex-wrap items-center gap-3">
-      <Button variant="primary">Primary</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="ghost">Ghost</Button>
-    </div>
+		<div class="flex flex-wrap items-center gap-3">
+			<Button variant="primary">Primary</Button>
+			<Button variant="outline">Outline</Button>
+			<Button variant="destructive">Destructive</Button>
+			<Button variant="ghost">Ghost</Button>
+			<Button variant="link">Link</Button>
+		</div>
   )
 }`
 
@@ -80,16 +80,34 @@ export function ButtonSizesDemo() {
   )
 }`
 
+const buttonSoftCode = `import { Button } from "~/components/ui/button"
+	export function SoftButton() {
+		return (
+			<div class="flex flex-wrap items-center gap-3">
+				<Button variant="light">Default</Button>
+				<Button variant="light" color="primary">Primary</Button>
+				<Button variant="light" color="secondary">Secondary</Button>
+			</div>
+		)
+	}
+`
+
 const buttonDemoCode = `import { ArrowUp } from "lucide-solid"
 import { Button } from "~/components/ui/button"
 
 export function ButtonWithIconDemo() {
   return (
     <div class="flex flex-wrap items-center gap-3">
-      <Button variant="outline">Button</Button>
-      <Button variant="outline" size="sm" aria-label="Submit">
-        <ArrowUp class="size-4" />
-      </Button>
+				<Button variant="outline">
+					Button
+					<ArrowRight class="size-4"/>
+				</Button>
+				<Button variant="outline" size="sm" class="btn-square" aria-label="Submit">
+					<ShoppingCart class="size-4" />
+				</Button>
+				<Button variant="outline" size="sm" class="btn-circle" aria-label="Submit">
+					<Heart class="size-4" />
+				</Button>
     </div>
   )
 }`
@@ -98,12 +116,13 @@ const buttonProps = [
 	{
 		description: "Visual style of the button",
 		prop: "variant",
-		type: `"primary" | "outline" | "ghost" | "link" | "destructive"`
+		type: `"primary" | "outline" | "light" | "ghost" | "link" | "destructive"`
 	},
 	{
+		default: "md",
 		description: "Button size",
 		prop: "size",
-		type: "sm | lg"
+		type: `"sm" | "md" | "lg"`
 	},
 	{
 		description: "Additional CSS classes",
@@ -125,24 +144,39 @@ export default function ButtonPage() {
 			sourceCode={buttonComponentCode}
 			sourceFilePath="src/components/ui/button.tsx"
 		>
-			<DocSection
-				title="Usage"
+			<ComponentDemo
+				code={buttonDemoCode}
 				id="usage"
-				description="Import the component and use it with variant and size props. See how it works with icons and other props."
+				name="button-demo-code"
+				title="Usage"
+				preview={(
+					<div class="flex flex-wrap items-center gap-3">
+						<Button variant="outline">
+							Button
+							<ArrowRight class="size-4" />
+						</Button>
+						<Button
+							variant="outline"
+							size="sm"
+							class="btn-square"
+							aria-label="Submit"
+						>
+							<ShoppingCart class="size-4" />
+						</Button>
+						<Button
+							variant="outline"
+							size="sm"
+							class="btn-circle"
+							aria-label="Submit"
+						>
+							<Heart class="size-4" />
+						</Button>
+					</div>
+				)}
 			>
-				<CodePreviewTabs
-					code={buttonDemoCode}
-					name="button-demo-code"
-					preview={(
-						<div class="flex flex-wrap items-center gap-3">
-							<Button variant="outline">Button</Button>
-							<Button variant="outline" size="sm" aria-label="Submit">
-								<ArrowUp class="size-4" />
-							</Button>
-						</div>
-					)}
-				/>
-			</DocSection>
+				Import the component and use it with variant and size props. See how it
+				works with icons and other props.
+			</ComponentDemo>
 
 			<DocDivider />
 
@@ -158,10 +192,10 @@ export default function ButtonPage() {
 
 			<section class="mt-10 space-y-8">
 				<ComponentDemo
-					name="button-variants-demo"
-					href="#button-variants"
-					title="Button variants"
 					code={buttonVariantsCode}
+					id="button-variants"
+					name="button-variants-demo"
+					title="Button variants"
 					preview={(
 						<div class="flex flex-wrap items-center gap-3">
 							<Button variant="primary">Primary</Button>
@@ -174,10 +208,10 @@ export default function ButtonPage() {
 				/>
 
 				<ComponentDemo
-					name="button-sizes-demo"
-					href="#buttons-sizes"
-					title="Button sizes"
 					code={buttonSizesCode}
+					id="buttons-sizes"
+					name="button-sizes-demo"
+					title="Button sizes"
 					preview={(
 						<div class="flex flex-wrap items-center gap-3">
 							<Button size="sm">Small</Button>
@@ -186,18 +220,43 @@ export default function ButtonPage() {
 						</div>
 					)}
 				/>
+
+				<ComponentDemo
+					code={buttonSoftCode}
+					id="soft-buttons"
+					name="soft-buttons"
+					title="Soft buttons"
+					preview={(
+						<div class="flex flex-wrap items-center gap-3">
+							<Button variant="light">Default</Button>
+							<Button
+								variant="light"
+								color="primary"
+							>
+								Primary
+							</Button>
+							<Button
+								variant="light"
+								color="secondary"
+							>
+								Secondary
+							</Button>
+						</div>
+					)}
+				/>
 			</section>
 
 			<DocDivider />
 
 			<PropsTable data={buttonProps}>
-				<p class="text-base-content/60 text-xs">
-					Button is polymorphic: it accepts all native button attributes and
-					can be rendered as another element via
+				<p class="text-xs text-base-content/60">
+					Button is polymorphic: it accepts all native button attributes and can
+					be rendered as another element via
 					{" "}
 					<InlineCode>as</InlineCode>
 					{" "}
-					(see PolymorphicProps).
+					(see
+					PolymorphicProps).
 				</p>
 			</PropsTable>
 		</DocPageLayout>

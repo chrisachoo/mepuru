@@ -1,9 +1,7 @@
-import { CodePreviewTabs } from "~/components/docs/code-preview-tabs"
 import { ComponentCode } from "~/components/docs/component-code"
 import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
-import { DocSection } from "~/components/docs/doc-section"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
 import { CodeBlock } from "~/components/ui/code-block"
@@ -101,7 +99,7 @@ function FormField() {
 `
 
 const inputHint = (
-	<p class="text-base-content/60 text-xs">
+	<p class="text-xs text-base-content/60">
 		Input forwards all native input attributes such as
 		{" "}
 		<InlineCode>placeholder</InlineCode>
@@ -122,22 +120,27 @@ export default function InputPage() {
 			sourceCode={inputComponentCode}
 			sourceFilePath="src/components/ui/input.tsx"
 		>
-			<DocSection
-				title="Usage"
+			<ComponentDemo
+				code={inputUsageCode}
 				id="usage"
-				description="Import the component and pass any native input attributes. See how it works with different types and states."
+				name="input-usage-demo"
+				title="Usage"
+				preview={(
+					<form class="flex w-full flex-col gap-3">
+						<Input
+							type="email"
+							placeholder="Email address"
+						/>
+						<Input
+							error
+							placeholder="Input with error state"
+						/>
+					</form>
+				)}
 			>
-				<CodePreviewTabs
-					name="input-usage-demo"
-					code={inputUsageCode}
-					preview={(
-						<form class="flex flex-col gap-3 w-full">
-							<Input type="email" placeholder="Email address" />
-							<Input error placeholder="Input with error state" />
-						</form>
-					)}
-				/>
-			</DocSection>
+				Import the component and pass any native input attributes. See how it
+				works with different types and states.
+			</ComponentDemo>
 
 			<DocDivider />
 
@@ -153,36 +156,56 @@ export default function InputPage() {
 
 			<section class="mt-10 space-y-8">
 				<ComponentDemo
-					name="input-sizes-demo"
-					href="#input-sizes"
-					title="Input sizes"
 					code={inputSizesCode}
+					id="input-sizes"
+					name="input-sizes-demo"
+					title="Input sizes"
 					preview={(
 						<div class="flex flex-wrap items-center gap-3">
-							<Input size="sm" placeholder="Small input" />
+							<Input
+								size="sm"
+								placeholder="Small input"
+							/>
 							<Input placeholder="Default input" />
-							<Input size="lg" placeholder="Large input" />
-							<Input error placeholder="Input with error state" />
+							<Input
+								size="lg"
+								placeholder="Large input"
+							/>
+							<Input
+								error
+								placeholder="Input with error state"
+							/>
 						</div>
 					)}
 				/>
 
 				<ComponentDemo
 					name="with-fieldset-and-fieldset-legend"
-					href="#with-fieldset-and-fieldset-legend"
+					id="with-fieldset-and-fieldset-legend"
 					title="With fieldset and fieldset-legend"
 					code={inputFormFieldCode}
 					preview={(
-						<form class="grid space-y-4 w-full">
+						<form class="grid w-full space-y-4">
 							<fieldset class="fieldset">
 								<legend class="fieldset-legend capitalize">Username: </legend>
-								<Input type="text" id="username" name="username" placeholder="Username" />
+								<Input
+									type="text"
+									id="username"
+									name="username"
+									placeholder="Username"
+								/>
 								<p class="label">Optional</p>
 							</fieldset>
 
 							<fieldset class="fieldset">
 								<legend class="fieldset-legend capitalize">Password: </legend>
-								<Input type="password" id="password" name="name" placeholder="Password" autocomplete="new-password" />
+								<Input
+									type="password"
+									id="password"
+									name="name"
+									placeholder="Password"
+									autocomplete="new-password"
+								/>
 								<p class="label">Optional</p>
 							</fieldset>
 						</form>
