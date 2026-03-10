@@ -2,7 +2,7 @@ import type { RouteSectionProps } from "@solidjs/router"
 import type { LucideIcon } from "lucide-solid"
 
 import { A, useLocation } from "@solidjs/router"
-import { BookOpen, Component, Menu } from "lucide-solid"
+import { BookOpen, Component } from "lucide-solid"
 import { For } from "solid-js"
 
 import { componentDocLinks, docSections } from "~/lib/docs/registry"
@@ -16,9 +16,6 @@ const navSections = [
 	{ icon: Component, label: "Components", links: componentDocLinks }
 ]
 
-const linkBaseClass
-	= "flex items-center rounded-r-lg px-3 py-2.5 text-sm font-medium transition-colors"
-
 function DocNavLink(props: Readonly<{ href: string, label: string }>) {
 	const location = useLocation()
 	const isActive = () => location.pathname === props.href
@@ -30,7 +27,7 @@ function DocNavLink(props: Readonly<{ href: string, label: string }>) {
 				"hover:bg-base-300/60 text-base-content/90 border-l-2 border-transparent":
 					!isActive()
 			}}
-			class={linkBaseClass}
+			class="flex items-center rounded-r-lg px-3 py-2.5 text-sm font-medium transition-colors"
 		>
 			{props.label}
 		</A>
@@ -38,10 +35,7 @@ function DocNavLink(props: Readonly<{ href: string, label: string }>) {
 }
 
 function SidebarSectionHeader(
-	props: Readonly<{
-		icon: LucideIcon
-		label: string
-	}>
+	props: Readonly<{ icon: LucideIcon, label: string }>
 ) {
 	return (
 		<div class="mb-2 flex items-center gap-2 px-2">
@@ -55,74 +49,64 @@ function SidebarSectionHeader(
 	)
 }
 
-export default function DocsLayout(props: Readonly<RouteSectionProps>) {
+function DocsSidebarNav() {
 	return (
-		<main class="flex min-h-screen w-full bg-base-100">
-			<div class="drawer lg:drawer-open">
-				<input
-					id="docs-drawer"
-					type="checkbox"
-					class="drawer-toggle"
-				/>
-				<div class="drawer-content flex h-screen flex-col overflow-hidden">
-					<div class="sticky top-16 z-40 flex w-full shrink-0 items-center gap-3 border-b border-base-300 bg-base-100/95 px-4 py-3 backdrop-blur-sm lg:hidden">
-						<label
-							for="docs-drawer"
-							class="drawer-button btn btn-square btn-ghost"
-							aria-label="Open docs menu"
-						>
-							<Menu class="size-6" />
-						</label>
-						<span class="text-sm font-semibold text-base-content">Docs</span>
-					</div>
-
-					<div class="min-h-0 w-full max-w-4xl flex-1 overflow-y-auto px-4 py-6 lg:px-8">
-						{props.children}
-					</div>
-				</div>
-
-				<div class="drawer-side z-50 shrink-0">
-					<label
-						for="docs-drawer"
-						aria-label="Close sidebar"
-						class="drawer-overlay"
+		<For each={navSections}>
+			{section => (
+				<div classList={{ "mt-4": section.label !== "Documentation" }}>
+					<SidebarSectionHeader
+						icon={section.icon}
+						label={section.label}
 					/>
-					<aside class="fixed flex h-full w-64 flex-col gap-1 border-r border-base-300 bg-base-200/40 py-5 pr-3 pl-4 backdrop-blur-sm lg:w-72">
-						<For each={navSections}>
-							{section => (
-								<div
-									classList={{
-										"mt-4": section.label !== "Documentation"
-									}}
-								>
-									<SidebarSectionHeader
-										icon={section.icon}
-										label={section.label}
-									/>
-									<nav
-										class="ml-4 flex flex-col gap-0.5"
-										aria-label={section.label}
-									>
-										<For each={section.links}>
-											{link => (
-												<DocNavLink
-													href={link.href}
-													label={link.label}
-												/>
-											)}
-										</For>
-									</nav>
-								</div>
+					<nav
+						class="ml-4 flex flex-col gap-0.5"
+						aria-label={section.label}
+					>
+						<For each={section.links}>
+							{link => (
+								<DocNavLink
+									href={link.href}
+									label={link.label}
+								/>
 							)}
 						</For>
-						<div class="mt-auto border-t border-base-300 pt-4">
-							<p class="px-2 text-xs text-base-content/50">
-								Mēpuru · Simple UI for Solid
-							</p>
-						</div>
-					</aside>
+					</nav>
 				</div>
+			)}
+		</For>
+	)
+}
+
+function DocsSidebarFooter() {
+	return (
+		<div class="w-full shrink-0 border-t border-base-300 py-4">
+			<p class="px-2 text-center text-xs text-base-content/50">
+				Mēpuru · Simple UI for Solid
+			</p>
+		</div>
+	)
+}
+
+export default function DocsLayout(props: Readonly<RouteSectionProps>) {
+	return (
+		<div class="flex min-h-0 flex-1 overflow-hidden">
+			<aside
+				class="flex w-64 shrink-0 flex-col border-r border-base-300 bg-base-100 lg:w-72 min-h-0 overflow-hidden lg:flex"
+				aria-label="Documentation navigation"
+			>
+				<div class="scrollbar-hide-until-hover min-h-0 flex-1 overflow-y-auto py-5 pr-3 pl-4">
+					<DocsSidebarNav />
+				</div>
+				<DocsSidebarFooter />
+			</aside>
+
+			<div class="scrollbar-hide-until-hover min-h-0 min-w-0 flex-1 overflow-y-auto px-4 py-6 lg:px-8">
+				<div
+					class="h-0 w-full"
+					aria-hidden="true"
+				/>
+				<div class="mx-auto w-full max-w-4xl">{props.children}</div>
 			</div>
-		</main>
+		</div>
 	)
 }

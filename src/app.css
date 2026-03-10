@@ -175,6 +175,45 @@
 	animation: copy-pop 0.35s ease-out;
 }
 
+/* Scrollbars hidden until hovering the scroll area */
+.scrollbar-hide-until-hover {
+	scrollbar-width: thin;
+	scrollbar-color: transparent transparent;
+}
+.scrollbar-hide-until-hover:hover {
+	scrollbar-color: oklch(0% 0 0 / 0.25) transparent;
+}
+.scrollbar-hide-until-hover::-webkit-scrollbar {
+	width: 0.5rem;
+	height: 0.5rem;
+}
+.scrollbar-hide-until-hover::-webkit-scrollbar-track {
+	background: transparent;
+}
+.scrollbar-hide-until-hover::-webkit-scrollbar-thumb {
+	background: transparent;
+	border-radius: 9999px;
+}
+.scrollbar-hide-until-hover:hover::-webkit-scrollbar-thumb {
+	background: oklch(0% 0 0 / 0.25);
+}
+.scrollbar-hide-until-hover::-webkit-scrollbar-thumb:hover {
+	background: oklch(0% 0 0 / 0.35);
+}
+
+[data-theme="dark"] .scrollbar-hide-until-hover:hover,
+:root.dark .scrollbar-hide-until-hover:hover {
+	scrollbar-color: oklch(100% 0 0 / 0.2) transparent;
+}
+[data-theme="dark"] .scrollbar-hide-until-hover:hover::-webkit-scrollbar-thumb,
+:root.dark .scrollbar-hide-until-hover:hover::-webkit-scrollbar-thumb {
+	background: oklch(100% 0 0 / 0.2);
+}
+[data-theme="dark"] .scrollbar-hide-until-hover::-webkit-scrollbar-thumb:hover,
+:root.dark .scrollbar-hide-until-hover::-webkit-scrollbar-thumb:hover {
+	background: oklch(100% 0 0 / 0.3);
+}
+
 h2,
 h3,
 h4 {
