@@ -4,14 +4,12 @@ import { MetaProvider, Title } from "@solidjs/meta"
 import { Router } from "@solidjs/router"
 import { FileRoutes } from "@solidjs/start/router"
 import { Suspense } from "solid-js"
-import { Header } from "~/components/layout/header"
 import "./app.css"
 
 function Head(props: Readonly<ParentProps>) {
 	return (
 		<MetaProvider>
 			<Title>Mepuru — Simple reactive UI for Solid</Title>
-			<Header />
 			<Suspense>{props.children}</Suspense>
 		</MetaProvider>
 	)

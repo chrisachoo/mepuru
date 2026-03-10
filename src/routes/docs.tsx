@@ -16,8 +16,6 @@ const navSections = [
 	{ icon: Component, label: "Components", links: componentDocLinks }
 ]
 
-const CONTENT_HEIGHT = "calc(100vh - 4rem)"
-
 const linkBaseClass
 	= "flex items-center rounded-r-lg px-3 py-2.5 text-sm font-medium transition-colors"
 
@@ -39,10 +37,12 @@ function DocNavLink(props: Readonly<{ href: string, label: string }>) {
 	)
 }
 
-function SidebarSectionHeader(props: Readonly<{
-	icon: LucideIcon
-	label: string
-}>) {
+function SidebarSectionHeader(
+	props: Readonly<{
+		icon: LucideIcon
+		label: string
+	}>
+) {
 	return (
 		<div class="mb-2 flex items-center gap-2 px-2">
 			<div class="flex size-8 items-center justify-center rounded-lg bg-primary/15 text-primary">
@@ -59,12 +59,16 @@ export default function DocsLayout(props: Readonly<RouteSectionProps>) {
 	return (
 		<main class="flex min-h-screen w-full bg-base-100">
 			<div class="drawer lg:drawer-open">
-				<input id="docs-drawer" type="checkbox" class="drawer-toggle" />
+				<input
+					id="docs-drawer"
+					type="checkbox"
+					class="drawer-toggle"
+				/>
 				<div class="drawer-content flex h-screen flex-col overflow-hidden">
 					<div class="sticky top-16 z-40 flex w-full shrink-0 items-center gap-3 border-b border-base-300 bg-base-100/95 px-4 py-3 backdrop-blur-sm lg:hidden">
 						<label
 							for="docs-drawer"
-							class="btn btn-ghost btn-square drawer-button"
+							class="drawer-button btn btn-square btn-ghost"
 							aria-label="Open docs menu"
 						>
 							<Menu class="size-6" />
@@ -72,7 +76,7 @@ export default function DocsLayout(props: Readonly<RouteSectionProps>) {
 						<span class="text-sm font-semibold text-base-content">Docs</span>
 					</div>
 
-					<div class="min-h-0 flex-1 overflow-y-auto px-4 py-6 lg:px-8">
+					<div class="min-h-0 w-full max-w-4xl flex-1 overflow-y-auto px-4 py-6 lg:px-8">
 						{props.children}
 					</div>
 				</div>
@@ -83,10 +87,7 @@ export default function DocsLayout(props: Readonly<RouteSectionProps>) {
 						aria-label="Close sidebar"
 						class="drawer-overlay"
 					/>
-					<aside
-						class="flex fixed w-64 flex-col gap-1 border-r border-base-300 bg-base-200/40 py-5 pl-4 pr-3 lg:w-72 backdrop-blur-sm"
-						style={{ height: CONTENT_HEIGHT }}
-					>
+					<aside class="fixed flex h-full w-64 flex-col gap-1 border-r border-base-300 bg-base-200/40 py-5 pr-3 pl-4 backdrop-blur-sm lg:w-72">
 						<For each={navSections}>
 							{section => (
 								<div
@@ -99,12 +100,15 @@ export default function DocsLayout(props: Readonly<RouteSectionProps>) {
 										label={section.label}
 									/>
 									<nav
-										class="flex flex-col gap-0.5 ml-4"
+										class="ml-4 flex flex-col gap-0.5"
 										aria-label={section.label}
 									>
 										<For each={section.links}>
 											{link => (
-												<DocNavLink href={link.href} label={link.label} />
+												<DocNavLink
+													href={link.href}
+													label={link.label}
+												/>
 											)}
 										</For>
 									</nav>
