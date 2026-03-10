@@ -31,10 +31,12 @@ export function Card<T extends ValidComponent = "div">(
 ) {
 	const [local, rest] = splitProps(props, ["class", "children", "size"])
 	return (
-		<div class={cn(cardVariants({ size: local.size }), local.class)} data-slot="card" {...rest}>
-			<div class="card-body">
-				{local.children}
-			</div>
+		<div
+			class={cn(cardVariants({ size: local.size }), local.class)}
+			data-slot="card"
+			{...rest}
+		>
+			<div class="card-body">{local.children}</div>
 		</div>
 	)
 }
@@ -49,7 +51,12 @@ export function CardTitle<T extends ValidComponent = "h2">(
 ) {
 	const [local, rest] = splitProps(props, ["class", "children"])
 	return (
-		<h2 class={cn("card-title", local.class)} data-slot="card-title" aria-level="2" {...rest}>
+		<h2
+			class={cn("card-title", local.class)}
+			data-slot="card-title"
+			aria-level="2"
+			{...rest}
+		>
 			{local.children}
 		</h2>
 	)
@@ -65,7 +72,11 @@ export function CardDescription<T extends ValidComponent = "p">(
 ) {
 	const [local, rest] = splitProps(props, ["class", "children"])
 	return (
-		<p class={cn("text-sm text-primary-content", local.class)} data-slot="card-description" {...rest}>
+		<p
+			class={cn("text-sm text-primary-content", local.class)}
+			data-slot="card-description"
+			{...rest}
+		>
 			{local.children}
 		</p>
 	)
@@ -81,7 +92,13 @@ export function CardAction<T extends ValidComponent = "div">(
 ) {
 	const [local, rest] = splitProps(props, ["class"])
 
-	return <div class={cn("justify-end card-actions", local.class)} data-slot="card-action" {...rest} />
+	return (
+		<div
+			class={cn("card-actions justify-end", local.class)}
+			data-slot="card-action"
+			{...rest}
+		/>
+	)
 }
 
 type CardBodyProps = {
@@ -94,7 +111,11 @@ export function CardBody<T extends ValidComponent = "div">(
 ) {
 	const [local, rest] = splitProps(props, ["class", "children"])
 	return (
-		<div class="card-body" data-slot="card-body" {...rest}>
+		<div
+			class="card-body"
+			data-slot="card-body"
+			{...rest}
+		>
 			{local.children}
 		</div>
 	)
@@ -111,8 +132,15 @@ export function CardFigure<T extends ValidComponent = "figure">(
 ) {
 	const [local, rest] = splitProps(props, ["alt", "src", "class"])
 	return (
-		<figure data-slot="card-figure" {...rest}>
-			<img src={local.src} alt={local.alt} class={cn("w-full h-full object-cover")} />
+		<figure
+			data-slot="card-figure"
+			{...rest}
+		>
+			<img
+				src={local.src}
+				alt={local.alt}
+				class={cn("h-full w-full object-cover")}
+			/>
 		</figure>
 	)
 }

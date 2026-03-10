@@ -7,7 +7,9 @@ export type ColorMode = "dark" | "light"
 function getPreferredColorMode(): ColorMode {
 	if (globalThis.window === undefined)
 		return "light"
-	return globalThis.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+	return globalThis.matchMedia("(prefers-color-scheme: dark)").matches
+		? "dark"
+		: "light"
 }
 
 function applyColorMode(mode: ColorMode) {
@@ -26,8 +28,10 @@ function applyColorMode(mode: ColorMode) {
 function getStoredOrCurrent(): ColorMode {
 	if (globalThis.window === undefined)
 		return "light"
-	const stored = (localStorage.getItem(COLOR_MODE_KEY) as ColorMode | null) ?? undefined
-	const currentAttr = (document.documentElement.dataset.theme as ColorMode | null) ?? undefined
+	const stored
+		= (localStorage.getItem(COLOR_MODE_KEY) as ColorMode | null) ?? undefined
+	const currentAttr
+		= (document.documentElement.dataset.theme as ColorMode | null) ?? undefined
 	return stored ?? currentAttr ?? getPreferredColorMode()
 }
 

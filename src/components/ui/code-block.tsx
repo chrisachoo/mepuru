@@ -26,10 +26,11 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 			code: props.code,
 			lang: lang()
 		}),
-		async source => codeToHtml(source.code, {
-			lang: source.lang,
-			theme: "tokyo-night"
-		})
+		async source =>
+			codeToHtml(source.code, {
+				lang: source.lang,
+				theme: "tokyo-night"
+			})
 	)
 
 	const handleCopy = async () => {
@@ -43,12 +44,12 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 	return (
 		<div
 			class={cn(
-				"rounded-xl overflow-hidden border border-base-300 bg-base-200/80 shadow-lg shadow-base-content/5",
+				"overflow-hidden rounded-xl border border-base-300 bg-base-200/80 shadow-lg shadow-base-content/5",
 				props.class
 			)}
 		>
 			<div class="flex flex-wrap items-center justify-between gap-2 border-b border-base-300 bg-base-300/50 px-4 py-3">
-				<div class="flex items-center gap-2 min-w-0">
+				<div class="flex min-w-0 items-center gap-2">
 					<span class="size-3 shrink-0 rounded-full bg-error/80" />
 					<span class="size-3 shrink-0 rounded-full bg-warning/80" />
 					<span class="size-3 shrink-0 rounded-full bg-success/80" />
@@ -62,11 +63,16 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 				<button
 					type="button"
 					onClick={handleCopy}
-					class="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium  text-base-content/70 hover:bg-base-300 hover:text-base-content focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-base-200 cursor-pointer"
+					class="flex cursor-pointer items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-base-content/70 hover:bg-base-300 hover:text-base-content focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-base-200 focus:outline-none"
 					aria-label={copied() ? "Copied" : "Copy code"}
 				>
-					<Show when={copied()} fallback={<Copy class="size-3.5 shrink-0" />}>
-						<span class={cn("flex shrink-0", justCopied() && "animate-copy-pop")}>
+					<Show
+						when={copied()}
+						fallback={<Copy class="size-3.5 shrink-0" />}
+					>
+						<span
+							class={cn("flex shrink-0", justCopied() && "animate-copy-pop")}
+						>
 							<Check class="size-3.5 text-success" />
 						</span>
 					</Show>

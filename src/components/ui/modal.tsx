@@ -15,7 +15,14 @@ export type ModalProps = {
 }
 
 function Modal(props: ModalProps) {
-	const [local, _rest] = splitProps(props, ["open", "onClose", "class", "children", "title", "role"])
+	const [local, _rest] = splitProps(props, [
+		"open",
+		"onClose",
+		"class",
+		"children",
+		"title",
+		"role"
+	])
 	return (
 		<Show when={local.open}>
 			<div
@@ -44,7 +51,10 @@ function Modal(props: ModalProps) {
 				>
 					<div class="modal-box">
 						<Show when={local.title}>
-							<h2 id="modal-title" class="text-lg font-semibold">
+							<h2
+								id="modal-title"
+								class="text-lg font-semibold"
+							>
 								{local.title}
 							</h2>
 						</Show>

@@ -26,7 +26,8 @@ export function CodePreviewTabs(props: Readonly<CodePreviewTabsProps>) {
 
 	const [source] = createResource(
 		() => ({ code: props.code }),
-		async src => codeToHtml(src.code, { lang: "tsx", tabindex: 2, theme: "tokyo-night" })
+		async src =>
+			codeToHtml(src.code, { lang: "tsx", tabindex: 2, theme: "tokyo-night" })
 	)
 
 	const handleCopy = async () => {
@@ -61,9 +62,12 @@ export function CodePreviewTabs(props: Readonly<CodePreviewTabsProps>) {
 							>
 								{html => (
 									<div class="relative">
-										<div class="rounded-xl border border-base-300 bg-base-200/50 p-4" innerHTML={html()} />
+										<div
+											class="rounded-xl border border-base-300 bg-base-200/50 p-4"
+											innerHTML={html()}
+										/>
 										<Button
-											class="btn-soft btn-square transition-all absolute top-3 right-2 z-10"
+											class="absolute top-3 right-2 z-10 btn-square transition-all btn-soft"
 											aria-label="Copy to clipboard"
 											onClick={handleCopy}
 											variant="ghost"

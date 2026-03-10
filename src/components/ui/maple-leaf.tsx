@@ -1,12 +1,11 @@
-export function MapleLeaf(props: Readonly<{ class?: string, size?: number }>) {
-	const size = () => props.size ?? 40
+import { cn } from "~/lib/cn"
+
+export function MapleLeaf(props: Readonly<{ class?: string }>) {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
-			class={props.class}
-			width={size()}
-			height={size()}
+			class={cn("size-10", props.class)}
 			aria-hidden
 		>
 			<path

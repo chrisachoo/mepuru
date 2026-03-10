@@ -61,9 +61,12 @@ export function ComponentCode(props: Readonly<ComponentCodeProps>) {
 						content: (
 							<div class="rounded-lg border border-base-300 bg-base-200/50 p-4">
 								<p class="text-sm text-base-content/70">
-									<span class="font-medium text-base-content">Coming soon.</span>
+									<span class="font-medium text-base-content">
+										Coming soon.
+									</span>
 									{" "}
-									Use the Manual tab to copy the component code until the CLI is available.
+									Use the Manual tab to copy the component code until the CLI is
+									available.
 								</p>
 							</div>
 						),

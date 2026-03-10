@@ -24,23 +24,35 @@ type DropdownProps = {
 	name: JSX.Element
 	class?: string
 	children?: JSX.Element
-} & VariantProps<typeof dropdownVariant> & JSX.IntrinsicElements["div"]
+} & VariantProps<typeof dropdownVariant>
+& JSX.IntrinsicElements["div"]
 
 function Dropdown(props: DropdownProps) {
-	const [local, rest] = splitProps(props, ["align", "class", "children", "name"])
+	const [local, rest] = splitProps(props, [
+		"align",
+		"class",
+		"children",
+		"name"
+	])
 	return (
-		<div class={cn(dropdownVariant({ align: local.align }), local.class)} {...rest}>
+		<div
+			class={cn(dropdownVariant({ align: local.align }), local.class)}
+			{...rest}
+		>
 			<div
 				tabIndex={0}
 				role="button"
-				class="btn -1"
+				class="-1 btn"
 				aria-expanded="false"
 				aria-haspopup="true"
 			>
 				{local.name}
 			</div>
 
-			<ul tabIndex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 min-w-52 p-2 shadow-sm">
+			<ul
+				tabIndex="-1"
+				class="dropdown-content menu z-1 min-w-52 rounded-box bg-base-100 p-2 shadow-sm"
+			>
 				{local.children}
 			</ul>
 		</div>
@@ -63,7 +75,9 @@ function DropdownItem(props: DropdownItemProps) {
 				onClick={(e) => {
 					e.preventDefault()
 					local.onClick?.()
-					const trigger = e.currentTarget.closest(".dropdown")?.querySelector("[role=button]")
+					const trigger = e.currentTarget
+						.closest(".dropdown")
+						?.querySelector("[role=button]")
 					if (trigger instanceof HTMLElement)
 						trigger.focus()
 				}}

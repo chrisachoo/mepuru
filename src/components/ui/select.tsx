@@ -9,12 +9,17 @@ export type SelectProps = JSX.IntrinsicElements["select"] & {
 }
 
 function Select(props: SelectProps) {
-	const [local, rest] = splitProps(props, ["class", "error", "options", "children"])
+	const [local, rest] = splitProps(props, [
+		"class",
+		"error",
+		"options",
+		"children"
+	])
 
 	return (
 		<select
 			class={cn(
-				"select select-bordered w-full rounded-lg focus:outline focus:outline-2 focus:outline-offset-2",
+				"select-bordered select w-full rounded-lg focus:outline focus:outline-2 focus:outline-offset-2",
 				local.error && "select-error",
 				local.class
 			)}
@@ -23,11 +28,7 @@ function Select(props: SelectProps) {
 		>
 			{local.children}
 			<For each={local.options}>
-				{opt => (
-					<option value={opt.value}>
-						{opt.label}
-					</option>
-				)}
+				{opt => <option value={opt.value}>{opt.label}</option>}
 			</For>
 		</select>
 	)

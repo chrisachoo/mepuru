@@ -12,7 +12,7 @@ function Textarea(props: TextareaProps) {
 	return (
 		<textarea
 			class={cn(
-				"textarea textarea-bordered w-full rounded-lg focus:outline focus:outline-2 focus:outline-offset-2",
+				"textarea-bordered textarea w-full rounded-lg focus:outline focus:outline-2 focus:outline-offset-2",
 				local.error && "textarea-error",
 				local.class
 			)}

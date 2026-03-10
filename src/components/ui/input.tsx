@@ -30,7 +30,11 @@ function Input(props: InputProps) {
 
 	return (
 		<input
-			class={cn(inputVariants({ size: local.size }), local.error && "input-error", local.class)}
+			class={cn(
+				inputVariants({ size: local.size }),
+				local.error && "input-error",
+				local.class
+			)}
 			aria-invalid={local.error ?? undefined}
 			{...rest}
 		/>
@@ -43,7 +47,10 @@ function FormField(props: InputProps) {
 	return (
 		<fieldset class="fieldset">
 			<legend class="fieldset-legend capitalize">{local.name}</legend>
-			<Input name={local.name} {...rest} />
+			<Input
+				name={local.name}
+				{...rest}
+			/>
 			<p class="label">Optional</p>
 		</fieldset>
 	)

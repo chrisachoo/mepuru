@@ -1,6 +1,10 @@
 import type { ColumnDef } from "@tanstack/solid-table"
 import type { JSX } from "solid-js"
-import { createSolidTable, flexRender, getCoreRowModel } from "@tanstack/solid-table"
+import {
+	createSolidTable,
+	flexRender,
+	getCoreRowModel
+} from "@tanstack/solid-table"
 import { For } from "solid-js"
 
 type PropRow = {
@@ -25,9 +29,7 @@ const columns: ColumnDef<PropRow>[] = [
 	{
 		accessorKey: "default",
 		cell: info => (
-			<span class="text-base-content/60">
-				{info.getValue<string>() ?? "—"}
-			</span>
+			<span class="text-base-content/60">{info.getValue<string>() ?? "—"}</span>
 		),
 		header: "Default"
 	},
@@ -57,7 +59,7 @@ export function PropsTable(props: Readonly<PropsTableProps>) {
 			<h2 class="text-xl font-semibold text-base-content">Props</h2>
 
 			<div class="overflow-x-auto rounded-xl border border-base-300">
-				<table class="table table-pin-rows w-full text-sm">
+				<table class="table-pin-rows table w-full text-sm">
 					<thead>
 						<For each={table.getHeaderGroups()}>
 							{headerGroup => (

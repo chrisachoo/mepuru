@@ -10,10 +10,14 @@ export type CheckboxProps = Omit<JSX.IntrinsicElements["input"], "type"> & {
 
 function Checkbox(props: CheckboxProps) {
 	const [local, rest] = splitProps(props, ["class", "label", "error", "id"])
-	const id = () => local.id ?? `checkbox-${Math.random().toString(36).slice(2, 9)}`
+	const id = () =>
+		local.id ?? `checkbox-${Math.random().toString(36).slice(2, 9)}`
 	return (
 		<div class={cn("form-control", local.class)}>
-			<label class="label cursor-pointer justify-start gap-3" for={id()}>
+			<label
+				class="label cursor-pointer justify-start gap-3"
+				for={id()}
+			>
 				<input
 					type="checkbox"
 					id={id()}

@@ -36,7 +36,9 @@ type DividerProps = {
 	class?: string
 } & VariantProps<typeof dividerVariants>
 
-function Divider<T extends ValidComponent = "div">(props: PolymorphicProps<T, DividerProps>) {
+function Divider<T extends ValidComponent = "div">(
+	props: PolymorphicProps<T, DividerProps>
+) {
 	const [local, others] = splitProps(props, [
 		"class",
 		"color",

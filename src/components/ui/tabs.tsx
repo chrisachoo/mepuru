@@ -42,7 +42,13 @@ type TabsProps = {
 
 export function Tabs(props: Readonly<TabsProps>) {
 	return (
-		<div class={cn(tabsVariants({ size: props.size, variant: props.variant }), props.class)} role="tablist">
+		<div
+			class={cn(
+				tabsVariants({ size: props.size, variant: props.variant }),
+				props.class
+			)}
+			role="tablist"
+		>
 			<For each={[...props.tabs]}>
 				{tab => (
 					<>
@@ -57,7 +63,7 @@ export function Tabs(props: Readonly<TabsProps>) {
 							role="tab"
 						/>
 						<div
-							class="tab-content border-base-300 bg-base-100 p-4 rounded-b-lg border border-t-0"
+							class="tab-content rounded-b-lg border border-t-0 border-base-300 bg-base-100 p-4"
 							role="tabpanel"
 						>
 							{tab.content}
