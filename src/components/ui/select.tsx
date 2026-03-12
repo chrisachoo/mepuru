@@ -5,7 +5,7 @@ import { cn } from "~/lib/cn"
 export type SelectProps = JSX.IntrinsicElements["select"] & {
 	class?: string
 	error?: boolean
-	options: Array<{ value: string, label: string }>
+	options: Array<{ value: string; label: string }>
 }
 
 function Select(props: SelectProps) {
@@ -28,7 +28,7 @@ function Select(props: SelectProps) {
 		>
 			{local.children}
 			<For each={local.options}>
-				{opt => <option value={opt.value}>{opt.label}</option>}
+				{(opt) => <option value={opt.value}>{opt.label}</option>}
 			</For>
 		</select>
 	)

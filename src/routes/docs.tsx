@@ -8,13 +8,17 @@ export default function DocsLayout(props: Readonly<RouteSectionProps>) {
 		<MetaProvider>
 			<div class="Components">
 				<Title>Documents</Title>
-				<Link rel="canonical" href="http://solidjs.com/" />
-				<Meta name="example" content="whatever" />
+				<Link
+					rel="canonical"
+					href="http://solidjs.com/"
+				/>
+				<Meta
+					name="example"
+					content="whatever"
+				/>
 			</div>
 			<Header />
-			<RoutesLayout>
-				{props.children}
-			</RoutesLayout>
+			<RoutesLayout>{props.children}</RoutesLayout>
 		</MetaProvider>
 	)
 }

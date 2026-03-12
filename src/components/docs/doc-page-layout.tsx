@@ -14,8 +14,7 @@ type DocPageLayoutProps = {
 }
 
 function showFileActions(source?: string, path?: string) {
-	if (source && path)
-		return true
+	if (source && path) return true
 
 	return false
 }

@@ -138,14 +138,8 @@ const dropdownProps = [
 
 const dropdownItemHint = (
 	<p class="mt-2 text-xs text-base-content/60">
-		<strong>DropdownItem</strong>
-		{" "}
-		:
-		<InlineCode>class</InlineCode>
-		{" "}
-		,
-		<InlineCode>onClick</InlineCode>
-		. Clicking an item runs onClick and focuses
+		<strong>DropdownItem</strong> :<InlineCode>class</InlineCode> ,
+		<InlineCode>onClick</InlineCode>. Clicking an item runs onClick and focuses
 		the trigger (dropdown closes via blur).
 	</p>
 )
@@ -163,7 +157,7 @@ export default function DropdownPage() {
 				id="usage"
 				name="dropdown-usage-demo"
 				title="Usage"
-				preview={(
+				preview={
 					<Dropdown name="Open menu">
 						<DropdownItem onClick={() => console.log("Item 1")}>
 							Item 1
@@ -171,21 +165,12 @@ export default function DropdownPage() {
 						<DropdownItem>Item 2</DropdownItem>
 						<DropdownItem>Item 3</DropdownItem>
 					</Dropdown>
-				)}
+				}
 			>
 				<span>
-					Import
-					{" "}
-					<InlineCode>Dropdown</InlineCode>
-					{" "}
-					and
-					{" "}
-					<InlineCode>DropdownItem</InlineCode>
-					. Pass a
-					{" "}
-					<InlineCode>name</InlineCode>
-					{" "}
-					for the trigger label and children (menu
+					Import <InlineCode>Dropdown</InlineCode> and{" "}
+					<InlineCode>DropdownItem</InlineCode>. Pass a{" "}
+					<InlineCode>name</InlineCode> for the trigger label and children (menu
 					items).
 				</span>
 			</ComponentDemo>
@@ -193,7 +178,10 @@ export default function DropdownPage() {
 			<DocDivider />
 
 			<ComponentCode name="dropdown-install">
-				<CodeBlock	code={dropdownComponentCode}	language="tsx" />
+				<CodeBlock
+					code={dropdownComponentCode}
+					language="tsx"
+				/>
 			</ComponentCode>
 
 			<DocDivider />
@@ -204,7 +192,7 @@ export default function DropdownPage() {
 					id="dropdown-alignment"
 					name="dropdown-alignment"
 					title="Alignment"
-					preview={(
+					preview={
 						<div class="flex items-center gap-4">
 							<Dropdown
 								align="start"
@@ -222,14 +210,10 @@ export default function DropdownPage() {
 								<DropdownItem>Item 2</DropdownItem>
 							</Dropdown>
 						</div>
-					)}
+					}
 				>
 					<span>
-						Use
-						{" "}
-						<InlineCode>align</InlineCode>
-						{" "}
-						to align the menu to the start or
+						Use <InlineCode>align</InlineCode> to align the menu to the start or
 						end of the trigger.
 					</span>
 				</ComponentDemo>

@@ -24,8 +24,8 @@ type DropdownProps = {
 	name: JSX.Element
 	class?: string
 	children?: JSX.Element
-} & VariantProps<typeof dropdownVariant>
-& JSX.IntrinsicElements["div"]
+} & VariantProps<typeof dropdownVariant> &
+	JSX.IntrinsicElements["div"]
 
 function Dropdown(props: DropdownProps) {
 	const [local, rest] = splitProps(props, [
@@ -78,8 +78,7 @@ function DropdownItem(props: DropdownItemProps) {
 					const trigger = e.currentTarget
 						.closest(".dropdown")
 						?.querySelector("[role=button]")
-					if (trigger instanceof HTMLElement)
-						trigger.focus()
+					if (trigger instanceof HTMLElement) trigger.focus()
 				}}
 			>
 				{local.children}

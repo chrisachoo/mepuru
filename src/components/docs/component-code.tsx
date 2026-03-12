@@ -29,28 +29,14 @@ export function ComponentCode(props: Readonly<ComponentCodeProps>) {
 								{props.children}
 
 								<p class="text-sm text-base-content/80">
-									Update the import paths to match your project (e.g.
-									{" "}
-									<InlineCode>~/lib/cn</InlineCode>
-									,
-									{" "}
+									Update the import paths to match your project (e.g.{" "}
+									<InlineCode>~/lib/cn</InlineCode>,{" "}
 									<InlineCode>~/lib/polymorphic</InlineCode>
-									). You also need
-									{" "}
-									<InlineCode>class-variance-authority</InlineCode>
-									{" "}
-									and
-									{" "}
-									<InlineCode>clsx</InlineCode>
-									{" "}
-									+
-									{" "}
-									<InlineCode>tailwind-merge</InlineCode>
-									{" "}
-									for
-									{" "}
-									<InlineCode>cn</InlineCode>
-									.
+									). You also need{" "}
+									<InlineCode>class-variance-authority</InlineCode> and{" "}
+									<InlineCode>clsx</InlineCode> +{" "}
+									<InlineCode>tailwind-merge</InlineCode> for{" "}
+									<InlineCode>cn</InlineCode>.
 								</p>
 							</div>
 						),
@@ -63,8 +49,7 @@ export function ComponentCode(props: Readonly<ComponentCodeProps>) {
 								<p class="text-sm text-base-content/70">
 									<span class="font-medium text-base-content">
 										Coming soon.
-									</span>
-									{" "}
+									</span>{" "}
 									Use the Manual tab to copy the component code until the CLI is
 									available.
 								</p>

@@ -47,7 +47,7 @@ function Modal(props: ModalProps) {
 						"modal relative z-10 max-h-[90vh] w-full max-w-lg overflow-auto rounded-lg bg-base-100 shadow-xl",
 						local.class
 					)}
-					onClick={e => e.stopPropagation()}
+					onClick={(e) => e.stopPropagation()}
 				>
 					<div class="modal-box">
 						<Show when={local.title}>

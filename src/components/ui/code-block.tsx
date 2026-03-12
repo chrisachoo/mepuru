@@ -26,7 +26,7 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 			code: props.code,
 			lang: lang()
 		}),
-		async source =>
+		async (source) =>
 			codeToHtml(source.code, {
 				lang: source.lang,
 				theme: "tokyo-night"
@@ -83,13 +83,13 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 			<div class="overflow-x-auto p-4 text-sm [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!">
 				<Show
 					when={highlighted()}
-					fallback={(
+					fallback={
 						<pre class="font-mono text-base-content/60">
 							<code>{props.code.trim()}</code>
 						</pre>
-					)}
+					}
 				>
-					{html => <div innerHTML={html()} />}
+					{(html) => <div innerHTML={html()} />}
 				</Show>
 			</div>
 		</div>

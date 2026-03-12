@@ -52,11 +52,11 @@ export function ComponentDemo(props: Readonly<ComponentDemoProps>) {
 
 			<Show
 				when={hasCode()}
-				fallback={(
+				fallback={
 					<div class="relative flex flex-wrap items-center gap-3 overflow-hidden rounded-xl border border-base-300 bg-base-200/50 p-4">
 						{props.preview}
 					</div>
-				)}
+				}
 			>
 				<CodePreviewTabs
 					code={props.code}

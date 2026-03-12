@@ -7,7 +7,7 @@ function ComponentList() {
 	return (
 		<div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
 			<For each={[...componentDocs]}>
-				{entry => (
+				{(entry) => (
 					<A
 						href={componentHref(entry)}
 						class="flex flex-col gap-1 rounded-lg p-4 text-base-content/90 transition-colors hover:bg-base-300/50 hover:text-base-content"
@@ -18,13 +18,11 @@ function ComponentList() {
 							</div>
 							<span class="text-sm font-medium">{entry.name}</span>
 						</div>
-						{entry.description
-							? (
-									<span class="line-clamp-2 text-xs text-base-content/60">
-										{entry.description}
-									</span>
-								)
-							: null}
+						{entry.description ? (
+							<span class="line-clamp-2 text-xs text-base-content/60">
+								{entry.description}
+							</span>
+						) : null}
 					</A>
 				)}
 			</For>

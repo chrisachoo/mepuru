@@ -6,8 +6,8 @@ import { createResource, createSignal, Show } from "solid-js"
 import { Button } from "~/components/ui/button"
 import { Tabs } from "~/components/ui/tabs"
 
-const previewBoxClass
-	= "relative flex flex-wrap items-center gap-3 rounded-xl border border-base-300 bg-base-200/50 p-4"
+const previewBoxClass =
+	"relative flex flex-wrap items-center gap-3 rounded-xl border border-base-300 bg-base-200/50 p-4"
 
 function copyToClipboard(text: string): Promise<void> {
 	return navigator.clipboard.writeText(text)
@@ -26,7 +26,7 @@ export function CodePreviewTabs(props: Readonly<CodePreviewTabsProps>) {
 
 	const [source] = createResource(
 		() => ({ code: props.code }),
-		async src =>
+		async (src) =>
 			codeToHtml(src.code, { lang: "tsx", tabindex: 2, theme: "tokyo-night" })
 	)
 
@@ -54,13 +54,13 @@ export function CodePreviewTabs(props: Readonly<CodePreviewTabsProps>) {
 						<div class="overflow-x-auto text-sm [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!">
 							<Show
 								when={source()}
-								fallback={(
+								fallback={
 									<pre class="font-mono text-base-content/60">
 										<code>{props.code.trim()}</code>
 									</pre>
-								)}
+								}
 							>
-								{html => (
+								{(html) => (
 									<div class="relative">
 										<div
 											class="rounded-xl border border-base-300 bg-base-200/50 p-4"

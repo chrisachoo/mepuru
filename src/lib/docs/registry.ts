@@ -58,7 +58,7 @@ export function componentHref(entry: ComponentDocEntry): string {
 }
 
 /** Component doc links for sidebar (href + label). Build nav in layout with icons. */
-export const componentDocLinks: readonly DocLink[] = componentDocs.map(c => ({
+export const componentDocLinks: readonly DocLink[] = componentDocs.map((c) => ({
 	href: componentHref(c),
 	label: c.name
 }))

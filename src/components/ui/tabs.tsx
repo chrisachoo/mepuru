@@ -50,7 +50,7 @@ export function Tabs(props: Readonly<TabsProps>) {
 			role="tablist"
 		>
 			<For each={[...props.tabs]}>
-				{tab => (
+				{(tab) => (
 					<>
 						<input
 							type="radio"

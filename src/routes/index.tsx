@@ -92,14 +92,14 @@ export default function HomePage() {
 							</span>
 							<div class="space-y-4">
 								<h1 class="text-5xl font-bold tracking-tight sm:text-6xl">
-									Simple UI components for
-									{" "}
+									Simple UI components for{" "}
 									<span class="text-gradient-primary">Solid</span>
 								</h1>
 
 								<p class="mx-auto max-w-xl text-lg leading-relaxed text-base-content/70">
-									Mēpuru is a lightweight component library focused on simplicity,
-									accessibility, and a predictable developer experience.
+									Mēpuru is a lightweight component library focused on
+									simplicity, accessibility, and a predictable developer
+									experience.
 								</p>
 							</div>
 
@@ -114,7 +114,9 @@ export default function HomePage() {
 								<Button
 									variant="outline"
 									class="w-full"
-									onClick={() => navigate("/docs/quickstart/", { replace: true })}
+									onClick={() =>
+										navigate("/docs/quickstart/", { replace: true })
+									}
 								>
 									Quickstart
 								</Button>
@@ -177,13 +179,13 @@ export default function HomePage() {
 								<div class="overflow-x-auto p-4 text-sm [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!">
 									<Show
 										when={highlighted()}
-										fallback={(
+										fallback={
 											<pre class="font-mono text-base-content/60">
 												<code>{code.trim()}</code>
 											</pre>
-										)}
+										}
 									>
-										{html => <div innerHTML={html()} />}
+										{(html) => <div innerHTML={html()} />}
 									</Show>
 								</div>
 							</div>

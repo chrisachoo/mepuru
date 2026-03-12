@@ -100,15 +100,9 @@ function FormField() {
 
 const inputHint = (
 	<p class="text-xs text-base-content/60">
-		Input forwards all native input attributes such as
-		{" "}
-		<InlineCode>placeholder</InlineCode>
-		,
-		<InlineCode>type</InlineCode>
-		, and
-		{" "}
-		<InlineCode>value</InlineCode>
-		.
+		Input forwards all native input attributes such as{" "}
+		<InlineCode>placeholder</InlineCode>,<InlineCode>type</InlineCode>, and{" "}
+		<InlineCode>value</InlineCode>.
 	</p>
 )
 
@@ -125,7 +119,7 @@ export default function InputPage() {
 				id="usage"
 				name="input-usage-demo"
 				title="Usage"
-				preview={(
+				preview={
 					<form class="flex w-full flex-col gap-3">
 						<Input
 							type="email"
@@ -136,7 +130,7 @@ export default function InputPage() {
 							placeholder="Input with error state"
 						/>
 					</form>
-				)}
+				}
 			>
 				Import the component and pass any native input attributes. See how it
 				works with different types and states.
@@ -145,7 +139,10 @@ export default function InputPage() {
 			<DocDivider />
 
 			<ComponentCode name="input-install">
-				<CodeBlock	code={inputComponentCode}	language="tsx" />
+				<CodeBlock
+					code={inputComponentCode}
+					language="tsx"
+				/>
 			</ComponentCode>
 
 			<DocDivider />
@@ -156,7 +153,7 @@ export default function InputPage() {
 					id="input-sizes"
 					name="input-sizes-demo"
 					title="Input sizes"
-					preview={(
+					preview={
 						<div class="flex flex-wrap items-center gap-3">
 							<Input
 								size="sm"
@@ -172,7 +169,7 @@ export default function InputPage() {
 								placeholder="Input with error state"
 							/>
 						</div>
-					)}
+					}
 				/>
 
 				<ComponentDemo
@@ -180,7 +177,7 @@ export default function InputPage() {
 					id="with-fieldset-and-fieldset-legend"
 					title="With fieldset and fieldset-legend"
 					code={inputFormFieldCode}
-					preview={(
+					preview={
 						<form class="grid w-full space-y-4">
 							<fieldset class="fieldset">
 								<legend class="fieldset-legend capitalize">Username: </legend>
@@ -205,7 +202,7 @@ export default function InputPage() {
 								<p class="label">Optional</p>
 							</fieldset>
 						</form>
-					)}
+					}
 				/>
 			</section>
 

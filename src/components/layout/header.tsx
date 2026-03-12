@@ -38,35 +38,62 @@ export function Header() {
 		<div
 			class={cn(
 				"drawer sticky top-0 z-50 w-full transition-shadow duration-100 print:hidden",
-				isScrolled() ? "bg-base-100/80 backdrop-blur shadow-xs" : "bg-transparent"
+				isScrolled()
+					? "bg-base-100/80 shadow-xs backdrop-blur"
+					: "bg-transparent"
 			)}
 		>
-			<input id="navbar-drawer" type="checkbox" class="drawer-toggle" />
+			<input
+				id="navbar-drawer"
+				type="checkbox"
+				class="drawer-toggle"
+			/>
 			<div class="drawer-content flex flex-col">
 				<div class="navbar w-full">
 					<div class="flex-none lg:hidden">
-						<label for="navbar-drawer" aria-label="open sidebar" class="btn btn-square btn-ghost">
+						<label
+							for="navbar-drawer"
+							aria-label="open sidebar"
+							class="btn btn-square btn-ghost"
+						>
 							<Menu />
 						</label>
 					</div>
 
 					<div class="flex-1 px-2">
-						<A href="/" class="text-amber-400">
+						<A
+							href="/"
+							class="text-amber-400"
+						>
 							<MapleLeaf />
 						</A>
 					</div>
 
 					<div class="hidden flex-none lg:block">
 						<ul class="menu menu-horizontal">
-							<li><A href="#" preload>Docs</A></li>
-							<li><A href="#" preload>Components</A></li>
+							<li>
+								<A
+									href="#"
+									preload
+								>
+									Docs
+								</A>
+							</li>
+							<li>
+								<A
+									href="#"
+									preload
+								>
+									Components
+								</A>
+							</li>
 						</ul>
 					</div>
 
 					<div class="flex items-center gap-2">
 						<button
 							aria-label="Toggle theme"
-							class="btn btn-ghost btn-square"
+							class="btn btn-square btn-ghost"
 							onClick={toggleColorMode}
 						>
 							<span class="inline-flex size-4 items-center justify-center">
@@ -82,7 +109,7 @@ export function Header() {
 
 						<button
 							aria-label="Visit GitHub repository"
-							class="btn btn-ghost btn-square"
+							class="btn btn-square btn-ghost"
 						>
 							<svg
 								class="size-4 shrink-0"
@@ -106,11 +133,15 @@ export function Header() {
 			</div>
 
 			<div class="drawer-side">
-				<label for="navbar-drawer" aria-label="close sidebar" class="drawer-overlay" />
+				<label
+					for="navbar-drawer"
+					aria-label="close sidebar"
+					class="drawer-overlay"
+				/>
 
-				<div class="bg-base-200 min-h-full w-80 p-4">
+				<div class="min-h-full w-80 bg-base-200 p-4">
 					<For each={linkItems}>
-						{item => (
+						{(item) => (
 							<div class="grid space-y-1">
 								<div class="flex items-center gap-2 px-2">
 									<div class="flex size-8 items-center justify-center rounded-lg bg-primary/15 text-primary">
@@ -122,7 +153,13 @@ export function Header() {
 								</div>
 								<ul class="menu">
 									<For each={item.group}>
-										{link => <LinkItem href={link.href} label={link.label} pathname={pathname} />}
+										{(link) => (
+											<LinkItem
+												href={link.href}
+												label={link.label}
+												pathname={pathname}
+											/>
+										)}
 									</For>
 								</ul>
 							</div>
