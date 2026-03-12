@@ -29,7 +29,7 @@ export function RoutesLayout(props: Readonly<{ children: JSX.Element }>) {
 
 				{/* SIDEBAR */}
 				<div
-					class="drawer-side z-40 px-2 py-4"
+					class="drawer-side z-40 border-r border-base-300 px-2 py-4"
 					style={{ "scroll-behavior": "smooth", "scroll-padding-top": "5rem" }}
 				>
 					<label
@@ -43,7 +43,7 @@ export function RoutesLayout(props: Readonly<{ children: JSX.Element }>) {
 							<div class="space-y-2">
 								<For each={linkItems}>
 									{(item) => (
-										<div class="grid space-y-1">
+										<div class="grid space-y-2">
 											<div class="flex items-center gap-2 px-2">
 												<div class="flex size-8 items-center justify-center rounded-lg bg-primary/15 text-primary">
 													<item.icon class="size-4" />
@@ -70,7 +70,7 @@ export function RoutesLayout(props: Readonly<{ children: JSX.Element }>) {
 								</For>
 							</div>
 
-							<div class="mt-8 w-full shrink-0 border-t border-base-200 py-4">
+							<div class="mt-8 w-full shrink-0 border-t border-base-300 py-4">
 								<p class="px-2 text-center text-xs text-base-content/50">
 									Mēpuru · Simple UI for Solid
 								</p>
