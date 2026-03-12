@@ -28,7 +28,7 @@ export function DocPageLayout(props: Readonly<DocPageLayoutProps>) {
 			</div>
 			<article
 				class={cn(
-					"relative mx-auto w-full max-w-4xl grow space-y-8 px-6 py-16",
+					"relative mx-auto w-full max-w-4xl grow space-y-8",
 					props.class
 				)}
 			>

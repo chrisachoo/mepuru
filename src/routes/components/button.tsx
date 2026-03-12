@@ -181,11 +181,7 @@ export default function ButtonPage() {
 			<DocDivider />
 
 			<ComponentCode name="button-install">
-				<CodeBlock
-					title="src/components/ui/button.tsx"
-					code={buttonComponentCode}
-					language="tsx"
-				/>
+				<CodeBlock code={buttonComponentCode} language="tsx" />
 			</ComponentCode>
 
 			<DocDivider />

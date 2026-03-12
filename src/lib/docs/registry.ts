@@ -50,7 +50,7 @@ export const componentDocs: readonly ComponentDocEntry[] = [
 ] as const
 
 /** Base path for component docs */
-export const componentsBasePath = "/docs/components"
+export const componentsBasePath = "/components"
 
 /** Full href for a component doc */
 export function componentHref(entry: ComponentDocEntry): string {

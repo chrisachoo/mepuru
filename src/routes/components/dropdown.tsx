@@ -193,11 +193,7 @@ export default function DropdownPage() {
 			<DocDivider />
 
 			<ComponentCode name="dropdown-install">
-				<CodeBlock
-					title="src/components/ui/dropdown.tsx"
-					code={dropdownComponentCode}
-					language="tsx"
-				/>
+				<CodeBlock	code={dropdownComponentCode}	language="tsx" />
 			</ComponentCode>
 
 			<DocDivider />

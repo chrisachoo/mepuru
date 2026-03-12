@@ -145,11 +145,7 @@ export default function InputPage() {
 			<DocDivider />
 
 			<ComponentCode name="input-install">
-				<CodeBlock
-					title="src/components/ui/input.tsx"
-					code={inputComponentCode}
-					language="tsx"
-				/>
+				<CodeBlock	code={inputComponentCode}	language="tsx" />
 			</ComponentCode>
 
 			<DocDivider />
