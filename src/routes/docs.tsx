@@ -1,6 +1,5 @@
 import type { RouteSectionProps } from "@solidjs/router"
 import { Link, Meta, MetaProvider, Title } from "@solidjs/meta"
-import { Header } from "~/components/layout/header"
 import { RoutesLayout } from "~/components/layout/routes-layout"
 
 export default function DocsLayout(props: Readonly<RouteSectionProps>) {
@@ -17,7 +16,6 @@ export default function DocsLayout(props: Readonly<RouteSectionProps>) {
 					content="whatever"
 				/>
 			</div>
-			<Header />
 			<RoutesLayout>{props.children}</RoutesLayout>
 		</MetaProvider>
 	)

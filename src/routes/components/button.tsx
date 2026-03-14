@@ -184,6 +184,7 @@ export default function ButtonPage() {
 				<CodeBlock
 					code={buttonComponentCode}
 					language="tsx"
+					expand
 				/>
 			</ComponentCode>
 

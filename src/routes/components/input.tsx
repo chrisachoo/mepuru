@@ -142,6 +142,7 @@ export default function InputPage() {
 				<CodeBlock
 					code={inputComponentCode}
 					language="tsx"
+					expand
 				/>
 			</ComponentCode>
 

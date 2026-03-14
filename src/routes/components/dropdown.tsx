@@ -181,6 +181,7 @@ export default function DropdownPage() {
 				<CodeBlock
 					code={dropdownComponentCode}
 					language="tsx"
+					expand
 				/>
 			</ComponentCode>
 
