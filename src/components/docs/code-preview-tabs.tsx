@@ -1,13 +1,10 @@
 /* eslint-disable solid/no-innerhtml */
 import type { JSX } from "solid-js"
 import { Copy, SquareCheckBig } from "lucide-solid"
-import { codeToHtml } from "shiki"
 import { createResource, createSignal, Show } from "solid-js"
 import { Button } from "~/components/ui/button"
 import { Tabs } from "~/components/ui/tabs"
-
-const previewBoxClass =
-	"relative flex flex-wrap items-center gap-3 rounded-xl border border-base-300 bg-base-200/50 p-4"
+import { cn } from "~/lib/cn"
 
 function copyToClipboard(text: string): Promise<void> {
 	return navigator.clipboard.writeText(text)
@@ -26,15 +23,24 @@ export function CodePreviewTabs(props: Readonly<CodePreviewTabsProps>) {
 
 	const [source] = createResource(
 		() => ({ code: props.code }),
-		async (src) =>
-			codeToHtml(src.code, { lang: "tsx", tabindex: 2, theme: "tokyo-night" })
+		async (src) => {
+			const { codeToHtml } = await import("shiki")
+
+			return codeToHtml(src.code, {
+				lang: "tsx",
+				tabindex: 2,
+				theme: "tokyo-night"
+			})
+		}
 	)
 
 	const handleCopy = async () => {
 		await copyToClipboard(props.code.trim())
+
 		setCopied(true)
 		setJustCopied(true)
-		setTimeout(() => setJustCopied(false), 400)
+
+		setTimeout(() => setJustCopied(false), 300)
 		setTimeout(() => setCopied(false), 2000)
 	}
 
@@ -45,13 +51,17 @@ export function CodePreviewTabs(props: Readonly<CodePreviewTabsProps>) {
 			onChange={setActiveTab}
 			tabs={[
 				{
-					content: <div class={previewBoxClass}>{props.preview}</div>,
+					content: (
+						<div class="relative flex flex-wrap items-center gap-3 rounded-xl border border-base-300 bg-base-200/50 p-4">
+							{props.preview}
+						</div>
+					),
 					label: "Preview",
 					value: "preview"
 				},
 				{
 					content: (
-						<div class="overflow-x-auto text-sm [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!">
+						<div class="overflow-x-auto text-xs [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!">
 							<Show
 								when={source()}
 								fallback={
@@ -61,11 +71,13 @@ export function CodePreviewTabs(props: Readonly<CodePreviewTabsProps>) {
 								}
 							>
 								{(html) => (
-									<div class="relative">
-										<div
-											class="rounded-xl border border-base-300 bg-base-200/50 p-4"
-											innerHTML={html()}
-										/>
+									<div
+										class={cn(
+											"relative p-4 font-mono leading-relaxed",
+											"rounded-xl border border-base-300"
+										)}
+									>
+										<div innerHTML={html()} />
 										<Button
 											class="absolute top-3 right-2 z-10 btn-square transition-all btn-soft"
 											aria-label="Copy to clipboard"

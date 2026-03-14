@@ -21,7 +21,7 @@ function showFileActions(source?: string, path?: string) {
 
 export function DocPageLayout(props: Readonly<DocPageLayoutProps>) {
 	return (
-		<main class="bg-dot-grid relative min-h-screen w-full overflow-x-hidden bg-base-100">
+		<section class="bg-dot-grid relative w-full bg-base-100">
 			<div class="pointer-events-none absolute inset-0 flex justify-center">
 				<div class="mt-12 h-80 w-96 animate-pulse rounded-full bg-primary/10 blur-3xl" />
 			</div>
@@ -57,6 +57,6 @@ export function DocPageLayout(props: Readonly<DocPageLayoutProps>) {
 
 				{props.children}
 			</article>
-		</main>
+		</section>
 	)
 }
