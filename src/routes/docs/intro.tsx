@@ -1,13 +1,86 @@
+import { For } from "solid-js"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import {
+	Accordion,
+	AccordionContent,
+	AccordionTrigger
+} from "~/components/ui/accordion"
+import { CodeBlock } from "~/components/ui/code-block"
+import { faq } from "~/constants"
+
+const usageCode = `import { Button } from "~/components/ui/button"
+
+export default function Showcase() {
+  return (
+    <Button variant="light" size="small">
+      Click me
+    </Button>
+  )
+}`
 
 export default function IntroductionPage() {
 	return (
 		<DocPageLayout
 			title="Introduction"
-			description="Welcome to the documentation for Mēpuru. Mēpuru is a simple UI
-						library for Solid."
+			description="A copy-paste UI component system for SolidJS built with daisyUI and Tailwind."
 		>
-			Content to come
+			<section class="space-y-4 leading-relaxed text-base-content/80">
+				<p>
+					<strong>Mēpuru</strong> is a collection of UI components for{" "}
+					<strong>SolidJS</strong>, styled with
+					<strong>daisyUI</strong> and <strong>Tailwind CSS</strong>.
+				</p>
+
+				<p>
+					Instead of installing a component library, you copy the component
+					source into your project and use it as your own.
+				</p>
+
+				<p>
+					You own the code. Customize it, extend it, or adapt it to your design
+					system without being locked into a dependency.
+				</p>
+			</section>
+
+			<section class="space-y-4 pt-6">
+				<h2 class="text-xl font-semibold">How it works</h2>
+
+				<ul class="space-y-1 text-base-content/80">
+					<li>• Copy a component from the docs</li>
+					<li>
+						• Place it in
+						<code>/components/ui</code>
+					</li>
+					<li>• Import and use it in your project</li>
+				</ul>
+			</section>
+
+			<section class="space-y-4 pt-6">
+				<h2 class="text-xl font-semibold">Example</h2>
+
+				<CodeBlock
+					title="showcase.tsx"
+					language="tsx"
+					code={usageCode}
+				/>
+			</section>
+
+			<section class="space-y-4 pt-6">
+				<h2 class="text-xl font-semibold">FAQ</h2>
+
+				<For each={faq}>
+					{(item) => (
+						<Accordion
+							icon="arrow"
+							name="introduction"
+							open
+						>
+							<AccordionTrigger>{item.title}</AccordionTrigger>
+							<AccordionContent>{item.description}</AccordionContent>
+						</Accordion>
+					)}
+				</For>
+			</section>
 		</DocPageLayout>
 	)
 }
