@@ -187,10 +187,6 @@
 	}
 }
 
-.animate-copy-pop {
-	animation: copy-pop 0.35s ease-out;
-}
-
 h2,
 h3,
 h4 {
@@ -210,4 +206,30 @@ pre code span.line::before {
 	width: 2rem;
 	margin-right: 0.5rem;
 	color: #666;
+}
+
+.scrollbar-none {
+	scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+	display: none;
+}
+
+@keyframes copy-pop {
+	0% {
+		transform: scale(0.7);
+		opacity: 0;
+	}
+	60% {
+		transform: scale(1.15);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.animate-copy-pop {
+	animation: copy-pop 200ms ease;
 }
