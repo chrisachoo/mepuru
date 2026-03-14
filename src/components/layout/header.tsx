@@ -1,14 +1,13 @@
 import { A, useLocation } from "@solidjs/router"
-import { Menu, Moon, Sun } from "lucide-solid"
+import { Menu } from "lucide-solid"
 import { createSignal, For, onCleanup, onMount, Show } from "solid-js"
+import { ToggleTheme } from "~/components/layout/toggle-theme"
 import { LinkItem } from "~/components/ui/link-item"
 import { MapleLeaf } from "~/components/ui/maple-leaf"
 import { linkItems } from "~/constants"
-import { useColorMode } from "~/hooks/use-color-mode"
 import { cn } from "~/lib/cn"
 
-export function Header() {
-	const { colorMode, toggleColorMode } = useColorMode()
+export function Header(props: Readonly<{ shouldShowLogo?: boolean }>) {
 	const { pathname } = useLocation()
 
 	const [isScrolled, setIsScrolled] = createSignal(false)
@@ -60,74 +59,67 @@ export function Header() {
 						</label>
 					</div>
 
-					<div class="flex-1 px-2">
-						<A
-							href="/"
-							class="text-amber-400"
-						>
-							<MapleLeaf />
-						</A>
-					</div>
-
-					<div class="hidden flex-none lg:block">
-						<ul class="menu menu-horizontal">
-							<li>
-								<A
-									href="#"
-									preload
-								>
-									Docs
-								</A>
-							</li>
-							<li>
-								<A
-									href="#"
-									preload
-								>
-									Components
-								</A>
-							</li>
-						</ul>
-					</div>
-
-					<div class="flex items-center gap-2">
-						<button
-							aria-label="Toggle theme"
-							class="btn btn-square btn-ghost"
-							onClick={toggleColorMode}
-						>
-							<span class="inline-flex size-4 items-center justify-center">
-								<Show
-									when={colorMode() === "light"}
-									fallback={<Moon class="animate-theme-icon size-4" />}
-								>
-									<Sun class="animate-theme-icon size-4" />
-								</Show>
-							</span>
-							<span class="sr-only">Toggle theme</span>
-						</button>
-
-						<button
-							aria-label="Visit GitHub repository"
-							class="btn btn-square btn-ghost"
-						>
-							<svg
-								class="size-4 shrink-0"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 24 24"
-								aria-hidden="true"
+					<Show when={props.shouldShowLogo}>
+						<div class="flex-1 px-2">
+							<A
+								href="/"
+								class="text-amber-400"
 							>
-								<g
-									stroke-linejoin="round"
-									stroke-linecap="round"
-									stroke-width="2"
-									fill="none"
-									stroke="currentColor"
+								<MapleLeaf />
+							</A>
+						</div>
+					</Show>
+
+					<div class="flex w-full justify-end">
+						<div class="hidden flex-none lg:block">
+							<ul class="menu menu-horizontal">
+								<For
+									each={[
+										{ href: "/docs/install/", path: "Docs" },
+										{ href: "/components/", path: "Components" }
+									]}
 								>
-									<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-								</g>
-							</svg>
-						</button>
+									{(item) => (
+										<li>
+											<A
+												activeClass="text-primary"
+												class="link"
+												href={item.href}
+												preload
+											>
+												{item.path}
+											</A>
+										</li>
+									)}
+								</For>
+							</ul>
+						</div>
+
+						<div class="flex items-center gap-2">
+							<ToggleTheme />
+
+							<button
+								aria-label="Visit GitHub repository"
+								class="btn btn-square btn-ghost"
+							>
+								<svg
+									class="size-4 shrink-0"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+								>
+									<g
+										stroke-linejoin="round"
+										stroke-linecap="round"
+										stroke-width="2"
+										fill="none"
+										stroke="currentColor"
+									>
+										<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+									</g>
+								</svg>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
