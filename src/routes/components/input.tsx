@@ -76,28 +76,6 @@ export function InputSizesDemo() {
   )
 }`
 
-const inputFormFieldCode = `import { Input } from "~/components/ui/input
-
-function FormField() {
-
-	return (
-		<form class="grid space-y-4">
-			<fieldset class="fieldset">
-				<legend class="fieldset-legend capitalize">Username: </legend>
-				<Input type="text" id="username" name="username" placeholder="Username" />
-				<p class="label">Optional</p>
-			</fieldset>
-
-			<fieldset class="fieldset">
-				<legend class="fieldset-legend capitalize">Password: </legend>
-				<Input type="password" id="password" name="name" placeholder="Password" autocomplete="new-password" />
-				<p class="label">Optional</p>
-			</fieldset>
-		</form>
-	)
-}
-`
-
 const inputHint = (
 	<p class="text-xs text-base-content/60">
 		Input forwards all native input attributes such as{" "}
@@ -177,39 +155,6 @@ export default function InputPage() {
 								placeholder="Input with error state"
 							/>
 						</div>
-					}
-				/>
-
-				<ComponentDemo
-					name="with-fieldset-and-fieldset-legend"
-					id="with-fieldset-and-fieldset-legend"
-					title="With fieldset and fieldset-legend"
-					code={inputFormFieldCode}
-					preview={
-						<form class="grid w-full space-y-4">
-							<fieldset class="fieldset">
-								<legend class="fieldset-legend capitalize">Username: </legend>
-								<Input
-									type="text"
-									id="username"
-									name="username"
-									placeholder="Username"
-								/>
-								<p class="label">Optional</p>
-							</fieldset>
-
-							<fieldset class="fieldset">
-								<legend class="fieldset-legend capitalize">Password: </legend>
-								<Input
-									type="password"
-									id="password"
-									name="name"
-									placeholder="Password"
-									autocomplete="new-password"
-								/>
-								<p class="label">Optional</p>
-							</fieldset>
-						</form>
 					}
 				/>
 			</section>
