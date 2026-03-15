@@ -1,69 +1,79 @@
-import type { JSX } from "solid-js"
-import { Show, splitProps } from "solid-js"
+import type { JSX, ValidComponent } from "solid-js"
+import type { PolymorphicProps } from "~/lib/polymorphic"
+import { splitProps } from "solid-js"
+import { Dynamic } from "solid-js/web"
 import { cn } from "~/lib/cn"
 
-export type ModalProps = {
-	open: boolean
-	onClose: () => void
-	class?: string
-	/** Content of the modal */
-	children?: JSX.Element
-	/** Accessible title (required for dialog) */
-	title?: string
-	/** If set, renders as a dialog with role="dialog" and focus trap semantics */
-	role?: "alertdialog" | "dialog"
-}
+function Modal(props: Readonly<JSX.IntrinsicElements["dialog"]>) {
+	const [local, rest] = splitProps(props, ["class", "ref"])
 
-function Modal(props: ModalProps) {
-	const [local, _rest] = splitProps(props, [
-		"open",
-		"onClose",
-		"class",
-		"children",
-		"title",
-		"role"
-	])
 	return (
-		<Show when={local.open}>
-			<div
-				class="fixed inset-0 z-50 flex items-center justify-center p-4"
-				role="presentation"
-			>
-				{/* Backdrop */}
-				<button
-					type="button"
-					class="absolute inset-0 bg-black/50 transition-opacity"
-					aria-label="Close modal"
-					onClick={(e) => {
-						e.currentTarget.blur()
-						local.onClose()
-					}}
-				/>
-				<div
-					role={local.role ?? "dialog"}
-					aria-modal="true"
-					aria-labelledby={local.title ? "modal-title" : undefined}
-					class={cn(
-						"modal relative z-10 max-h-[90vh] w-full max-w-lg overflow-auto rounded-lg bg-base-100 shadow-xl",
-						local.class
-					)}
-					onClick={(e) => e.stopPropagation()}
-				>
-					<div class="modal-box">
-						<Show when={local.title}>
-							<h2
-								id="modal-title"
-								class="text-lg font-semibold"
-							>
-								{local.title}
-							</h2>
-						</Show>
-						{local.children}
-					</div>
-				</div>
-			</div>
-		</Show>
+		<dialog
+			ref={local.ref}
+			class={cn("modal", local.class)}
+			{...rest}
+		/>
 	)
 }
 
-export { Modal }
+function ModalTrigger<T extends ValidComponent = "button">(props: PolymorphicProps<T>) {
+	const [local, rest] = splitProps(props, ["as"])
+
+	const Component = () => (local.as ?? "button")
+
+	return <Dynamic component={Component()} {...rest} />
+}
+
+function ModalContent(props: Readonly<JSX.IntrinsicElements["div"]>) {
+	const [local, rest] = splitProps(props, ["class"])
+
+	return (
+		<div class={cn("modal-box", local.class)} {...rest} />
+	)
+}
+
+function ModalTitle(props: Readonly<JSX.IntrinsicElements["h3"]>) {
+	const [local, rest] = splitProps(props, ["class"])
+
+	return (
+		<h3 class={cn("font-bold text-lg", local.class)} {...rest} />
+	)
+}
+
+function ModalDescription(props: Readonly<JSX.IntrinsicElements["p"]>) {
+	const [local, rest] = splitProps(props, ["class"])
+
+	return (
+		<p class={cn("py-4", local.class)} {...rest} />
+	)
+}
+
+function ModalFooter(props: Readonly<JSX.IntrinsicElements["form"]>) {
+	const [local, rest] = splitProps(props, ["class"])
+
+	return (
+		<form
+			method="dialog"
+			class={cn("modal-action", local.class)}
+			{...rest}
+		/>
+	)
+}
+
+function ModalBackdrop() {
+	return (
+		<form method="dialog" class="modal-backdrop">
+			<button>close</button>
+		</form>
+	)
+}
+
+export {
+	Modal,
+	ModalBackdrop,
+	ModalContent,
+	ModalDescription,
+	ModalFooter,
+	ModalTitle,
+	ModalTrigger
+}
