@@ -30,7 +30,7 @@ export const linkItems = [
 			{ href: "/components/collapse/", label: "Collapse" },
 			{ href: "/components/divider/", label: "Divider" },
 			{ href: "/components/dropdown/", label: "Dropdown" },
-			{ href: "/components/field/", label: "Field" },
+			{ href: "/components/fieldset/", label: "Fieldset" },
 			{ href: "/components/input/", label: "Input" },
 			{ href: "/components/select/", label: "Select" },
 			{ href: "/components/skeleton/", label: "Skeleton" },
