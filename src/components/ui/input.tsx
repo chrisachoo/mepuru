@@ -25,7 +25,7 @@ export type InputProps = JSX.IntrinsicElements["input"] & {
 	error?: boolean
 } & VariantProps<typeof inputVariants>
 
-function Input(props: InputProps) {
+export function Input(props: InputProps) {
 	const [local, rest] = splitProps(props, ["class", "error", "size"])
 
 	return (
@@ -40,20 +40,3 @@ function Input(props: InputProps) {
 		/>
 	)
 }
-
-function FormField(props: InputProps) {
-	const [local, rest] = splitProps(props, ["name"])
-
-	return (
-		<fieldset class="fieldset">
-			<legend class="fieldset-legend capitalize">{local.name}</legend>
-			<Input
-				name={local.name}
-				{...rest}
-			/>
-			<p class="label">Optional</p>
-		</fieldset>
-	)
-}
-
-export { FormField, Input }
