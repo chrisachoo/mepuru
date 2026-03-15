@@ -171,15 +171,13 @@ export default function AccordionPage() {
 		>
 			<Alert icon={<Info class="size-4" />}>
 				<AlertDescription class="text-xs font-normal">
-					Accordion uses the same style as the
-					{" "}
+					Accordion uses the same style as the{" "}
 					<A
 						href="/components/collapse/"
 						class="link"
 					>
 						collapse component
-					</A>
-					{" "}
+					</A>{" "}
 					but it works with details elements. You can control which item to be
 					open by setting the open attribute on details element.
 				</AlertDescription>
@@ -190,10 +188,10 @@ export default function AccordionPage() {
 				id="accordion"
 				name="accordion"
 				title="Accordion"
-				preview={(
-					<div class="w-full join join-vertical">
+				preview={
+					<div class="join join-vertical w-full">
 						<For each={faqData}>
-							{item => (
+							{(item) => (
 								<Accordion
 									icon="plus"
 									name="accordion-demo"
@@ -207,7 +205,7 @@ export default function AccordionPage() {
 							)}
 						</For>
 					</div>
-				)}
+				}
 			/>
 			<DocDivider />
 
@@ -227,9 +225,9 @@ export default function AccordionPage() {
 					id="soft-buttons"
 					name="soft-buttons"
 					title="Soft buttons"
-					preview={(
+					preview={
 						<For each={faqData}>
-							{item => (
+							{(item) => (
 								<Accordion
 									icon="arrow"
 									name="accordion-demo"
@@ -241,7 +239,7 @@ export default function AccordionPage() {
 								</Accordion>
 							)}
 						</For>
-					)}
+					}
 				/>
 			</section>
 
