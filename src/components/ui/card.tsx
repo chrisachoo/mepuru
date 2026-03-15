@@ -8,12 +8,12 @@ import { cn } from "~/lib/cn"
 
 const cardVariants = cva("card w-full bg-base-100 card-border", {
 	defaultVariants: {
-		size: "default"
+		size: "md"
 	},
 	variants: {
 		size: {
-			default: "card-md",
 			lg: "card-lg",
+			md: "card-md",
 			sm: "card-sm",
 			xl: "card-xl",
 			xs: "card-xs"
@@ -29,15 +29,13 @@ type CardProps = {
 export function Card<T extends ValidComponent = "div">(
 	props: PolymorphicProps<T, CardProps>
 ) {
-	const [local, rest] = splitProps(props, ["class", "children", "size"])
+	const [local, rest] = splitProps(props, ["class", "size"])
 	return (
 		<div
 			class={cn(cardVariants({ size: local.size }), local.class)}
 			data-slot="card"
 			{...rest}
-		>
-			<div class="card-body">{local.children}</div>
-		</div>
+		/>
 	)
 }
 
