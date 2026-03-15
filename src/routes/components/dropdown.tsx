@@ -177,13 +177,20 @@ export default function DropdownPage() {
 
 			<DocDivider />
 
-			<ComponentCode name="dropdown-install">
-				<CodeBlock
-					code={dropdownComponentCode}
-					language="tsx"
-					expand
-				/>
-			</ComponentCode>
+			<section class="space-y-3">
+				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
+				<p class="text-sm leading-relaxed text-base-content/80">
+					Create <InlineCode>src/components/ui/dropdown.tsx</InlineCode> and paste
+					the code below.
+				</p>
+				<ComponentCode name="dropdown-install">
+					<CodeBlock
+						code={dropdownComponentCode}
+						language="tsx"
+						expand
+					/>
+				</ComponentCode>
+			</section>
 
 			<DocDivider />
 

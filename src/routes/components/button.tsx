@@ -18,15 +18,25 @@ import { cn } from "~/lib/cn"
 
 const buttonVariants = cva("btn", {
   variants: {
-    size: { lg: "btn-lg", sm: "btn-sm" },
+    color: {
+      accent: "btn-accent",
+      default: "btn-neutral",
+      primary: "btn-primary",
+      secondary: "btn-secondary"
+    },
+    size: {
+      lg: "btn-lg",
+      sm: "btn-sm"
+    },
     variant: {
       destructive: "btn-error",
       ghost: "btn-ghost",
+      light: "btn-soft",
       link: "btn-link",
-      outline: "btn-outline",
-      primary: "btn-primary",
-    },
-  },
+      outline: "btn-outline ",
+      primary: "btn-primary"
+    }
+  }
 })
 
 type ButtonProps = {
@@ -36,11 +46,21 @@ type ButtonProps = {
 function Button<T extends ValidComponent = "button">(
   props: PolymorphicProps<T, ButtonProps>
 ) {
-  const [local, rest] = splitProps(props, ["variant", "size", "class", "children"])
+  const [local, rest] = splitProps(props, [
+    "variant",
+    "size",
+    "class",
+    "children",
+    "color"
+  ])
   return (
     <button
       class={cn(
-        buttonVariants({ size: local.size, variant: local.variant }),
+        buttonVariants({
+          color: local.color,
+          size: local.size,
+          variant: local.variant
+        }),
         local.class
       )}
       {...rest}
@@ -92,7 +112,7 @@ const buttonSoftCode = `import { Button } from "~/components/ui/button"
 	}
 `
 
-const buttonDemoCode = `import { ArrowUp } from "lucide-solid"
+const buttonDemoCode = `import { ArrowRight, Heart, ShoppingCart } from "lucide-solid"
 import { Button } from "~/components/ui/button"
 
 export function ButtonWithIconDemo() {
@@ -100,7 +120,7 @@ export function ButtonWithIconDemo() {
     <div class="flex flex-wrap items-center gap-3">
 				<Button variant="outline">
 					Button
-					<ArrowRight class="size-4"/>
+					<ArrowRight class="size-4" />
 				</Button>
 				<Button variant="outline" size="sm" class="btn-square" aria-label="Submit">
 					<ShoppingCart class="size-4" />
@@ -119,10 +139,14 @@ const buttonProps = [
 		type: `"primary" | "outline" | "light" | "ghost" | "link" | "destructive"`
 	},
 	{
-		default: "md",
+		description: "Color when used with variant (e.g. light)",
+		prop: "color",
+		type: `"default" | "primary" | "secondary" | "accent"`
+	},
+	{
 		description: "Button size",
 		prop: "size",
-		type: `"sm" | "md" | "lg"`
+		type: `"sm" | "lg"`
 	},
 	{
 		description: "Additional CSS classes",
@@ -180,13 +204,20 @@ export default function ButtonPage() {
 
 			<DocDivider />
 
-			<ComponentCode name="button-install">
-				<CodeBlock
-					code={buttonComponentCode}
-					language="tsx"
-					expand
-				/>
-			</ComponentCode>
+			<section class="space-y-3">
+				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
+				<p class="text-sm leading-relaxed text-base-content/80">
+					Create <InlineCode>src/components/ui/button.tsx</InlineCode> and paste
+					the code below.
+				</p>
+				<ComponentCode name="button-install">
+					<CodeBlock
+						code={buttonComponentCode}
+						language="tsx"
+						expand
+					/>
+				</ComponentCode>
+			</section>
 
 			<DocDivider />
 

@@ -3,6 +3,7 @@ import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { Button } from "~/components/ui/button"
+import { Card, CardAction, CardBody, CardDescription, CardTitle } from "~/components/ui/card"
 import { Modal, ModalContent, ModalDescription, ModalFooter, ModalTitle, ModalTrigger } from "~/components/ui/modal"
 
 const modalDemoCode = `import { 
@@ -63,6 +64,19 @@ export default function ModalPage() {
 					</div>
 				)}
 			/>
+
+			<div>
+				<Card class="w-96">
+					<CardBody>
+						<CardTitle>Xsmall Card</CardTitle>
+						<CardDescription>A card component has a figure, a body part, and inside body there are title and actions parts</CardDescription>
+						<CardAction>
+							<Button>Buy Now</Button>
+						</CardAction>
+					</CardBody>
+				</Card>
+
+			</div>
 
 			<DocDivider />
 		</DocPageLayout>

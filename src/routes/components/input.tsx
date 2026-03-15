@@ -138,13 +138,20 @@ export default function InputPage() {
 
 			<DocDivider />
 
-			<ComponentCode name="input-install">
-				<CodeBlock
-					code={inputComponentCode}
-					language="tsx"
-					expand
-				/>
-			</ComponentCode>
+			<section class="space-y-3">
+				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
+				<p class="text-sm leading-relaxed text-base-content/80">
+					Create <InlineCode>src/components/ui/input.tsx</InlineCode> and paste
+					the code below.
+				</p>
+				<ComponentCode name="input-install">
+					<CodeBlock
+						code={inputComponentCode}
+						language="tsx"
+						expand
+					/>
+				</ComponentCode>
+			</section>
 
 			<DocDivider />
 
