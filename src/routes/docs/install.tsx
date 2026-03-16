@@ -1,5 +1,5 @@
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
-import { CodeBlock } from "~/components/ui/code-block"
+import { CodeBlock } from "~/components/layout/code-block"
 
 const createProjectCmd = "bun create solid@latest my-app"
 

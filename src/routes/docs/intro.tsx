@@ -5,7 +5,7 @@ import {
 	AccordionContent,
 	AccordionTrigger
 } from "~/components/ui/accordion"
-import { CodeBlock } from "~/components/ui/code-block"
+import { CodeBlock } from "~/components/layout/code-block"
 import { faq } from "~/constants"
 
 const usageCode = `import { Button } from "~/components/ui/button"

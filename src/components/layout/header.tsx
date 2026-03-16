@@ -3,7 +3,7 @@ import { Menu } from "lucide-solid"
 import { createSignal, For, onCleanup, onMount, Show } from "solid-js"
 import { LinkItem } from "~/components/docs/link-item"
 import { ToggleTheme } from "~/components/layout/toggle-theme"
-import { MapleLeaf } from "~/components/ui/maple-leaf"
+import { MapleLeaf } from "~/components/layout/maple-leaf"
 import { linkItems } from "~/constants"
 import { cn } from "~/lib/cn"
 

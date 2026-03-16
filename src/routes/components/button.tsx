@@ -6,7 +6,7 @@ import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
 import { Button } from "~/components/ui/button"
-import { CodeBlock } from "~/components/ui/code-block"
+import { CodeBlock } from "~/components/layout/code-block"
 
 const buttonComponentCode = `import type { VariantProps } from "class-variance-authority"
 import type { ValidComponent } from "solid-js"

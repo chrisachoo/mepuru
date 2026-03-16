@@ -6,14 +6,14 @@ import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
 import { Button } from "~/components/ui/button"
 import {
-	Card,
-	CardAction,
-	CardBody,
-	CardDescription,
-	CardFigure,
-	CardTitle
+    Card,
+    CardAction,
+    CardBody,
+    CardDescription,
+    CardFigure,
+    CardTitle
 } from "~/components/ui/card"
-import { CodeBlock } from "~/components/ui/code-block"
+import { CodeBlock } from "~/components/layout/code-block"
 
 const cardComponentCode = `import type { VariantProps } from "class-variance-authority"
 import type { JSX, ValidComponent } from "solid-js"

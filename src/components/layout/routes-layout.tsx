@@ -4,7 +4,7 @@ import { For } from "solid-js"
 import { LinkItem } from "~/components/docs/link-item"
 import { Header } from "~/components/layout/header"
 import { linkItems } from "~/constants"
-import { MapleLeaf } from "../ui/maple-leaf"
+import { MapleLeaf } from "./maple-leaf"
 
 function Aside(props: Readonly<{ children: JSX.Element }>) {
 	return (

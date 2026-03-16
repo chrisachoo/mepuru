@@ -4,7 +4,7 @@ import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
-import { CodeBlock } from "~/components/ui/code-block"
+import { CodeBlock } from "~/components/layout/code-block"
 import { Input } from "~/components/ui/input"
 
 const inputComponentCode = `import type { VariantProps } from "class-variance-authority"
