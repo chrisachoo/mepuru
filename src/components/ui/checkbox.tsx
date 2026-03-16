@@ -1,35 +1,34 @@
+import type { VariantProps } from "class-variance-authority"
 import type { JSX } from "solid-js"
+import { cva } from "class-variance-authority"
 import { splitProps } from "solid-js"
 import { cn } from "~/lib/cn"
 
-export type CheckboxProps = Omit<JSX.IntrinsicElements["input"], "type"> & {
-	class?: string
-	label?: JSX.Element
-	error?: boolean
-}
+const checkboxVariants = cva("checkbox", {
+	variants: {
+		variant: {
+			accent: "checkbox-accent",
+			error: "checkbox-error",
+			info: "checkbox-info",
+			neutral: "checkbox-neutral",
+			primary: "checkbox-primary",
+			secondary: "checkbox-secondary",
+			success: "checkbox-success",
+			warning: "checkbox-warning"
+		}
+	}
+})
 
-function Checkbox(props: CheckboxProps) {
-	const [local, rest] = splitProps(props, ["class", "label", "error", "id"])
-	const id = () =>
-		local.id ?? `checkbox-${Math.random().toString(36).slice(2, 9)}`
+type CheckboxProps = JSX.IntrinsicElements["input"] &
+	VariantProps<typeof checkboxVariants>
+
+export function Checkbox(props: Readonly<CheckboxProps>) {
+	const [local, rest] = splitProps(props, ["class", "variant"])
 	return (
-		<div class={cn("form-control", local.class)}>
-			<label
-				class="label cursor-pointer justify-start gap-3"
-				for={id()}
-			>
-				<input
-					type="checkbox"
-					id={id()}
-					class={cn("checkbox rounded", local.error && "checkbox-error")}
-					aria-invalid={local.error ?? undefined}
-					aria-describedby={local.error ? `${id()}-error` : undefined}
-					{...rest}
-				/>
-				{local.label != null && <span class="label-text">{local.label}</span>}
-			</label>
-		</div>
+		<input
+			class={cn(checkboxVariants({ variant: local.variant }))}
+			type="checkbox"
+			{...rest}
+		/>
 	)
 }
-
-export { Checkbox }
