@@ -1,8 +1,8 @@
 import type { JSX } from "solid-js"
 import { A, useLocation } from "@solidjs/router"
 import { For } from "solid-js"
+import { LinkItem } from "~/components/docs/link-item"
 import { Header } from "~/components/layout/header"
-import { LinkItem } from "~/components/ui/link-item"
 import { linkItems } from "~/constants"
 import { MapleLeaf } from "../ui/maple-leaf"
 
@@ -60,7 +60,7 @@ export function RoutesLayout(props: Readonly<{ children: JSX.Element }>) {
 
 				<Aside>
 					<For each={linkItems}>
-						{(item) => (
+						{item => (
 							<div class="grid space-y-2">
 								<div class="flex items-center gap-2 px-2">
 									<div class="flex size-8 items-center justify-center rounded-lg bg-primary/15 text-primary">
@@ -74,7 +74,7 @@ export function RoutesLayout(props: Readonly<{ children: JSX.Element }>) {
 
 								<ul class="menu w-full px-4 py-0">
 									<For each={item.group}>
-										{(link) => (
+										{link => (
 											<LinkItem
 												href={link.href}
 												label={link.label}
