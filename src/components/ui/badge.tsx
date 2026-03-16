@@ -28,8 +28,8 @@ const badgeVariants = cva("badge", {
 	}
 })
 
-type BadgeProps = JSX.IntrinsicElements["span"]
-	& VariantProps<typeof badgeVariants>
+type BadgeProps = JSX.IntrinsicElements["span"] &
+	VariantProps<typeof badgeVariants>
 
 export function Badge(props: Readonly<BadgeProps>) {
 	const [local, rest] = splitProps(props, ["class", "variant", "size"])

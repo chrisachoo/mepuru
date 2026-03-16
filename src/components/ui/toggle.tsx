@@ -3,6 +3,10 @@ import { cn } from "~/lib/cn"
 
 export function Toggle(props: Readonly<JSX.IntrinsicElements["input"]>) {
 	return (
-		<input type="checkbox" class={cn("toggle", props.class)} checked />
-  )
+		<input
+			type="checkbox"
+			class={cn("toggle", props.class)}
+			checked
+		/>
+	)
 }

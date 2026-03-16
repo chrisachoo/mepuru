@@ -124,9 +124,10 @@ export default function SelectPage() {
 					</Select>
 				}
 			>
-				Create <InlineCode>src/components/ui/select.tsx</InlineCode> and paste the
-				installation code. Pass <InlineCode>options</InlineCode> (value/label pairs)
-				and use native <InlineCode>name</InlineCode>, <InlineCode>disabled</InlineCode>, etc.
+				Create <InlineCode>src/components/ui/select.tsx</InlineCode> and paste
+				the installation code. Pass <InlineCode>options</InlineCode>{" "}
+				(value/label pairs) and use native <InlineCode>name</InlineCode>,{" "}
+				<InlineCode>disabled</InlineCode>, etc.
 			</ComponentDemo>
 
 			<DocDivider />
@@ -138,7 +139,11 @@ export default function SelectPage() {
 					the code below.
 				</p>
 				<ComponentCode name="select-install">
-					<CodeBlock code={selectComponentCode} language="tsx" expand />
+					<CodeBlock
+						code={selectComponentCode}
+						language="tsx"
+						expand
+					/>
 				</ComponentCode>
 			</section>
 

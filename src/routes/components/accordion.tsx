@@ -7,9 +7,9 @@ import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import {
-    Accordion,
-    AccordionContent,
-    AccordionTrigger
+	Accordion,
+	AccordionContent,
+	AccordionTrigger
 } from "~/components/ui/accordion"
 import { Alert, AlertDescription } from "~/components/ui/alert"
 import { CodeBlock } from "~/components/layout/code-block"

@@ -79,7 +79,7 @@ export function Header(props: Readonly<{ shouldShowLogo?: boolean }>) {
 										{ href: "/components/", path: "Components" }
 									]}
 								>
-									{item => (
+									{(item) => (
 										<li>
 											<A
 												activeClass="text-primary"
@@ -133,7 +133,7 @@ export function Header(props: Readonly<{ shouldShowLogo?: boolean }>) {
 
 				<div class="min-h-full w-80 bg-base-200 p-4">
 					<For each={linkItems}>
-						{item => (
+						{(item) => (
 							<div class="grid space-y-1">
 								<div class="flex items-center gap-2 px-2">
 									<div class="flex size-8 items-center justify-center rounded-lg bg-primary/15 text-primary">
@@ -145,7 +145,7 @@ export function Header(props: Readonly<{ shouldShowLogo?: boolean }>) {
 								</div>
 								<ul class="menu">
 									<For each={item.group}>
-										{link => (
+										{(link) => (
 											<LinkItem
 												href={link.href}
 												label={link.label}

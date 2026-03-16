@@ -6,6 +6,9 @@ export function Tooltip(props: Readonly<JSX.IntrinsicElements["div"]>) {
 	const [local, rest] = splitProps(props, ["class"])
 
 	return (
-		<div class={cn("tooltip", local.class)} {...rest} />
+		<div
+			class={cn("tooltip", local.class)}
+			{...rest}
+		/>
 	)
 }

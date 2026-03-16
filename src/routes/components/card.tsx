@@ -4,16 +4,16 @@ import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
+import { CodeBlock } from "~/components/layout/code-block"
 import { Button } from "~/components/ui/button"
 import {
-    Card,
-    CardAction,
-    CardBody,
-    CardDescription,
-    CardFigure,
-    CardTitle
+	Card,
+	CardAction,
+	CardBody,
+	CardDescription,
+	CardFigure,
+	CardTitle
 } from "~/components/ui/card"
-import { CodeBlock } from "~/components/layout/code-block"
 
 const cardComponentCode = `import type { VariantProps } from "class-variance-authority"
 import type { JSX, ValidComponent } from "solid-js"
@@ -308,7 +308,11 @@ export default function CardPage() {
 					the code below.
 				</p>
 				<ComponentCode name="card-install">
-					<CodeBlock code={cardComponentCode} language="tsx" expand />
+					<CodeBlock
+						code={cardComponentCode}
+						language="tsx"
+						expand
+					/>
 				</ComponentCode>
 			</section>
 
@@ -345,29 +349,44 @@ export default function CardPage() {
 					name="card-sizes-demo"
 					title="Sizes"
 					preview={(
-						<div class="flex flex-col w-full items-center justify-center gap-4">
-							<Card size="xs" class="max-w-96">
+						<div class="flex w-full flex-col items-center justify-center gap-4">
+							<Card
+								size="xs"
+								class="max-w-96"
+							>
 								<CardBody>
 									<CardTitle>Extra small</CardTitle>
-									<CardDescription>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</CardDescription>
+									<CardDescription>
+										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+									</CardDescription>
 									<CardAction>
 										<Button variant="primary">Action</Button>
 									</CardAction>
 								</CardBody>
 							</Card>
-							<Card size="sm" class="max-w-96">
+							<Card
+								size="sm"
+								class="max-w-96"
+							>
 								<CardBody>
 									<CardTitle>Small</CardTitle>
-									<CardDescription>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</CardDescription>
+									<CardDescription>
+										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+									</CardDescription>
 									<CardAction>
 										<Button variant="primary">Action</Button>
 									</CardAction>
 								</CardBody>
 							</Card>
-							<Card size="md" class="max-w-96">
+							<Card
+								size="md"
+								class="max-w-96"
+							>
 								<CardBody>
 									<CardTitle>Default</CardTitle>
-									<CardDescription>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</CardDescription>
+									<CardDescription>
+										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+									</CardDescription>
 									<CardAction>
 										<Button variant="primary">Action</Button>
 									</CardAction>
@@ -383,8 +402,8 @@ export default function CardPage() {
 					name="card-with-image-overlay"
 					title="Card with image overlay"
 					preview={(
-						<div class="flex w-full items-center justify-center ">
-							<Card class="w-96 bg-base-100 image-full shadow-sm">
+						<div class="flex w-full items-center justify-center">
+							<Card class="image-full w-96 bg-base-100 shadow-sm">
 								<CardFigure
 									src="https://picsum.photos/400/200"
 									alt="Card image"
@@ -415,7 +434,6 @@ export default function CardPage() {
 					,
 					<InlineCode>CardBody</InlineCode>
 					,
-					{" "}
 					<InlineCode>CardAction</InlineCode>
 					,
 					<InlineCode>CardFigure</InlineCode>
@@ -426,8 +444,7 @@ export default function CardPage() {
 					{" "}
 					and
 					<InlineCode>alt</InlineCode>
-					). All are
-					polymorphic and accept native attributes.
+					). All are polymorphic and accept native attributes.
 				</p>
 			</PropsTable>
 		</DocPageLayout>

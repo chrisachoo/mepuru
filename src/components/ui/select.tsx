@@ -19,18 +19,29 @@ const selectVariants = cva("select", {
 	}
 })
 
-type SelectProps = JSX.IntrinsicElements["select"] & VariantProps<typeof selectVariants>
+type SelectProps = JSX.IntrinsicElements["select"] &
+	VariantProps<typeof selectVariants>
 
 function Select(props: Readonly<SelectProps>) {
 	const [local, rest] = splitProps(props, ["class", "variant"])
 
-	return <select class={cn(selectVariants({ variant: local.variant }), local.class)} {...rest} />
+	return (
+		<select
+			class={cn(selectVariants({ variant: local.variant }), local.class)}
+			{...rest}
+		/>
+	)
 }
 
 function SelectOption(props: Readonly<JSX.IntrinsicElements["option"]>) {
 	const [local, rest] = splitProps(props, ["class"])
 
-	return <option class={cn(local.class)} {...rest} />
+	return (
+		<option
+			class={cn(local.class)}
+			{...rest}
+		/>
+	)
 }
 
 export { Select, SelectOption }

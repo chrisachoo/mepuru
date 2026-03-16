@@ -180,8 +180,8 @@ export default function DropdownPage() {
 			<section class="space-y-3">
 				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
 				<p class="text-sm leading-relaxed text-base-content/80">
-					Create <InlineCode>src/components/ui/dropdown.tsx</InlineCode> and paste
-					the code below.
+					Create <InlineCode>src/components/ui/dropdown.tsx</InlineCode> and
+					paste the code below.
 				</p>
 				<ComponentCode name="dropdown-install">
 					<CodeBlock

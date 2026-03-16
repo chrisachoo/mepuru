@@ -16,19 +16,29 @@ function Modal(props: Readonly<JSX.IntrinsicElements["dialog"]>) {
 	)
 }
 
-function ModalTrigger<T extends ValidComponent = "button">(props: PolymorphicProps<T>) {
+function ModalTrigger<T extends ValidComponent = "button">(
+	props: PolymorphicProps<T>
+) {
 	const [local, rest] = splitProps(props, ["as"])
 
-	const Component = () => (local.as ?? "button")
+	const Component = () => local.as ?? "button"
 
-	return <Dynamic component={Component()} {...rest} />
+	return (
+		<Dynamic
+			component={Component()}
+			{...rest}
+		/>
+	)
 }
 
 function ModalContent(props: Readonly<JSX.IntrinsicElements["div"]>) {
 	const [local, rest] = splitProps(props, ["class"])
 
 	return (
-		<div class={cn("modal-box", local.class)} {...rest} />
+		<div
+			class={cn("modal-box", local.class)}
+			{...rest}
+		/>
 	)
 }
 
@@ -36,7 +46,10 @@ function ModalTitle(props: Readonly<JSX.IntrinsicElements["h3"]>) {
 	const [local, rest] = splitProps(props, ["class"])
 
 	return (
-		<h3 class={cn("font-bold text-lg", local.class)} {...rest} />
+		<h3
+			class={cn("text-lg font-bold", local.class)}
+			{...rest}
+		/>
 	)
 }
 
@@ -44,7 +57,10 @@ function ModalDescription(props: Readonly<JSX.IntrinsicElements["p"]>) {
 	const [local, rest] = splitProps(props, ["class"])
 
 	return (
-		<p class={cn("py-4", local.class)} {...rest} />
+		<p
+			class={cn("py-4", local.class)}
+			{...rest}
+		/>
 	)
 }
 
@@ -62,7 +78,10 @@ function ModalFooter(props: Readonly<JSX.IntrinsicElements["form"]>) {
 
 function ModalBackdrop() {
 	return (
-		<form method="dialog" class="modal-backdrop">
+		<form
+			method="dialog"
+			class="modal-backdrop"
+		>
 			<button>close</button>
 		</form>
 	)
