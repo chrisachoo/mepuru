@@ -28,19 +28,17 @@ export const linkItems = [
 			{ href: "/components/card/", label: "Card" },
 			{ href: "/components/checkbox/", label: "Checkbox" },
 			{ href: "/components/collapse/", label: "Collapse" },
+			{ href: "/components/dialog/", label: "Dialog" },
 			{ href: "/components/divider/", label: "Divider" },
 			{ href: "/components/dropdown/", label: "Dropdown" },
 			{ href: "/components/fieldset/", label: "Fieldset" },
 			{ href: "/components/input/", label: "Input" },
+			{ href: "/components/modal/", label: "Modal" },
 			{ href: "/components/select/", label: "Select" },
-			{ href: "/components/skeleton/", label: "Skeleton" },
-			{ href: "/components/status/", label: "Status" },
-			{ href: "/components/switch/", label: "Switch" },
-			{ href: "/components/table/", label: "Table" },
 			{ href: "/components/tabs/", label: "Tabs" },
 			{ href: "/components/textarea/", label: "Textarea" },
-			{ href: "/components/tooltip/", label: "Tooltip" },
-			{ href: "/components/typography/", label: "Typography" }
+			{ href: "/components/toggle/", label: "Toggle" },
+			{ href: "/components/tooltip/", label: "Tooltip" }
 		],
 		icon: Component,
 		path: "components"
