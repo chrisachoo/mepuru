@@ -78,9 +78,15 @@ export function InputSizesDemo() {
 
 const inputHint = (
 	<p class="text-xs text-base-content/60">
-		Input forwards all native input attributes such as{" "}
-		<InlineCode>placeholder</InlineCode>,<InlineCode>type</InlineCode>, and{" "}
-		<InlineCode>value</InlineCode>.
+		Input forwards all native input attributes such as
+		{" "}
+		<InlineCode>placeholder</InlineCode>
+		,
+		<InlineCode>type</InlineCode>
+		, and
+		{" "}
+		<InlineCode>value</InlineCode>
+		.
 	</p>
 )
 
@@ -97,7 +103,7 @@ export default function InputPage() {
 				id="usage"
 				name="input-usage-demo"
 				title="Usage"
-				preview={
+				preview={(
 					<form class="flex w-full flex-col gap-3">
 						<Input
 							type="email"
@@ -108,7 +114,7 @@ export default function InputPage() {
 							placeholder="Input with error state"
 						/>
 					</form>
-				}
+				)}
 			>
 				Import the component and pass any native input attributes. See how it
 				works with different types and states.
@@ -116,20 +122,14 @@ export default function InputPage() {
 
 			<DocDivider />
 
-			<section class="space-y-3">
-				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
-				<p class="text-sm leading-relaxed text-base-content/80">
-					Create <InlineCode>src/components/ui/input.tsx</InlineCode> and paste
-					the code below.
-				</p>
-				<ComponentCode name="input-install">
-					<CodeBlock
-						code={inputComponentCode}
-						language="tsx"
-						expand
-					/>
-				</ComponentCode>
-			</section>
+			<ComponentCode name="input-install">
+				<CodeBlock
+					code={inputComponentCode}
+					language="tsx"
+					name="components/ui/input.tsx"
+					expand
+				/>
+			</ComponentCode>
 
 			<DocDivider />
 
@@ -139,7 +139,7 @@ export default function InputPage() {
 					id="input-sizes"
 					name="input-sizes-demo"
 					title="Input sizes"
-					preview={
+					preview={(
 						<div class="flex flex-wrap items-center gap-3">
 							<Input
 								size="sm"
@@ -155,7 +155,7 @@ export default function InputPage() {
 								placeholder="Input with error state"
 							/>
 						</div>
-					}
+					)}
 				/>
 			</section>
 

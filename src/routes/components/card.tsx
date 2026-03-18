@@ -7,12 +7,12 @@ import { PropsTable } from "~/components/docs/props-table"
 import { CodeBlock } from "~/components/layout/code-block"
 import { Button } from "~/components/ui/button"
 import {
-    Card,
-    CardAction,
-    CardBody,
-    CardDescription,
-    CardFigure,
-    CardTitle
+	Card,
+	CardAction,
+	CardBody,
+	CardDescription,
+	CardFigure,
+	CardTitle
 } from "~/components/ui/card"
 
 const cardComponentCode = `import type { VariantProps } from "class-variance-authority"
@@ -255,8 +255,7 @@ export default function CardPage() {
 				code={cardUsageCode}
 				id="usage"
 				name="card-usage-demo"
-				title="Usage"
-				preview={
+				preview={(
 					<div class="flex w-full items-center justify-center">
 						<Card class="max-w-96">
 							<CardBody>
@@ -270,31 +269,19 @@ export default function CardPage() {
 							</CardBody>
 						</Card>
 					</div>
-				}
-			>
-				Create <InlineCode>src/components/ui/card.tsx</InlineCode> and paste the
-				installation code. Compose <InlineCode>Card</InlineCode>,{" "}
-				<InlineCode>CardBody</InlineCode>,<InlineCode>CardTitle</InlineCode>,{" "}
-				<InlineCode>CardDescription</InlineCode>, and{" "}
-				<InlineCode>CardAction</InlineCode> as needed.
-			</ComponentDemo>
+				)}
+			/>
 
 			<DocDivider />
 
-			<section class="space-y-3">
-				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
-				<p class="text-sm leading-relaxed text-base-content/80">
-					Create <InlineCode>src/components/ui/card.tsx</InlineCode> and paste
-					the code below.
-				</p>
-				<ComponentCode name="card-install">
-					<CodeBlock
-						code={cardComponentCode}
-						language="tsx"
-						expand
-					/>
-				</ComponentCode>
-			</section>
+			<ComponentCode name="card-install">
+				<CodeBlock
+					code={cardComponentCode}
+					language="tsx"
+					name="components/ui/card.tsx"
+					expand
+				/>
+			</ComponentCode>
 
 			<DocDivider />
 
@@ -304,7 +291,7 @@ export default function CardPage() {
 					id="card-with-figure"
 					name="card-with-figure-demo"
 					title="With figure"
-					preview={
+					preview={(
 						<div class="flex w-full items-center justify-center">
 							<Card class="max-w-96">
 								<CardFigure
@@ -320,7 +307,7 @@ export default function CardPage() {
 								</CardBody>
 							</Card>
 						</div>
-					}
+					)}
 				/>
 
 				<ComponentDemo
@@ -328,7 +315,7 @@ export default function CardPage() {
 					id="card-sizes"
 					name="card-sizes-demo"
 					title="Sizes"
-					preview={
+					preview={(
 						<div class="flex w-full flex-col items-center justify-center gap-4">
 							<Card
 								size="xs"
@@ -373,7 +360,7 @@ export default function CardPage() {
 								</CardBody>
 							</Card>
 						</div>
-					}
+					)}
 				/>
 
 				<ComponentDemo
@@ -381,7 +368,7 @@ export default function CardPage() {
 					id="card-with-image-overlay"
 					name="card-with-image-overlay"
 					title="Card with image overlay"
-					preview={
+					preview={(
 						<div class="flex w-full items-center justify-center">
 							<Card class="image-full w-96 bg-base-100 shadow-sm">
 								<CardFigure
@@ -397,7 +384,7 @@ export default function CardPage() {
 								</CardBody>
 							</Card>
 						</div>
-					}
+					)}
 				/>
 			</section>
 
@@ -405,11 +392,24 @@ export default function CardPage() {
 
 			<PropsTable data={cardProps} daisyHref="https://daisyui.com/components/card/">
 				<p class="mt-2 text-xs text-base-content/60">
-					<strong>Subcomponents:</strong> <InlineCode>CardTitle</InlineCode>,{" "}
-					<InlineCode>CardDescription</InlineCode>,
-					<InlineCode>CardBody</InlineCode>,<InlineCode>CardAction</InlineCode>,
-					<InlineCode>CardFigure</InlineCode> (requires{" "}
-					<InlineCode>src</InlineCode> and
+					<strong>Subcomponents:</strong>
+					{" "}
+					<InlineCode>CardTitle</InlineCode>
+					,
+					{" "}
+					<InlineCode>CardDescription</InlineCode>
+					,
+					<InlineCode>CardBody</InlineCode>
+					,
+					<InlineCode>CardAction</InlineCode>
+					,
+					<InlineCode>CardFigure</InlineCode>
+					{" "}
+					(requires
+					{" "}
+					<InlineCode>src</InlineCode>
+					{" "}
+					and
 					<InlineCode>alt</InlineCode>
 					). All are polymorphic and accept native attributes.
 				</p>

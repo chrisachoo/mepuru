@@ -59,7 +59,6 @@ export default function ModalPage() {
 				code={modalDemoCode}
 				id="usage"
 				name="input-usage-demo"
-				title="Usage"
 				preview={
 					<div>
 						<ModalTrigger>

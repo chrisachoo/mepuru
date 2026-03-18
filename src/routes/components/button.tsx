@@ -172,7 +172,6 @@ export default function ButtonPage() {
 				code={buttonDemoCode}
 				id="usage"
 				name="button-demo-code"
-				title="Usage"
 				preview={(
 					<div class="flex flex-wrap items-center gap-3">
 						<Button variant="outline">
@@ -197,31 +196,18 @@ export default function ButtonPage() {
 						</Button>
 					</div>
 				)}
-			>
-				Import the component and use it with variant and size props. See how it
-				works with icons and other props.
-			</ComponentDemo>
+			/>
 
 			<DocDivider />
 
-			<section class="space-y-3">
-				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
-				<p class="text-sm leading-relaxed text-base-content/80">
-					Create
-					{" "}
-					<InlineCode>src/components/ui/button.tsx</InlineCode>
-					{" "}
-					and paste
-					the code below.
-				</p>
-				<ComponentCode name="button-install">
-					<CodeBlock
-						code={buttonComponentCode}
-						language="tsx"
-						expand
-					/>
-				</ComponentCode>
-			</section>
+			<ComponentCode name="button-install">
+				<CodeBlock
+					code={buttonComponentCode}
+					language="tsx"
+					name="components/ui/button.tsx"
+					expand
+				/>
+			</ComponentCode>
 
 			<DocDivider />
 

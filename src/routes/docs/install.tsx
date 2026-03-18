@@ -77,7 +77,7 @@ export default function InstallationPage() {
 						From your project root, install Tailwind CSS and daisyUI.
 					</p>
 					<CodeBlock
-						title="Terminal"
+						name="Terminal"
 						code={installDepsCmd}
 						language="bash"
 					/>
@@ -86,7 +86,7 @@ export default function InstallationPage() {
 						Add Tailwind CSS to your Vite config:
 					</p>
 					<CodeBlock
-						title="vite.config.js"
+						name="vite.config.js"
 						code={viteConfigCode}
 						language="typescript"
 					/>
@@ -96,7 +96,7 @@ export default function InstallationPage() {
 						styles):
 					</p>
 					<CodeBlock
-						title="src/index.css"
+						name="src/index.css"
 						code={cssCode}
 						language="css"
 					/>
@@ -118,7 +118,7 @@ export default function InstallationPage() {
 						).
 					</p>
 					<CodeBlock
-						title="components/ui/button.tsx"
+						name="components/ui/button.tsx"
 						code={buttonComponentCode}
 						language="tsx"
 					/>

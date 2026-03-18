@@ -1,11 +1,12 @@
 import { For } from "solid-js"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { InlineCode } from "~/components/docs/inline-code"
+import { CodeBlock } from "~/components/layout/code-block"
 import {
 	Accordion,
 	AccordionContent,
 	AccordionTrigger
 } from "~/components/ui/accordion"
-import { CodeBlock } from "~/components/layout/code-block"
 import { faq } from "~/constants"
 
 const usageCode = `import { Button } from "~/components/ui/button"
@@ -26,9 +27,19 @@ export default function IntroductionPage() {
 		>
 			<section class="space-y-4 leading-relaxed text-base-content/80">
 				<p>
-					<strong>Mēpuru</strong> is a collection of UI components for{" "}
-					<strong>SolidJS</strong>, styled with
-					<strong>daisyUI</strong> and <strong>Tailwind CSS</strong>.
+					<strong>Mēpuru</strong>
+					{" "}
+					is a collection of UI components for
+					{" "}
+					<strong>SolidJS</strong>
+					, styled with
+					{" "}
+					<strong>daisyUI</strong>
+					{" "}
+					and
+					{" "}
+					<strong>Tailwind CSS</strong>
+					.
 				</p>
 
 				<p>
@@ -49,7 +60,8 @@ export default function IntroductionPage() {
 					<li>• Copy a component from the docs</li>
 					<li>
 						• Place it in
-						<code>/components/ui</code>
+						{" "}
+						<InlineCode>/components/ui</InlineCode>
 					</li>
 					<li>• Import and use it in your project</li>
 				</ul>
@@ -59,7 +71,7 @@ export default function IntroductionPage() {
 				<h2 class="text-xl font-semibold">Example</h2>
 
 				<CodeBlock
-					title="showcase.tsx"
+					name="showcase.tsx"
 					language="tsx"
 					code={usageCode}
 				/>
@@ -69,10 +81,11 @@ export default function IntroductionPage() {
 				<h2 class="text-xl font-semibold">FAQ</h2>
 
 				<For each={faq}>
-					{(item) => (
+					{item => (
 						<Accordion
 							icon="arrow"
 							name="introduction"
+							class="bg-base-200"
 							open
 						>
 							<AccordionTrigger>{item.title}</AccordionTrigger>

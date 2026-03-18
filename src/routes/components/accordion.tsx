@@ -189,7 +189,6 @@ export default function AccordionPage() {
 				code={accordionDemoCode}
 				id="accordion"
 				name="accordion"
-				title="Accordion"
 				preview={(
 					<div class="join join-vertical w-full">
 						<For each={faqData}>
@@ -209,12 +208,14 @@ export default function AccordionPage() {
 					</div>
 				)}
 			/>
+			
 			<DocDivider />
 
 			<ComponentCode name="accordion-install">
 				<CodeBlock
 					code={accordionComponentCode}
 					language="tsx"
+					name="components/ui/accordion.tsx"
 					expand
 				/>
 			</ComponentCode>

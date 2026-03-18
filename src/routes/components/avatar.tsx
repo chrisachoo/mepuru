@@ -2,7 +2,6 @@ import { ComponentCode } from "~/components/docs/component-code"
 import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
-import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
 import { CodeBlock } from "~/components/layout/code-block"
 import { Avatar, AvatarFallback, AvatarGroup, AvatarImage } from "~/components/ui/avatar"
@@ -225,7 +224,6 @@ export default function AvatarPage() {
 			<ComponentDemo
 				id="usage"
 				name="button-demo-code"
-				title="Avatar"
 				code={avatarDemoCode}
 				preview={(
 					<div class="flex w-full items-center justify-center gap-4">
@@ -256,24 +254,14 @@ export default function AvatarPage() {
 
 			<DocDivider />
 
-			<section class="space-y-3">
-				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
-				<p class="text-sm leading-relaxed text-base-content/80">
-					Create
-					{" "}
-					<InlineCode>src/components/ui/avatar.tsx</InlineCode>
-					{" "}
-					and paste
-					the code below.
-				</p>
-				<ComponentCode name="button-install">
-					<CodeBlock
-						code={avatarComponentCode}
-						language="tsx"
-						expand
-					/>
-				</ComponentCode>
-			</section>
+			<ComponentCode name="button-install">
+				<CodeBlock
+					code={avatarComponentCode}
+					language="tsx"
+					name="components/ui/avatar.tsx"
+					expand
+				/>
+			</ComponentCode>
 
 			<DocDivider />
 

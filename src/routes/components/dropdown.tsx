@@ -156,12 +156,9 @@ export default function DropdownPage() {
 				code={dropdownDemoCode}
 				id="usage"
 				name="dropdown-usage-demo"
-				title="Usage"
 				preview={
 					<Dropdown name="Open menu">
-						<DropdownItem onClick={() => console.log("Item 1")}>
-							Item 1
-						</DropdownItem>
+						<DropdownItem>Item 1</DropdownItem>
 						<DropdownItem>Item 2</DropdownItem>
 						<DropdownItem>Item 3</DropdownItem>
 					</Dropdown>
@@ -177,20 +174,15 @@ export default function DropdownPage() {
 
 			<DocDivider />
 
-			<section class="space-y-3">
-				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
-				<p class="text-sm leading-relaxed text-base-content/80">
-					Create <InlineCode>src/components/ui/dropdown.tsx</InlineCode> and
-					paste the code below.
-				</p>
+
 				<ComponentCode name="dropdown-install">
 					<CodeBlock
 						code={dropdownComponentCode}
 						language="tsx"
+						name="components/ui/dropdown.tsx"
 						expand
 					/>
 				</ComponentCode>
-			</section>
 
 			<DocDivider />
 

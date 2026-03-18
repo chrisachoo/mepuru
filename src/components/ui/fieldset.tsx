@@ -26,7 +26,7 @@ function FieldLabel(props: Readonly<JSX.IntrinsicElements["label"]>) {
 	const [local, rest] = splitProps(props, ["class", "children"])
 	return (
 		<label
-			class={cn("label", local.class)}
+			class={cn("label font-semibold", local.class)}
 			{...rest}
 		>
 			{local.children}
