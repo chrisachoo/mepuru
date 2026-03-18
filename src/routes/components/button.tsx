@@ -283,7 +283,7 @@ export default function ButtonPage() {
 
 			<DocDivider />
 
-			<PropsTable data={buttonProps}>
+			<PropsTable data={buttonProps} daisyHref="https://daisyui.com/components/button/">
 				<p class="text-xs text-base-content/60">
 					Button is polymorphic: it accepts all native button attributes and can
 					be rendered as another element via

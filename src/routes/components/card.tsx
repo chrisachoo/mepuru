@@ -7,12 +7,12 @@ import { PropsTable } from "~/components/docs/props-table"
 import { CodeBlock } from "~/components/layout/code-block"
 import { Button } from "~/components/ui/button"
 import {
-	Card,
-	CardAction,
-	CardBody,
-	CardDescription,
-	CardFigure,
-	CardTitle
+    Card,
+    CardAction,
+    CardBody,
+    CardDescription,
+    CardFigure,
+    CardTitle
 } from "~/components/ui/card"
 
 const cardComponentCode = `import type { VariantProps } from "class-variance-authority"
@@ -403,7 +403,7 @@ export default function CardPage() {
 
 			<DocDivider />
 
-			<PropsTable data={cardProps}>
+			<PropsTable data={cardProps} daisyHref="https://daisyui.com/components/card/">
 				<p class="mt-2 text-xs text-base-content/60">
 					<strong>Subcomponents:</strong> <InlineCode>CardTitle</InlineCode>,{" "}
 					<InlineCode>CardDescription</InlineCode>,

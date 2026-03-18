@@ -28,7 +28,7 @@ function Select(props: SelectProps) {
   return (
     <select
       class={cn(
-        "select-bordered select w-full rounded-lg focus:outline focus:outline-2 focus:outline-offset-2",
+        "select-bordered select w-full rounded-lg focus:outline-2 focus:outline-offset-2",
         local.error && "select-error",
         local.class
       )}
@@ -174,7 +174,7 @@ export default function SelectPage() {
 
 			<DocDivider />
 
-			<PropsTable data={selectProps}>
+			<PropsTable data={selectProps} daisyHref="https://daisyui.com/components/select/">
 				<p class="mt-2 text-xs text-base-content/60">
 					Use <InlineCode>aria-label</InlineCode> or a visible label for
 					accessibility when the select is not wrapped in a fieldset.

@@ -229,7 +229,9 @@ export default function DropdownPage() {
 
 			<DocDivider />
 
-			<PropsTable data={dropdownProps}>{dropdownItemHint}</PropsTable>
+			<PropsTable data={dropdownProps} daisyHref="https://daisyui.com/components/dropdown/">
+				{dropdownItemHint}
+			</PropsTable>
 		</DocPageLayout>
 	)
 }

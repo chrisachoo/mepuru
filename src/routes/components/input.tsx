@@ -186,6 +186,7 @@ export default function InputPage() {
 						type: "HTMLInputAttributes"
 					}
 				]}
+				daisyHref="https://daisyui.com/components/input/"
 			>
 				{inputHint}
 			</PropsTable>

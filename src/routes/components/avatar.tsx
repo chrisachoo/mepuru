@@ -1,4 +1,3 @@
-import { A } from "@solidjs/router"
 import { ComponentCode } from "~/components/docs/component-code"
 import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
@@ -353,12 +352,7 @@ export default function AvatarPage() {
 
 			<PropsTable
 				data={avatarProps}
-				credit={(
-					<p>
-						For more classes please visit daisyui they have good docs, this is only subtle of what daisy can do {" "}
-						<A class="link" preload href="https://daisyui.com/components/avatar/">See</A>
-					</p>
-				)}
+				daisyHref="https://daisyui.com/components/avatar/"
 			/>
 		</DocPageLayout>
 	)
