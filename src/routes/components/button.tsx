@@ -5,8 +5,8 @@ import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
-import { Button } from "~/components/ui/button"
 import { CodeBlock } from "~/components/layout/code-block"
+import { Button } from "~/components/ui/button"
 
 const buttonComponentCode = `import type { VariantProps } from "class-variance-authority"
 import type { ValidComponent } from "solid-js"
@@ -173,7 +173,7 @@ export default function ButtonPage() {
 				id="usage"
 				name="button-demo-code"
 				title="Usage"
-				preview={
+				preview={(
 					<div class="flex flex-wrap items-center gap-3">
 						<Button variant="outline">
 							Button
@@ -196,7 +196,7 @@ export default function ButtonPage() {
 							<Heart class="size-4" />
 						</Button>
 					</div>
-				}
+				)}
 			>
 				Import the component and use it with variant and size props. See how it
 				works with icons and other props.
@@ -207,7 +207,11 @@ export default function ButtonPage() {
 			<section class="space-y-3">
 				<h2 class="text-xl font-semibold text-base-content">Installation</h2>
 				<p class="text-sm leading-relaxed text-base-content/80">
-					Create <InlineCode>src/components/ui/button.tsx</InlineCode> and paste
+					Create
+					{" "}
+					<InlineCode>src/components/ui/button.tsx</InlineCode>
+					{" "}
+					and paste
 					the code below.
 				</p>
 				<ComponentCode name="button-install">
@@ -227,7 +231,7 @@ export default function ButtonPage() {
 					id="button-variants"
 					name="button-variants-demo"
 					title="Button variants"
-					preview={
+					preview={(
 						<div class="flex flex-wrap items-center gap-3">
 							<Button variant="primary">Primary</Button>
 							<Button variant="outline">Outline</Button>
@@ -235,7 +239,7 @@ export default function ButtonPage() {
 							<Button variant="ghost">Ghost</Button>
 							<Button variant="link">Link</Button>
 						</div>
-					}
+					)}
 				/>
 
 				<ComponentDemo
@@ -243,13 +247,13 @@ export default function ButtonPage() {
 					id="buttons-sizes"
 					name="button-sizes-demo"
 					title="Button sizes"
-					preview={
+					preview={(
 						<div class="flex flex-wrap items-center gap-3">
 							<Button size="sm">Small</Button>
 							<Button>Default</Button>
 							<Button size="lg">Large</Button>
 						</div>
-					}
+					)}
 				/>
 
 				<ComponentDemo
@@ -257,7 +261,7 @@ export default function ButtonPage() {
 					id="soft-buttons"
 					name="soft-buttons"
 					title="Soft buttons"
-					preview={
+					preview={(
 						<div class="flex flex-wrap items-center gap-3">
 							<Button variant="light">Default</Button>
 							<Button
@@ -273,7 +277,7 @@ export default function ButtonPage() {
 								Secondary
 							</Button>
 						</div>
-					}
+					)}
 				/>
 			</section>
 
@@ -282,7 +286,11 @@ export default function ButtonPage() {
 			<PropsTable data={buttonProps}>
 				<p class="text-xs text-base-content/60">
 					Button is polymorphic: it accepts all native button attributes and can
-					be rendered as another element via <InlineCode>as</InlineCode> (see
+					be rendered as another element via
+					{" "}
+					<InlineCode>as</InlineCode>
+					{" "}
+					(see
 					PolymorphicProps).
 				</p>
 			</PropsTable>
