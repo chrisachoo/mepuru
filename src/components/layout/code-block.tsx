@@ -7,7 +7,7 @@ type CodeBlockProps = {
 	code: string
 	language?: "bash" | "css" | "javascript" | "tsx" | "typescript"
 	class?: string
-	title?: string
+	name?: string
 	expand?: boolean
 }
 
@@ -58,13 +58,13 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 			<div class="flex flex-wrap items-center justify-between gap-2 border-b border-base-300 bg-base-300/50 px-4 py-3">
 				<div class="flex items-center gap-3">
 					<div class="flex items-center">
-						<div class="flex items-center gap-2 px-2.5 py-1 font-mono text-xs">
+						<div class="flex items-center gap-2 px-2.5 py-1 font-mono text-xs leading-tight">
 							┌{" "}
 							<span class="rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
 								{lang()}
 							</span>
-							<Show when={props.title}>
-								<span class="text-base-content/80">{props.title}</span>
+							<Show when={props.name}>
+								<span class="text-base-content/80">{props.name}</span>
 							</Show>
 							┐
 						</div>

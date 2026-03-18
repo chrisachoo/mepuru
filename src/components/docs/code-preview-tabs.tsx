@@ -52,7 +52,7 @@ export function CodePreviewTabs(props: Readonly<CodePreviewTabsProps>) {
 			tabs={[
 				{
 					content: (
-						<div class="relative flex flex-wrap items-center gap-3 rounded-xl border border-base-300 bg-base-200/50 p-4">
+						<div class="relative flex flex-wrap items-center gap-3 rounded-xl bg-base-200/50 p-4">
 							{props.preview}
 						</div>
 					),
