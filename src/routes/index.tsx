@@ -1,4 +1,5 @@
 /* eslint-disable solid/no-innerhtml */
+import { Link, Meta, MetaProvider, Title } from "@solidjs/meta"
 import { useNavigate } from "@solidjs/router"
 import { Accessibility, Code, Leaf, Zap } from "lucide-solid"
 import { codeToHtml } from "shiki"
@@ -77,7 +78,15 @@ export default function HomePage() {
 	)
 
 	return (
-		<>
+		<MetaProvider>
+			<div>
+				<Title>Mēpuru · Simple UI for Solid</Title>
+				<Link rel="canonical" href="/" />
+				<Meta
+					name="description"
+					content="Mēpuru is a lightweight Solid component library focused on simplicity, accessibility, and a predictable developer experience."
+				/>
+			</div>
 			<Header />
 			<main class="bg-dot-grid relative min-h-0 flex-1 overflow-x-hidden overflow-y-auto bg-base-100">
 				<div class="pointer-events-none absolute inset-0 flex justify-center">
@@ -92,7 +101,8 @@ export default function HomePage() {
 							</span>
 							<div class="space-y-4">
 								<h1 class="text-5xl font-bold tracking-tight sm:text-6xl">
-									Simple UI components for{" "}
+									Simple UI components for
+									{" "}
 									<span class="text-gradient-primary">Solid</span>
 								</h1>
 
@@ -114,9 +124,7 @@ export default function HomePage() {
 								<Button
 									variant="outline"
 									class="w-full"
-									onClick={() =>
-										navigate("/docs/quickstart/", { replace: true })
-									}
+									onClick={() => navigate("/docs/quickstart/", { replace: true })}
 								>
 									Quickstart
 								</Button>
@@ -180,12 +188,14 @@ export default function HomePage() {
 									<Show
 										when={highlighted()}
 										fallback={
-											<pre class="font-mono text-base-content/60">
-												<code>{code.trim()}</code>
-											</pre>
+											(
+												<pre class="font-mono text-base-content/60">
+													<code>{code.trim()}</code>
+												</pre>
+											)
 										}
 									>
-										{(html) => <div innerHTML={html()} />}
+										{html => <div innerHTML={html()} />}
 									</Show>
 								</div>
 							</div>
@@ -193,6 +203,6 @@ export default function HomePage() {
 					</div>
 				</section>
 			</main>
-		</>
+		</MetaProvider>
 	)
 }

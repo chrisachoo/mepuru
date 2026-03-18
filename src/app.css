@@ -233,3 +233,7 @@ pre code span.line::before {
 .animate-copy-pop {
 	animation: copy-pop 200ms ease;
 }
+
+@view-transition {
+	navigation: auto;
+}
