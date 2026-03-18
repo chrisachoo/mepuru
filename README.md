@@ -1,32 +1,52 @@
-# SolidStart
+# Mēpuru UI
 
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
+A lightweight Solid component library focused on simplicity, accessibility, and predictable developer experience.
 
-## Creating a project
+## Version
+
+`0.0.1`
+
+## Goal
+
+Make UI components easy to read, copy, and customize while staying faithful to Solid’s reactive primitives.
+
+Key principles:
+
+- Simple by design (small, predictable APIs)
+- Accessibility-first behavior and markup
+- Developer-friendly patterns that scale
+
+## What’s included
+
+- A components docs site (routes under `src/routes/docs/*` and `src/routes/components/*`)
+- Copy-paste-ready component examples with a consistent doc-page standard (see `src/lib/docs/README.md`)
+- UI styling via DaisyUI + Tailwind
+
+## Get started
+
+Install dependencies:
 
 ```bash
-# create a new project in the current directory
-npm init solid@latest
-
-# create a new project in my-app
-npm init solid@latest my-app
+bun install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Run the dev server:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+bun run dev
 ```
 
-## Building
+Build and preview:
 
-Solid apps are built with _presets_, which optimise your project for deployment to different environments.
+```bash
+bun run build
+bun run preview
+```
 
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different preset, add it to the `devDependencies` in `package.json` and specify in your `app.config.js`.
+## Contributing
 
-## This project was created with the [Solid CLI](https://github.com/solidjs-community/solid-cli)
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+
+## License
+
+MIT
