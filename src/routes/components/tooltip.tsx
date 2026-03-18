@@ -4,15 +4,15 @@ export default function TooltipPage() {
 	return (
 		<DocPageLayout
 			title="Tooltip"
-			description="Hover hints that show short text on focus or hover. Uses daisyUI tooltip classes and native accessibility patterns."
+			description="Hover hints that show short text on focus or hover (styled with daisyUI). Accessibility behavior should follow MDN ARIA and WAI-ARIA Authoring Practices, with native HTML semantics first."
 		>
 			<section class="space-y-6">
 				<section class="space-y-2">
 					<h2 class="text-xl font-semibold text-base-content">Introduction</h2>
 					<p class="text-sm leading-relaxed text-base-content/80">
 						The Tooltip component will provide accessible hover and focus hints.
-						Documentation and copy-paste source will be added when the component
-						is ready.
+						When finalizing behavior, follow MDN ARIA and WAI-ARIA Authoring
+						Practices; prefer native HTML semantics over ARIA where possible.
 					</p>
 				</section>
 

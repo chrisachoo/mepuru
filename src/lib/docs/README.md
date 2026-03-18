@@ -17,6 +17,23 @@ Every component doc page must follow this flow so developers get clear, copy-pas
 - [ ] Code blocks are clean and free of unnecessary comments.
 - [ ] Tone is professional, concise, and developer-friendly.
 
+## Accessibility sources & principles
+
+When documenting accessibility-related behavior (ARIA attributes, labeling, and interaction patterns), follow:
+
+1. **Principle 1 — Native HTML first**
+   - Prefer native elements and relationships (`<button>`, `<input>`, `<label>`, `<fieldset><legend>`), so keyboard and screen-reader behavior works without extra ARIA.
+2. **Principle 2 — Minimal abstraction**
+   - Keep components small and let native HTML do the heavy lifting; add ARIA only when there is no native alternative. This keeps runtime size small.
+
+Use these sources (instead of relying on an accessibility “framework” library):
+
+- **MDN ARIA documentation**
+- **WAI-ARIA Authoring Practices** (pattern guidance)
+- **Native HTML semantics** (MDN/HTML element behavior)
+
+In component docs, be explicit about which native element is used and which ARIA attributes (if any) the component sets.
+
 ## Registry (`registry.ts`)
 
 - **docSections** – Top-level doc nav (Introduction, Installation, Components).

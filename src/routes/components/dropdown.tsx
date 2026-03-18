@@ -140,7 +140,8 @@ const dropdownItemHint = (
 	<p class="mt-2 text-xs text-base-content/60">
 		<strong>DropdownItem</strong> :<InlineCode>class</InlineCode> ,
 		<InlineCode>onClick</InlineCode>. Clicking an item runs onClick and focuses
-		the trigger (dropdown closes via blur).
+		the trigger (dropdown closes via blur). Menu interaction guidance follows
+		WAI-ARIA Authoring Practices.
 	</p>
 )
 
@@ -148,7 +149,7 @@ export default function DropdownPage() {
 	return (
 		<DocPageLayout
 			title="Dropdown"
-			description="Opens a menu when the trigger is clicked. Uses daisyUI dropdown classes and CVA for alignment. Visibility is controlled by CSS (focus)."
+			description="Opens a menu when the trigger is activated (styled with daisyUI). Menu behavior should follow WAI-ARIA Authoring Practices, using MDN ARIA for the meaning of roles and attributes (native HTML first, minimal abstraction)."
 			sourceCode={dropdownComponentCode}
 			sourceFilePath="src/components/ui/dropdown.tsx"
 		>

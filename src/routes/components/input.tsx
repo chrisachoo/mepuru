@@ -94,7 +94,7 @@ export default function InputPage() {
 	return (
 		<DocPageLayout
 			title="Input"
-			description="A styled input component built with daisyUI. Supports multiple sizes and error states while keeping native HTML input behavior."
+			description="Native <input> with HTML semantics (styled with daisyUI). Supports sizes and error states; when `error` is enabled it sets aria-invalid per MDN ARIA (native HTML first, minimal abstraction)."
 			sourceCode={inputComponentCode}
 			sourceFilePath="src/components/ui/input.tsx"
 		>
@@ -176,7 +176,7 @@ export default function InputPage() {
 					},
 					{
 						default: "false",
-						description: "Applies error styling and sets aria-invalid",
+						description: "Applies error styling and sets aria-invalid (MDN ARIA)",
 						prop: "error",
 						type: "boolean"
 					},

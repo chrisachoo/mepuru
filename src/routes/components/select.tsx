@@ -134,7 +134,7 @@ export default function SelectPage() {
 	return (
 		<DocPageLayout
 			title="Select"
-			description="Native select element styled with daisyUI. Pass an options array and optional error state; supports all native select attributes and keyboard navigation."
+			description="Native <select> with native keyboard behavior and HTML semantics (styled with daisyUI). Prefer native labels/fieldset+legend; use aria-label only when you can't provide a native label (per MDN ARIA and WAI-ARIA Authoring Practices)."
 			sourceCode={selectComponentCode}
 			sourceFilePath="src/components/ui/select.tsx"
 		>
@@ -221,12 +221,10 @@ export default function SelectPage() {
 
 			<PropsTable data={selectProps} daisyHref="https://daisyui.com/components/select/">
 				<p class="mt-2 text-xs text-base-content/60">
-					Use
-					{" "}
-					<InlineCode>aria-label</InlineCode>
-					{" "}
-					or a visible label for
-					accessibility when the select is not wrapped in a fieldset.
+					Prefer a visible label (or <InlineCode>fieldset</InlineCode> +
+					<InlineCode>legend</InlineCode>). Use <InlineCode>aria-label</InlineCode>{" "}
+					only when native labeling isn't available. Labeling behavior follows MDN ARIA
+					and WAI-ARIA Authoring Practices.
 				</p>
 			</PropsTable>
 		</DocPageLayout>

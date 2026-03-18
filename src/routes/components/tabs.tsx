@@ -4,7 +4,7 @@ export default function TabsPage() {
 	return (
 		<DocPageLayout
 			title="Tabs"
-			description="Tabbed content panels. Uses daisyUI tab classes with accessible markup."
+			description="Tabbed content panels built with native semantics (styled with daisyUI). Follow WAI-ARIA Authoring Practices for tablist/tabpanel behavior, using MDN ARIA for roles and attributes."
 		>
 			<section class="space-y-6">
 				<section class="space-y-2">

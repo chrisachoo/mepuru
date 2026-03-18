@@ -7,10 +7,10 @@ import { createResource, For, Show } from "solid-js"
 import { Header } from "~/components/layout/header"
 import { Button } from "~/components/ui/button"
 import {
-	Card,
-	CardBody,
-	CardDescription,
-	CardTitle
+    Card,
+    CardBody,
+    CardDescription,
+    CardTitle
 } from "~/components/ui/card"
 
 const cards = [
@@ -26,7 +26,8 @@ const cards = [
 		title: "Built for Solid"
 	},
 	{
-		description: "Components follow MDN and WAI-ARIA guidance.",
+		description:
+			"Accessible by default: follows MDN ARIA and WAI-ARIA Authoring Practices, with native HTML first and minimal abstractions.",
 		icon: Accessibility,
 		title: "Accessible"
 	},
@@ -169,7 +170,8 @@ export default function HomePage() {
 								<p class="text-lg leading-relaxed text-base-content/70">
 									Mēpuru components prioritize readability and predictable
 									behavior. Every component is built with Solid’s reactive
-									primitives and minimal abstraction.
+									primitives, native HTML semantics, and minimal abstraction
+									(keeps runtime size small).
 								</p>
 
 								<Button variant="primary">Browse components</Button>
