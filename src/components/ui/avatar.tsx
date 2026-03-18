@@ -6,7 +6,8 @@ import { cn } from "~/lib/cn"
 
 const avatarVariants = cva("", {
 	defaultVariants: {
-		size: "sm"
+		size: "sm",
+		variant: "circle"
 	},
 	variants: {
 		size: {
@@ -15,16 +16,18 @@ const avatarVariants = cva("", {
 			sm: "w-12"
 		},
 		variant: {
+			circle: "rounded-full",
 			heart: "mask mask-heart",
 			hexagon: "mask mask-hexagon-2",
 			ring: "ring-primary ring-offset-base-100 rounded-full ring-2 ring-offset-2",
+			rounded: "rounded-xl",
 			squircle: "mask mask-squircle"
 		}
 	}
 })
 
-type AvatarProps = JSX.IntrinsicElements["div"] &
-	VariantProps<typeof avatarVariants>
+type AvatarProps = JSX.IntrinsicElements["div"]
+	& VariantProps<typeof avatarVariants>
 
 function Avatar(props: Readonly<AvatarProps>) {
 	const [local, rest] = splitProps(props, ["class", "size", "variant"])
@@ -70,11 +73,8 @@ function AvatarFallback(props: Readonly<JSX.IntrinsicElements["span"]>) {
 
 	return (
 		<div class="avatar avatar-placeholder">
-			<div class="w-24 rounded-full bg-neutral text-neutral-content">
-				<span
-					class={cn("text-3xl", local.class)}
-					{...rest}
-				>
+			<div class="w-12 rounded-full bg-neutral text-neutral-content">
+				<span class={cn(local.class)} {...rest}>
 					{props.children}
 				</span>
 			</div>
