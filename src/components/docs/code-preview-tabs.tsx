@@ -61,42 +61,44 @@ export function CodePreviewTabs(props: Readonly<CodePreviewTabsProps>) {
 				},
 				{
 					content: (
-						<div class="overflow-x-auto text-xs [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!">
-							<Show
-								when={source()}
-								fallback={
-									<pre class="font-mono text-base-content/60">
-										<code>{props.code.trim()}</code>
-									</pre>
-								}
+						<div class="relative">
+							<Button
+								class="absolute top-3 right-2 z-10 btn-square transition-all btn-soft"
+								aria-label="Copy to clipboard"
+								onClick={handleCopy}
+								variant="ghost"
+								size="sm"
 							>
-								{(html) => (
-									<div
-										class={cn(
-											"relative p-4 font-mono leading-relaxed",
-											"rounded-xl border border-base-300"
-										)}
-									>
-										<div innerHTML={html()} />
-										<Button
-											class="absolute top-3 right-2 z-10 btn-square transition-all btn-soft"
-											aria-label="Copy to clipboard"
-											onClick={handleCopy}
-											variant="ghost"
-											size="sm"
-										>
-											<Show when={!copied()}>
-												<Copy class="size-4 shrink-0" />
-											</Show>
-											<Show when={copied()}>
-												<SquareCheckBig
-													class={`size-4 shrink-0 ${justCopied() ? "animate-copy-pop" : ""}`}
-												/>
-											</Show>
-										</Button>
-									</div>
-								)}
-							</Show>
+								<Show when={!copied()}>
+									<Copy class="size-4 shrink-0" />
+								</Show>
+								<Show when={copied()}>
+									<SquareCheckBig
+										class={`size-4 shrink-0 ${justCopied() ? "animate-copy-pop" : ""}`}
+									/>
+								</Show>
+							</Button>
+
+							<div class={cn(
+								"max-h-96 text-xs [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!",
+								"scrollbar-none overflow-auto overscroll-contain scroll-smooth"
+							)}
+							>
+								<Show
+									when={source()}
+									fallback={(
+										<pre class="font-mono text-base-content/60">
+											<code>{props.code.trim()}</code>
+										</pre>
+									)}
+								>
+									{html => (
+										<div class="relative p-4 font-mono leading-relaxed">
+											<div innerHTML={html()} />
+										</div>
+									)}
+								</Show>
+							</div>
 						</div>
 					),
 					label: "JSX",
