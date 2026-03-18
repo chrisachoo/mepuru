@@ -36,7 +36,12 @@ export function ComponentDemo(props: Readonly<ComponentDemoProps>) {
 				<A
 					href={`#${props.id}`}
 					aria-label="Link to heading"
-					class="inline-grid size-6 place-content-center rounded-sm border border-primary/5 bg-base-100 text-base-content/50 hover:border-primary/10 hover:bg-primary/10 hover:text-base-content hover:shadow-sm hover:shadow-base-200"
+					class={
+						cn(
+							"inline-grid size-6 place-content-center rounded-sm border border-primary/5 bg-base-100 text-base-content/50 ",
+							"hover:border-primary/10 hover:bg-primary/10 hover:text-base-content hover:shadow-sm hover:shadow-base-200"
+						)
+					}
 					onClick={(e) => {
 						e.preventDefault()
 						e.stopPropagation()
@@ -52,11 +57,11 @@ export function ComponentDemo(props: Readonly<ComponentDemoProps>) {
 
 			<Show
 				when={hasCode()}
-				fallback={
+				fallback={(
 					<div class="relative flex flex-wrap items-center gap-3 overflow-hidden rounded-xl border border-base-300 bg-base-200/50 p-4">
 						{props.preview}
 					</div>
-				}
+				)}
 			>
 				<CodePreviewTabs
 					code={props.code}
