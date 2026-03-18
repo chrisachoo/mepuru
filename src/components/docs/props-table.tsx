@@ -5,7 +5,8 @@ import {
 	flexRender,
 	getCoreRowModel
 } from "@tanstack/solid-table"
-import { For } from "solid-js"
+import { For, Show } from "solid-js"
+import { DaisyCredit } from "./daisy-credit"
 
 type PropRow = {
 	prop: string
@@ -43,7 +44,7 @@ type PropsTableProps = {
 	data: PropRow[]
 	polymorphic?: boolean
 	children?: JSX.Element
-	credit?: JSX.Element
+	daisyHref: string
 }
 
 export function PropsTable(props: Readonly<PropsTableProps>) {
@@ -59,7 +60,11 @@ export function PropsTable(props: Readonly<PropsTableProps>) {
 		<section class="mt-10 space-y-4">
 			<div class="space-y-2 pb-2">
 				<h2 class="text-xl font-semibold text-base-content">Props</h2>
-				<div class="text-xs leading-relaxed opacity-80">{props.credit}</div>
+				<Show when={props.daisyHref}>
+					<div class="text-xs leading-relaxed opacity-80">
+						<DaisyCredit href={props.daisyHref} />
+					</div>
+				</Show>
 			</div>
 
 			<div class="overflow-x-auto rounded-xl border border-base-300">
