@@ -7,10 +7,10 @@ import { createResource, For, Show } from "solid-js"
 import { Header } from "~/components/layout/header"
 import { Button } from "~/components/ui/button"
 import {
-    Card,
-    CardBody,
-    CardDescription,
-    CardTitle
+	Card,
+	CardBody,
+	CardDescription,
+	CardTitle
 } from "~/components/ui/card"
 
 const cards = [
@@ -125,7 +125,7 @@ export default function HomePage() {
 								<Button
 									variant="outline"
 									class="w-full"
-									onClick={() => navigate("/docs/quickstart/", { replace: true })}
+									onClick={() => navigate("/docs/install/", { replace: true })}
 								>
 									Quickstart
 								</Button>
@@ -174,7 +174,7 @@ export default function HomePage() {
 									(keeps runtime size small).
 								</p>
 
-								<Button variant="primary">Browse components</Button>
+								<Button variant="primary" onClick={() => navigate("/components/", { replace: true })}>Browse components</Button>
 							</div>
 
 							<div class="animate-fade-in overflow-hidden rounded-xl border border-base-300 bg-base-200/80 shadow-lg shadow-base-content/5">
