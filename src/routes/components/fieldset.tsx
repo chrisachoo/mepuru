@@ -1,5 +1,5 @@
-import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { ComponentShowcase } from "~/components/docs/showcase"
 import {
 	FieldDescription,
 	FieldLegend,
@@ -35,7 +35,7 @@ export default function FieldsetPage() {
 			title="Fieldset"
 			description="Fieldset is a container for grouping related form elements. It includes fieldset-legend as a title and label as a description."
 		>
-			<ComponentDemo
+			<ComponentShowcase
 				code={fieldsetDemoCode}
 				id="usage"
 				name="card-usage-demo"

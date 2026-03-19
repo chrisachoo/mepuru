@@ -1,8 +1,8 @@
 import { ComponentCode } from "~/components/docs/component-code"
-import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { PropsTable } from "~/components/docs/props-table"
+import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
 import { Avatar, AvatarFallback, AvatarGroup, AvatarImage } from "~/components/ui/avatar"
 
@@ -221,7 +221,7 @@ export default function AvatarPage() {
 			title="Avatar"
 			description="User or entity image with optional fallback. Uses daisyUI avatar classes."
 		>
-			<ComponentDemo
+			<ComponentShowcase
 				id="usage"
 				name="button-demo-code"
 				code={avatarDemoCode}
@@ -266,7 +266,7 @@ export default function AvatarPage() {
 			<DocDivider />
 
 			<section class="mt-10 space-y-8">
-				<ComponentDemo
+				<ComponentShowcase
 					title="Avatar group with counter"
 					id="avatar-group-with-counter"
 					name="avatar-group-with-counter"
@@ -295,7 +295,7 @@ export default function AvatarPage() {
 					)}
 				/>
 
-				<ComponentDemo
+				<ComponentShowcase
 					title="Avatar with ring"
 					id="avatar-with-ring"
 					name="avatar-with-ring"
@@ -315,7 +315,7 @@ export default function AvatarPage() {
 					)}
 				/>
 
-				<ComponentDemo
+				<ComponentShowcase
 					title="Avatar with presence indicator"
 					id="avatar-with-presence-indicator"
 					name="avatar-with-presence-indicator"

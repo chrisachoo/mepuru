@@ -1,9 +1,9 @@
 import { ComponentCode } from "~/components/docs/component-code"
-import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
+import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
 import { Dropdown, DropdownItem } from "~/components/ui/dropdown"
 
@@ -153,7 +153,7 @@ export default function DropdownPage() {
 			sourceCode={dropdownComponentCode}
 			sourceFilePath="src/components/ui/dropdown.tsx"
 		>
-			<ComponentDemo
+			<ComponentShowcase
 				code={dropdownDemoCode}
 				id="usage"
 				name="dropdown-usage-demo"
@@ -171,7 +171,7 @@ export default function DropdownPage() {
 					<InlineCode>name</InlineCode> for the trigger label and children (menu
 					items).
 				</span>
-			</ComponentDemo>
+			</ComponentShowcase>
 
 			<DocDivider />
 
@@ -188,7 +188,7 @@ export default function DropdownPage() {
 			<DocDivider />
 
 			<section class="mt-10 space-y-8">
-				<ComponentDemo
+				<ComponentShowcase
 					code={dropdownAlignmentCode}
 					id="dropdown-alignment"
 					name="dropdown-alignment"
@@ -217,7 +217,7 @@ export default function DropdownPage() {
 						Use <InlineCode>align</InlineCode> to align the menu to the start or
 						end of the trigger.
 					</span>
-				</ComponentDemo>
+				</ComponentShowcase>
 			</section>
 
 			<DocDivider />

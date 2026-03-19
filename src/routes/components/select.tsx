@@ -1,10 +1,10 @@
 import { For } from "solid-js"
 import { ComponentCode } from "~/components/docs/component-code"
-import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
+import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
 import { FieldDescription, FieldLegend, Fieldset } from "~/components/ui/fieldset"
 import { Select, SelectOption } from "~/components/ui/select"
@@ -87,7 +87,7 @@ export function SelectRequiredDemo() {
 					{opt => <SelectOption value={opt.value} disabled={opt.disabled}>{opt.label}</SelectOption>}
 				</For>
 			</Select>
-			<FieldDescription>Pick an AI model from the list of options using the select component</FieldDescription>
+			<FieldDescription>Pick an AI model from the list of options.</FieldDescription>
 		</Fieldset>
 	)
 }`
@@ -138,7 +138,7 @@ export default function SelectPage() {
 			sourceCode={selectComponentCode}
 			sourceFilePath="src/components/ui/select.tsx"
 		>
-			<ComponentDemo
+			<ComponentShowcase
 				code={selectUsageCode}
 				id="usage"
 				name="select-usage-demo"
@@ -172,7 +172,7 @@ export default function SelectPage() {
 			<DocDivider />
 
 			<section class="mt-10 space-y-8">
-				<ComponentDemo
+				<ComponentShowcase
 					code={selectWithRequiredCode}
 					id="with-fieldset-and-labels"
 					name="with-fieldset-and-labels"
@@ -191,12 +191,12 @@ export default function SelectPage() {
 									{opt => <SelectOption value={opt.value}>{opt.label}</SelectOption>}
 								</For>
 							</Select>
-							<FieldDescription>Pick an AI model from the list of options using the select component</FieldDescription>
+							<FieldDescription>Pick an AI model from the list of options.</FieldDescription>
 						</Fieldset>
 					)}
 				/>
 
-				<ComponentDemo
+				<ComponentShowcase
 					code={selectWithErrorCode}
 					id="select-error"
 					name="select-error-demo"

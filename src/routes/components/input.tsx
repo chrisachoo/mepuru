@@ -1,9 +1,9 @@
 import { ComponentCode } from "~/components/docs/component-code"
-import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
+import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
 import { Input } from "~/components/ui/input"
 
@@ -98,7 +98,7 @@ export default function InputPage() {
 			sourceCode={inputComponentCode}
 			sourceFilePath="src/components/ui/input.tsx"
 		>
-			<ComponentDemo
+			<ComponentShowcase
 				code={inputUsageCode}
 				id="usage"
 				name="input-usage-demo"
@@ -118,7 +118,7 @@ export default function InputPage() {
 			>
 				Import the component and pass any native input attributes. See how it
 				works with different types and states.
-			</ComponentDemo>
+			</ComponentShowcase>
 
 			<DocDivider />
 
@@ -134,7 +134,7 @@ export default function InputPage() {
 			<DocDivider />
 
 			<section class="mt-10 space-y-8">
-				<ComponentDemo
+				<ComponentShowcase
 					code={inputSizesCode}
 					id="input-sizes"
 					name="input-sizes-demo"

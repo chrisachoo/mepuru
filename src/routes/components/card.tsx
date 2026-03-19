@@ -1,9 +1,9 @@
 import { ComponentCode } from "~/components/docs/component-code"
-import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
+import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
 import { Button } from "~/components/ui/button"
 import {
@@ -251,7 +251,7 @@ export default function CardPage() {
 			sourceCode={cardComponentCode}
 			sourceFilePath="src/components/ui/card.tsx"
 		>
-			<ComponentDemo
+			<ComponentShowcase
 				code={cardUsageCode}
 				id="usage"
 				name="card-usage-demo"
@@ -286,7 +286,7 @@ export default function CardPage() {
 			<DocDivider />
 
 			<section class="mt-10 space-y-8">
-				<ComponentDemo
+				<ComponentShowcase
 					code={cardWithFigureCode}
 					id="card-with-figure"
 					name="card-with-figure-demo"
@@ -310,7 +310,7 @@ export default function CardPage() {
 					)}
 				/>
 
-				<ComponentDemo
+				<ComponentShowcase
 					code={cardSizesCode}
 					id="card-sizes"
 					name="card-sizes-demo"
@@ -363,7 +363,7 @@ export default function CardPage() {
 					)}
 				/>
 
-				<ComponentDemo
+				<ComponentShowcase
 					code={cardWithFigureCode}
 					id="card-with-image-overlay"
 					name="card-with-image-overlay"

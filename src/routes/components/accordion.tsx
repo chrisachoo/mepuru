@@ -2,14 +2,16 @@ import { A } from "@solidjs/router"
 import { Info } from "lucide-solid"
 import { For } from "solid-js"
 import { ComponentCode } from "~/components/docs/component-code"
-import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { PropsTable } from "~/components/docs/props-table"
+import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
 import {
 	Accordion,
 	AccordionContent,
+	AccordionGroup,
+	AccordionJoin,
 	AccordionTrigger
 } from "~/components/ui/accordion"
 import { Alert, AlertDescription } from "~/components/ui/alert"
@@ -116,24 +118,21 @@ function AccordionContent(props: Readonly<JSX.IntrinsicElements["div"]>) {
 export { Accordion, AccordionContent, AccordionTrigger }
 `
 
-const accordionDemoCode = `import { Accordion } from "~/components/ui/accordion";
+const accordionDemoCode = `import { Accordion } from "~/components/ui/accordion"
+import { For } from "solid-js"
 
 function AccordionDemo() {
 	return (
-		<div class="join join-vertical bg-base-100">
-			<Accordion icon="arrow" variant="border" class="join-item" name="accordion-demo" open>
-				<AccordionTrigger>What is HTML used for?</AccordionTrigger>
-				<AccordionContent>HTML is the standard markup language for creating web pages and web applications.</AccordionContent>
-			</Accordion>
-			<Accordion icon="arrow" name="accordion-demo" open>
-				<AccordionTrigger>What does CSS stand for?</AccordionTrigger>
-				<AccordionContent>CSS stands for Cascading Style Sheets and it describes how HTML elements should be displayed.</AccordionContent>
-			</Accordion>
-			<Accordion icon="arrow" name="accordion-demo" open>
-				<AccordionTrigger>Is JavaScript hard to learn?</AccordionTrigger>
-				<AccordionContent>JavaScript is beginner-friendly and one of the most popular programming languages to start with.</AccordionContent>
-			</Accordion>
-		</div>
+		<AccordionJoin class="w-full">
+			<For each={faqData}>
+				{item => (
+					<Accordion icon="plus" name="accordion-demo" class="item-join bg-base-100" variant="border" open>
+						<AccordionTrigger>{item.title}</AccordionTrigger>
+						<AccordionContent>{item.description}</AccordionContent>
+					</Accordion>
+				)}
+			</For>
+		</AccordionJoin>
 	)
 }
 `
@@ -185,18 +184,18 @@ export default function AccordionPage() {
 				</AlertDescription>
 			</Alert>
 
-			<ComponentDemo
+			<ComponentShowcase
 				code={accordionDemoCode}
 				id="accordion"
 				name="accordion"
 				preview={(
-					<div class="join join-vertical w-full">
+					<AccordionJoin class="w-full">
 						<For each={faqData}>
 							{item => (
 								<Accordion
 									icon="plus"
 									name="accordion-demo"
-									class="item-join"
+									class="item-join bg-base-100"
 									variant="border"
 									open
 								>
@@ -205,10 +204,10 @@ export default function AccordionPage() {
 								</Accordion>
 							)}
 						</For>
-					</div>
+					</AccordionJoin>
 				)}
 			/>
-			
+
 			<DocDivider />
 
 			<ComponentCode name="accordion-install">
@@ -223,25 +222,27 @@ export default function AccordionPage() {
 			<DocDivider />
 
 			<section class="mt-10 space-y-8">
-				<ComponentDemo
+				<ComponentShowcase
 					code={accordionSeparatedCode}
 					id="soft-buttons"
 					name="soft-buttons"
 					title="Soft buttons"
 					preview={(
-						<For each={faqData}>
-							{item => (
-								<Accordion
-									icon="arrow"
-									name="accordion-demo"
-									class="bg-base-100"
-									open
-								>
-									<AccordionTrigger>{item.title}</AccordionTrigger>
-									<AccordionContent>{item.description}</AccordionContent>
-								</Accordion>
-							)}
-						</For>
+						<AccordionGroup class="w-full">
+							<For each={faqData}>
+								{item => (
+									<Accordion
+										icon="arrow"
+										name="accordion-demo"
+										class="bg-base-100"
+										open
+									>
+										<AccordionTrigger>{item.title}</AccordionTrigger>
+										<AccordionContent>{item.description}</AccordionContent>
+									</Accordion>
+								)}
+							</For>
+						</AccordionGroup>
 					)}
 				/>
 			</section>

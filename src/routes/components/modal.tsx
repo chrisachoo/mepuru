@@ -1,7 +1,7 @@
 import { createSignal } from "solid-js"
-import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { ComponentShowcase } from "~/components/docs/showcase"
 import { Button } from "~/components/ui/button"
 import {
 	Card,
@@ -55,7 +55,7 @@ export default function ModalPage() {
 						classes and CVA for alignment. Visibility is controlled by CSS
 						(focus)."
 		>
-			<ComponentDemo
+			<ComponentShowcase
 				code={modalDemoCode}
 				id="usage"
 				name="input-usage-demo"

@@ -1,10 +1,10 @@
 import { ArrowRight, Heart, ShoppingCart } from "lucide-solid"
 import { ComponentCode } from "~/components/docs/component-code"
-import { ComponentDemo } from "~/components/docs/component-demo"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
+import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
 import { Button } from "~/components/ui/button"
 
@@ -168,7 +168,7 @@ export default function ButtonPage() {
 			sourceCode={buttonComponentCode}
 			sourceFilePath="src/components/ui/button.tsx"
 		>
-			<ComponentDemo
+			<ComponentShowcase
 				code={buttonDemoCode}
 				id="usage"
 				name="button-demo-code"
@@ -212,7 +212,7 @@ export default function ButtonPage() {
 			<DocDivider />
 
 			<section class="mt-10 space-y-8">
-				<ComponentDemo
+				<ComponentShowcase
 					code={buttonVariantsCode}
 					id="button-variants"
 					name="button-variants-demo"
@@ -228,7 +228,7 @@ export default function ButtonPage() {
 					)}
 				/>
 
-				<ComponentDemo
+				<ComponentShowcase
 					code={buttonSizesCode}
 					id="buttons-sizes"
 					name="button-sizes-demo"
@@ -242,7 +242,7 @@ export default function ButtonPage() {
 					)}
 				/>
 
-				<ComponentDemo
+				<ComponentShowcase
 					code={buttonSoftCode}
 					id="soft-buttons"
 					name="soft-buttons"
