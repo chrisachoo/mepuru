@@ -88,7 +88,7 @@ export default function HomePage() {
 					content="Mēpuru is a lightweight Solid component library focused on simplicity, accessibility, and a predictable developer experience."
 				/>
 			</div>
-			<Header />
+			<Header shouldShowLogo />
 			<main class="bg-dot-grid relative min-h-0 flex-1 overflow-x-hidden overflow-y-auto bg-base-100">
 				<div class="pointer-events-none absolute inset-0 flex justify-center">
 					<div class="mt-24 h-130 w-225 animate-pulse rounded-full bg-primary/10 blur-3xl" />
