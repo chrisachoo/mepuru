@@ -1,7 +1,7 @@
 import { BashInstall } from "~/components/docs/bash-install"
 import { InlineCode } from "~/components/docs/inline-code"
-import { PageLayout } from "~/components/layout/page-layout"
 import { CodeBlock } from "~/components/layout/code-block"
+import { PageLayout } from "~/components/layout/page-layout"
 
 const viteConfigCode = `import { solidStart } from "@solidjs/start/config"
 import tailwindcss from "@tailwindcss/vite"
@@ -59,7 +59,7 @@ export default function InstallationPage() {
 						Create a new Solid project in the current directory.
 					</p>
 
-					<BashInstall command="create solid@latest my-app" name="create-new-solid-project" />
+					<BashInstall name="create-new-solid-project" pkg="create solid@latest my-app" />
 				</section>
 
 				<div class="mx-auto h-px w-full max-w-2xl bg-linear-to-r from-transparent via-primary/30 to-transparent" />
@@ -72,7 +72,10 @@ export default function InstallationPage() {
 						From your project root, install Tailwind CSS and daisyUI.
 					</p>
 
-					<BashInstall command="tailwindcss@latest @tailwindcss/vite@latest daisyui@latest" name="install-tailwind-css-and-daisyui" />
+					<BashInstall
+						name="install-tailwind-css-and-daisyui"
+						pkg="tailwindcss@latest @tailwindcss/vite@latest daisyui@latest"
+					/>
 
 					<p class="pt-1 text-sm leading-relaxed text-base-content/80">
 						Add Tailwind CSS to your Vite config:
