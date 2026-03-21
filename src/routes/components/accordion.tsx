@@ -3,10 +3,10 @@ import { Info } from "lucide-solid"
 import { For } from "solid-js"
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
-import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
+import { PageLayout } from "~/components/layout/page-layout"
 import {
 	Accordion,
 	AccordionContent,

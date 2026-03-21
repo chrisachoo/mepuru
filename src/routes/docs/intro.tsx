@@ -1,7 +1,7 @@
 import { For } from "solid-js"
 import { InlineCode } from "~/components/docs/inline-code"
-import { PageLayout } from "~/components/layout/page-layout"
 import { CodeBlock } from "~/components/layout/code-block"
+import { PageLayout } from "~/components/layout/page-layout"
 import {
 	Accordion,
 	AccordionContent,

@@ -1,26 +1,23 @@
-/* eslint-disable solid/no-innerhtml */
+import type { DocCodeLang } from "~/lib/shiki"
 import { Check, Copy, Expand, Shrink } from "lucide-solid"
 import { createResource, createSignal, Show } from "solid-js"
 import { cn } from "~/lib/cn"
+import { useCopyFeedback } from "~/lib/copy-feedback"
+import { highlight } from "~/lib/shiki"
 
 type CodeBlockProps = {
 	code: string
-	language?: "bash" | "css" | "javascript" | "tsx" | "typescript"
+	language?: DocCodeLang
 	class?: string
 	name?: string
 	expand?: boolean
 }
 
-function copyToClipboard(text: string): Promise<void> {
-	return navigator.clipboard.writeText(text)
-}
-
 export function CodeBlock(props: Readonly<CodeBlockProps>) {
-	const [copied, setCopied] = createSignal(false)
-	const [justCopied, setJustCopied] = createSignal(false)
+	const { copied, copy, justCopied } = useCopyFeedback()
 	const [expanded, setExpanded] = createSignal(false)
 
-	const lang = () => props.language ?? "tsx"
+	const lang = (): DocCodeLang => props.language ?? "tsx"
 	const cleanedCode = () => props.code.trim()
 
 	const [highlighted] = createResource(
@@ -28,25 +25,8 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 			code: cleanedCode(),
 			lang: lang()
 		}),
-		async (source) => {
-			const { codeToHtml } = await import("shiki")
-
-			return codeToHtml(source.code, {
-				lang: source.lang,
-				theme: "tokyo-night"
-			})
-		}
+		async ({ code, lang: language }) => highlight(code, language)
 	)
-
-	const handleCopy = async () => {
-		await copyToClipboard(cleanedCode())
-
-		setCopied(true)
-		setJustCopied(true)
-
-		setTimeout(() => setJustCopied(false), 300)
-		setTimeout(() => setCopied(false), 2000)
-	}
 
 	return (
 		<div
@@ -59,7 +39,8 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 				<div class="flex items-center gap-3">
 					<div class="flex items-center">
 						<div class="flex items-center gap-2 px-2.5 py-1 font-mono text-xs leading-tight">
-							┌{" "}
+							┌
+							{" "}
 							<span class="rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
 								{lang()}
 							</span>
@@ -89,8 +70,8 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 
 					<button
 						type="button"
-						onClick={handleCopy}
 						class="btn btn-square normal-case btn-link btn-sm"
+						onClick={() => void copy(cleanedCode())}
 					>
 						<Show
 							when={copied()}
@@ -120,13 +101,13 @@ export function CodeBlock(props: Readonly<CodeBlockProps>) {
 				>
 					<Show
 						when={highlighted()}
-						fallback={
+						fallback={(
 							<pre class="font-mono text-base-content/60">
 								<code>{cleanedCode()}</code>
 							</pre>
-						}
+						)}
 					>
-						{(html) => <div innerHTML={html()} />}
+						{html => <div innerHTML={html()} />}
 					</Show>
 				</div>
 			</div>
