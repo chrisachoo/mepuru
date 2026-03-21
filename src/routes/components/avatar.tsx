@@ -209,11 +209,6 @@ const avatarProps = [
 		type: `"heart" | "hexagon" | "ring" | "circle" | "rounded" | "squircle"`
 	},
 	{
-		description: "Button size",
-		prop: "size",
-		type: `"sm" | "lg"`
-	},
-	{
 		description: "Additional CSS classes",
 		prop: "class",
 		type: "string"
@@ -227,8 +222,8 @@ export default function AvatarPage() {
 			description="User or entity image with optional fallback. Uses daisyUI avatar classes."
 		>
 			<ComponentShowcase
-				id="usage"
-				name="button-demo-code"
+				id="avatar"
+				name="avatar"
 				code={avatarDemoCode}
 				preview={(
 					<div class="flex w-full items-center justify-center gap-4">
