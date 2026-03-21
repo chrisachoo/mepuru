@@ -1,10 +1,10 @@
 import { For } from "solid-js"
 import { ArticleCodeBlock } from "~/components/docs/code/article-code-block"
 import { ComponentInstallationTabs } from "~/components/docs/component-installation-tabs"
+import { ComponentShowcase } from "~/components/docs/component-showcase"
 import { DocSectionDivider } from "~/components/docs/doc-section-divider"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
-import { ComponentShowcase } from "~/components/docs/showcase"
 import { PageLayout } from "~/components/layout/page-layout"
 import {
 	FieldDescription,

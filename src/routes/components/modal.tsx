@@ -1,6 +1,6 @@
 import { createSignal } from "solid-js"
+import { ComponentShowcase } from "~/components/docs/component-showcase"
 import { DocSectionDivider } from "~/components/docs/doc-section-divider"
-import { ComponentShowcase } from "~/components/docs/showcase"
 import { PageLayout } from "~/components/layout/page-layout"
 import { Button } from "~/components/ui/button"
 import {

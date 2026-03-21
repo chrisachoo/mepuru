@@ -1,5 +1,5 @@
+import { ComponentShowcase } from "~/components/docs/component-showcase"
 import { PageLayout } from "~/components/layout/page-layout"
-import { ComponentShowcase } from "~/components/docs/showcase"
 import {
 	FieldDescription,
 	FieldLegend,
@@ -40,7 +40,7 @@ export default function FieldsetPage() {
 				id="usage"
 				name="card-usage-demo"
 				title="Usage"
-				preview={
+				preview={(
 					<form class="grid w-full space-y-4">
 						<Fieldset>
 							<FieldLegend>Username: </FieldLegend>
@@ -65,7 +65,7 @@ export default function FieldsetPage() {
 							<FieldDescription>Optional</FieldDescription>
 						</Fieldset>
 					</form>
-				}
+				)}
 			/>
 		</PageLayout>
 	)

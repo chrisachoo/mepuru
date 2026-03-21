@@ -1,4 +1,4 @@
-import { ComponentShowcase } from "~/components/docs/showcase"
+import { ComponentShowcase } from "~/components/docs/component-showcase"
 import { PageLayout } from "~/components/layout/page-layout"
 import { Textarea } from "~/components/ui/textarea"
 
