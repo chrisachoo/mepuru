@@ -1,6 +1,6 @@
 import type { JSX } from "solid-js"
 import { Show } from "solid-js"
-import { PageActions } from "~/components/docs/page-actions"
+import { DocSourceActions } from "~/components/docs/doc-source-actions"
 import { cn } from "~/lib/cn"
 
 type PageLayoutProps = {
@@ -42,7 +42,7 @@ export function PageLayout(props: Readonly<PageLayoutProps>) {
 						<Show
 							when={showFileActions(props.sourceCode, props.sourceFilePath)}
 						>
-							<PageActions
+							<DocSourceActions
 								sourceCode={props.sourceCode!}
 								sourceFilePath={props.sourceFilePath!}
 								githubUrl={props.githubUrl}

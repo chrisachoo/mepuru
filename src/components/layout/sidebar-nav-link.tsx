@@ -1,7 +1,7 @@
 import { A } from "@solidjs/router"
 
-export function LinkItem(
-	props: Readonly<{ href: string; label: string; pathname: string }>
+export function SidebarNavLink(
+	props: Readonly<{ href: string, label: string, pathname: string }>
 ) {
 	const isActive = () => props.pathname === props.href
 

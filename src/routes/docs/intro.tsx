@@ -1,6 +1,6 @@
 import { For } from "solid-js"
+import { ArticleCodeBlock } from "~/components/docs/code/article-code-block"
 import { InlineCode } from "~/components/docs/inline-code"
-import { CodeBlock } from "~/components/layout/code-block"
 import { PageLayout } from "~/components/layout/page-layout"
 import {
 	Accordion,
@@ -69,7 +69,7 @@ export default function IntroductionPage() {
 			<section class="space-y-4 pt-6">
 				<h2 class="text-xl font-semibold">Example</h2>
 
-				<CodeBlock
+				<ArticleCodeBlock
 					name="showcase.tsx"
 					language="tsx"
 					code={usageCode}

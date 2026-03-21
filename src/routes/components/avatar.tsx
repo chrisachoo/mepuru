@@ -1,8 +1,8 @@
-import { ComponentCode } from "~/components/docs/component-code"
-import { DocDivider } from "~/components/docs/doc-divider"
+import { ArticleCodeBlock } from "~/components/docs/code/article-code-block"
+import { ComponentInstallationTabs } from "~/components/docs/component-installation-tabs"
+import { DocSectionDivider } from "~/components/docs/doc-section-divider"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
-import { CodeBlock } from "~/components/layout/code-block"
 import { PageLayout } from "~/components/layout/page-layout"
 import {
 	Avatar,
@@ -269,18 +269,18 @@ export default function AvatarPage() {
 				)}
 			/>
 
-			<DocDivider />
+			<DocSectionDivider />
 
-			<ComponentCode name="button-install">
-				<CodeBlock
+			<ComponentInstallationTabs name="avatar-install">
+				<ArticleCodeBlock
 					code={avatarComponentCode}
 					language="tsx"
 					name="components/ui/avatar.tsx"
 					expand
 				/>
-			</ComponentCode>
+			</ComponentInstallationTabs>
 
-			<DocDivider />
+			<DocSectionDivider />
 
 			<section class="mt-10 space-y-8">
 				<ComponentShowcase
@@ -374,7 +374,7 @@ export default function AvatarPage() {
 				/>
 			</section>
 
-			<DocDivider />
+			<DocSectionDivider />
 
 			<PropsTable
 				data={avatarProps}

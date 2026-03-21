@@ -1,12 +1,13 @@
 import type { ColumnDef } from "@tanstack/solid-table"
 import type { JSX } from "solid-js"
+import { A } from "@solidjs/router"
 import {
 	createSolidTable,
 	flexRender,
 	getCoreRowModel
 } from "@tanstack/solid-table"
+import { ExternalLink } from "lucide-solid"
 import { For, Show } from "solid-js"
-import { DaisyCredit } from "./daisy-credit"
 
 type PropRow = {
 	prop: string
@@ -47,6 +48,27 @@ type PropsTableProps = {
 	daisyHref: string
 }
 
+function DaisyUiPropsCredit(props: Readonly<{ href: string }>) {
+	return (
+		<p class="flex items-start gap-2 text-xs leading-relaxed text-base-content/70">
+			<ExternalLink class="size-4 shrink-0 opacity-60" />
+			<span>
+				This component is built with DaisyUI classes. For all available styles,
+				variants, and customization options, refer to the
+				{" "}
+				<A
+					class="link font-medium text-primary"
+					preload
+					href={props.href}
+				>
+					DaisyUI documentation
+				</A>
+				.
+			</span>
+		</p>
+	)
+}
+
 export function PropsTable(props: Readonly<PropsTableProps>) {
 	const table = createSolidTable({
 		columns,
@@ -62,7 +84,7 @@ export function PropsTable(props: Readonly<PropsTableProps>) {
 				<h2 class="text-xl font-semibold text-base-content">Props</h2>
 				<Show when={props.daisyHref}>
 					<div class="text-xs leading-relaxed opacity-80">
-						<DaisyCredit href={props.daisyHref} />
+						<DaisyUiPropsCredit href={props.daisyHref} />
 					</div>
 				</Show>
 			</div>

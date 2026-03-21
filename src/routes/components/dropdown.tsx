@@ -1,10 +1,10 @@
 import { A } from "@solidjs/router"
-import { ComponentCode } from "~/components/docs/component-code"
-import { DocDivider } from "~/components/docs/doc-divider"
+import { ArticleCodeBlock } from "~/components/docs/code/article-code-block"
+import { ComponentInstallationTabs } from "~/components/docs/component-installation-tabs"
+import { DocSectionDivider } from "~/components/docs/doc-section-divider"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
-import { CodeBlock } from "~/components/layout/code-block"
 import { PageLayout } from "~/components/layout/page-layout"
 import {
 	Dropdown,
@@ -197,18 +197,18 @@ export default function DropdownPage() {
 				</span>
 			</ComponentShowcase>
 
-			<DocDivider />
+			<DocSectionDivider />
 
-			<ComponentCode name="dropdown-install">
-				<CodeBlock
+			<ComponentInstallationTabs name="dropdown-install">
+				<ArticleCodeBlock
 					code={dropdownComponentCode}
 					language="tsx"
 					name="components/ui/dropdown.tsx"
 					expand
 				/>
-			</ComponentCode>
+			</ComponentInstallationTabs>
 
-			<DocDivider />
+			<DocSectionDivider />
 
 			<section class="mt-10 space-y-8">
 				<ComponentShowcase
@@ -261,7 +261,7 @@ export default function DropdownPage() {
 				</ComponentShowcase>
 			</section>
 
-			<DocDivider />
+			<DocSectionDivider />
 
 			<PropsTable
 				data={dropdownProps}

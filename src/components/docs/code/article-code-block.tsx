@@ -5,7 +5,7 @@ import { cn } from "~/lib/cn"
 import { useCopyFeedback } from "~/lib/copy-feedback"
 import { highlight } from "~/lib/shiki"
 
-type CodeBlockProps = {
+type ArticleCodeBlockProps = {
 	code: string
 	language?: DocCodeLang
 	class?: string
@@ -13,7 +13,7 @@ type CodeBlockProps = {
 	expand?: boolean
 }
 
-export function CodeBlock(props: Readonly<CodeBlockProps>) {
+export function ArticleCodeBlock(props: Readonly<ArticleCodeBlockProps>) {
 	const { copied, copy, justCopied } = useCopyFeedback()
 	const [expanded, setExpanded] = createSignal(false)
 

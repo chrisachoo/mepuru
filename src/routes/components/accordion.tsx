@@ -1,11 +1,11 @@
 import { A } from "@solidjs/router"
 import { Info } from "lucide-solid"
 import { For } from "solid-js"
-import { ComponentCode } from "~/components/docs/component-code"
-import { DocDivider } from "~/components/docs/doc-divider"
+import { ArticleCodeBlock } from "~/components/docs/code/article-code-block"
+import { ComponentInstallationTabs } from "~/components/docs/component-installation-tabs"
+import { DocSectionDivider } from "~/components/docs/doc-section-divider"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
-import { CodeBlock } from "~/components/layout/code-block"
 import { PageLayout } from "~/components/layout/page-layout"
 import {
 	Accordion,
@@ -152,7 +152,6 @@ function AccordionDemo() {
 	)
 }
 
-/* Define your own data this is for demo preposes */
 const faqData = [
 	{
 		description:
@@ -208,18 +207,18 @@ export default function AccordionPage() {
 				)}
 			/>
 
-			<DocDivider />
+			<DocSectionDivider />
 
-			<ComponentCode name="accordion-install">
-				<CodeBlock
+			<ComponentInstallationTabs name="accordion-install">
+				<ArticleCodeBlock
 					code={accordionComponentCode}
 					language="tsx"
 					name="components/ui/accordion.tsx"
 					expand
 				/>
-			</ComponentCode>
+			</ComponentInstallationTabs>
 
-			<DocDivider />
+			<DocSectionDivider />
 
 			<section class="mt-10 space-y-8">
 				<ComponentShowcase

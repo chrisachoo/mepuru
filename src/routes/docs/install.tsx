@@ -1,6 +1,6 @@
-import { BashInstall } from "~/components/docs/bash-install"
+import { ArticleCodeBlock } from "~/components/docs/code/article-code-block"
 import { InlineCode } from "~/components/docs/inline-code"
-import { CodeBlock } from "~/components/layout/code-block"
+import { PackageInstallTabs } from "~/components/docs/install/package-install-tabs"
 import { PageLayout } from "~/components/layout/page-layout"
 
 const viteConfigCode = `import { solidStart } from "@solidjs/start/config"
@@ -59,7 +59,7 @@ export default function InstallationPage() {
 						Create a new Solid project in the current directory.
 					</p>
 
-					<BashInstall
+					<PackageInstallTabs
 						name="create-new-solid-project"
 						pkg="create solid@latest my-app"
 					/>
@@ -75,7 +75,7 @@ export default function InstallationPage() {
 						From your project root, install Tailwind CSS and daisyUI.
 					</p>
 
-					<BashInstall
+					<PackageInstallTabs
 						name="install-tailwind-css-and-daisyui"
 						pkg="tailwindcss@latest @tailwindcss/vite@latest daisyui@latest"
 					/>
@@ -83,7 +83,7 @@ export default function InstallationPage() {
 					<p class="pt-1 text-sm leading-relaxed text-base-content/80">
 						Add Tailwind CSS to your Vite config:
 					</p>
-					<CodeBlock
+					<ArticleCodeBlock
 						name="vite.config.js"
 						code={viteConfigCode}
 						language="typescript"
@@ -93,7 +93,7 @@ export default function InstallationPage() {
 						Put Tailwind CSS and daisyUI in your CSS file (and remove old
 						styles):
 					</p>
-					<CodeBlock
+					<ArticleCodeBlock
 						name="src/index.css"
 						code={cssCode}
 						language="css"
@@ -114,7 +114,7 @@ export default function InstallationPage() {
 						<InlineCode>&quot;src/components/ui/button.tsx&quot;</InlineCode>
 						).
 					</p>
-					<CodeBlock
+					<ArticleCodeBlock
 						name="components/ui/button.tsx"
 						code={buttonComponentCode}
 						language="tsx"

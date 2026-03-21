@@ -1,8 +1,8 @@
 import { A, useLocation } from "@solidjs/router"
 import { Menu } from "lucide-solid"
 import { createSignal, For, onCleanup, onMount, Show } from "solid-js"
-import { LinkItem } from "~/components/docs/link-item"
 import { MapleLeaf } from "~/components/layout/maple-leaf"
+import { SidebarNavLink } from "~/components/layout/sidebar-nav-link"
 import { ToggleTheme } from "~/components/layout/toggle-theme"
 import { linkItems } from "~/constants"
 import { cn } from "~/lib/cn"
@@ -146,7 +146,7 @@ export function Header(props: Readonly<{ shouldShowLogo?: boolean }>) {
 								<ul class="menu">
 									<For each={item.group}>
 										{link => (
-											<LinkItem
+											<SidebarNavLink
 												href={link.href}
 												label={link.label}
 												pathname={pathname}

@@ -1,7 +1,7 @@
 import { createSignal } from "solid-js"
-import { DocDivider } from "~/components/docs/doc-divider"
-import { PageLayout } from "~/components/layout/page-layout"
+import { DocSectionDivider } from "~/components/docs/doc-section-divider"
 import { ComponentShowcase } from "~/components/docs/showcase"
+import { PageLayout } from "~/components/layout/page-layout"
 import { Button } from "~/components/ui/button"
 import {
 	Card,
@@ -58,12 +58,12 @@ export default function ModalPage() {
 				code={modalDemoCode}
 				id="usage"
 				name="input-usage-demo"
-				preview={
+				preview={(
 					<div>
 						<ModalTrigger>
 							<Button
 								variant="outline"
-								onClick={() => setOpened((prev) => !prev)}
+								onClick={() => setOpened(prev => !prev)}
 							>
 								Open modal
 							</Button>
@@ -80,7 +80,7 @@ export default function ModalPage() {
 							</ModalContent>
 						</Modal>
 					</div>
-				}
+				)}
 			/>
 
 			<div>
@@ -98,7 +98,7 @@ export default function ModalPage() {
 				</Card>
 			</div>
 
-			<DocDivider />
+			<DocSectionDivider />
 		</PageLayout>
 	)
 }

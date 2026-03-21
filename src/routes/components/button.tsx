@@ -1,10 +1,10 @@
 import { ArrowRight, Heart, ShoppingCart } from "lucide-solid"
-import { ComponentCode } from "~/components/docs/component-code"
-import { DocDivider } from "~/components/docs/doc-divider"
+import { ArticleCodeBlock } from "~/components/docs/code/article-code-block"
+import { ComponentInstallationTabs } from "~/components/docs/component-installation-tabs"
+import { DocSectionDivider } from "~/components/docs/doc-section-divider"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
-import { CodeBlock } from "~/components/layout/code-block"
 import { PageLayout } from "~/components/layout/page-layout"
 import { Button } from "~/components/ui/button"
 
@@ -198,18 +198,18 @@ export default function ButtonPage() {
 				)}
 			/>
 
-			<DocDivider />
+			<DocSectionDivider />
 
-			<ComponentCode name="button-install">
-				<CodeBlock
+			<ComponentInstallationTabs name="button-install">
+				<ArticleCodeBlock
 					code={buttonComponentCode}
 					language="tsx"
 					name="components/ui/button.tsx"
 					expand
 				/>
-			</ComponentCode>
+			</ComponentInstallationTabs>
 
-			<DocDivider />
+			<DocSectionDivider />
 
 			<section class="mt-10 space-y-8">
 				<ComponentShowcase
@@ -277,7 +277,7 @@ export default function ButtonPage() {
 				/>
 			</section>
 
-			<DocDivider />
+			<DocSectionDivider />
 
 			<PropsTable
 				data={buttonProps}

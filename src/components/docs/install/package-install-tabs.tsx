@@ -1,7 +1,7 @@
-import type { TabItem } from "~/components/docs/showcase/tabs"
+import type { LiftTabItem } from "~/components/docs/code/lift-tabs"
 import { createMemo } from "solid-js"
-import { CodeBlock } from "~/components/docs/showcase/code-block"
-import { Tabs } from "~/components/docs/showcase/tabs"
+import { LiftTabGroup } from "~/components/docs/code/lift-tabs"
+import { SnippetCodeBlock } from "~/components/docs/code/snippet-code-block"
 import { usePackageManager } from "~/context/pm"
 import { getInstallCommand } from "~/lib/commands"
 import {
@@ -9,19 +9,19 @@ import {
 	parsePackageManager
 } from "~/lib/package-manager"
 
-type BashInstallProps = Readonly<{
+type PackageInstallTabsProps = Readonly<{
 	pkg: string
 	dev?: boolean
 	name: string
 }>
 
-export function BashInstall(props: BashInstallProps) {
+export function PackageInstallTabs(props: PackageInstallTabsProps) {
 	const { packageManager, setPackageManager } = usePackageManager()
 
-	const tabs = createMemo((): TabItem[] =>
+	const tabs = createMemo((): LiftTabItem[] =>
 		PACKAGE_MANAGER_ORDER.map(manager => ({
 			content: (
-				<CodeBlock
+				<SnippetCodeBlock
 					code={getInstallCommand(props.pkg, manager, props.dev)}
 					copyButtonClass="-top-1 right-0"
 					language="bash"
@@ -34,7 +34,7 @@ export function BashInstall(props: BashInstallProps) {
 	)
 
 	return (
-		<Tabs
+		<LiftTabGroup
 			name={props.name}
 			tabs={tabs()}
 			value={packageManager()}

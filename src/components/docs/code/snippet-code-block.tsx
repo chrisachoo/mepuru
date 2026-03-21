@@ -6,7 +6,7 @@ import { cn } from "~/lib/cn"
 import { useCopyFeedback } from "~/lib/copy-feedback"
 import { highlight } from "~/lib/shiki"
 
-type ShowcaseCodeBlockProps = {
+type SnippetCodeBlockProps = {
 	code: string
 	language?: DocCodeLang
 	class?: string
@@ -14,7 +14,7 @@ type ShowcaseCodeBlockProps = {
 	proseSize?: "sm" | "xs"
 }
 
-export function CodeBlock(props: Readonly<ShowcaseCodeBlockProps>) {
+export function SnippetCodeBlock(props: Readonly<SnippetCodeBlockProps>) {
 	const { copied, copy, justCopied } = useCopyFeedback()
 
 	const sourceKey = createMemo(() => ({
