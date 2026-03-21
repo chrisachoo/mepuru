@@ -6,9 +6,16 @@ import { cn } from "~/lib/cn"
 
 const checkboxVariants = cva("checkbox", {
 	variants: {
+		size: {
+			lg: "checkbox-lg",
+			md: "checkbox-md",
+			sm: "checkbox-sm",
+			xl: "checkbox-xl",
+			xs: "checkbox-xs"
+		},
 		variant: {
 			accent: "checkbox-accent",
-			error: "checkbox-error",
+			destructive: "checkbox-error",
 			info: "checkbox-info",
 			neutral: "checkbox-neutral",
 			primary: "checkbox-primary",
@@ -19,14 +26,14 @@ const checkboxVariants = cva("checkbox", {
 	}
 })
 
-type CheckboxProps = JSX.IntrinsicElements["input"] &
-	VariantProps<typeof checkboxVariants>
+type CheckboxProps = JSX.IntrinsicElements["input"]
+	& VariantProps<typeof checkboxVariants>
 
 export function Checkbox(props: Readonly<CheckboxProps>) {
-	const [local, rest] = splitProps(props, ["class", "variant"])
+	const [local, rest] = splitProps(props, ["class", "size", "variant"])
 	return (
 		<input
-			class={cn(checkboxVariants({ variant: local.variant }))}
+			class={cn(checkboxVariants({ size: local.size, variant: local.variant }))}
 			type="checkbox"
 			{...rest}
 		/>
