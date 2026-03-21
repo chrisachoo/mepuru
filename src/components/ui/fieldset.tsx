@@ -44,4 +44,14 @@ function FieldDescription(props: Readonly<JSX.IntrinsicElements["p"]>) {
 	)
 }
 
-export { FieldDescription, FieldLabel, FieldLegend, Fieldset }
+function FieldGroup(props: Readonly<JSX.IntrinsicElements["div"]>) {
+	const [local, rest] = splitProps(props, ["class"])
+	return (
+		<div
+			class={cn("w-full grip space-y-4 gap-4", local.class)}
+			{...rest}
+		/>
+	)
+}
+
+export { FieldDescription, FieldGroup, FieldLabel, FieldLegend, Fieldset }

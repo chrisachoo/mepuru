@@ -23,6 +23,7 @@ export const linkItems = [
 			{ href: "/components/badge/", label: "Badge" },
 			{ href: "/components/button/", label: "Button" },
 			{ href: "/components/card/", label: "Card" },
+			{ href: "/components/checkbox/", label: "Checkbox" },
 			{ href: "/components/dropdown/", label: "Dropdown" },
 			{ href: "/components/input/", label: "Input" },
 			{ href: "/components/select/", label: "Select" }

@@ -225,7 +225,7 @@ export default function BadgePage() {
 
 			<PropsTable
 				data={badgeProps}
-				daisyHref="https://daisyui.com/components/avatar/"
+				daisyHref="https://daisyui.com/components/badge/"
 			/>
 		</PageLayout>
 	)

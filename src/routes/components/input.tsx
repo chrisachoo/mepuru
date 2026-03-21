@@ -104,7 +104,7 @@ export default function InputPage() {
 				name="input-usage-demo"
 				title="Usage"
 				preview={(
-					<form class="flex w-full flex-col gap-3">
+					<form class="flex w-full max-w-sm flex-col space-y-2">
 						<Input
 							type="email"
 							placeholder="Email address"
@@ -140,19 +140,19 @@ export default function InputPage() {
 					name="input-sizes-demo"
 					title="Input sizes"
 					preview={(
-						<div class="flex flex-wrap items-center gap-3">
+						<div class="flex w-full max-w-sm flex-wrap items-center gap-3">
 							<Input
 								size="sm"
 								placeholder="Small input"
 							/>
 							<Input placeholder="Default input" />
 							<Input
-								size="lg"
-								placeholder="Large input"
-							/>
-							<Input
 								error
 								placeholder="Input with error state"
+							/>
+							<Input
+								size="lg"
+								placeholder="Large input"
 							/>
 						</div>
 					)}
