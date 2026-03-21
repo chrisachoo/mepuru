@@ -139,6 +139,8 @@ export default function BadgePage() {
 		<PageLayout
 			title="Badge"
 			description="Displays a badge or a component that looks like a badge."
+			sourceCode={badgeComponentCode}
+			sourceFilePath="src/components/ui/badge.tsx"
 		>
 
 			<ComponentShowcase
@@ -157,7 +159,7 @@ export default function BadgePage() {
 
 			<DocSectionDivider />
 
-			<ComponentInstallationTabs name="badge-install">
+			<ComponentInstallationTabs cliComponent="badge" name="badge-install">
 				<ArticleCodeBlock
 					code={badgeComponentCode}
 					language="tsx"

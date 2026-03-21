@@ -220,6 +220,8 @@ export default function AvatarPage() {
 		<PageLayout
 			title="Avatar"
 			description="User or entity image with optional fallback. Uses daisyUI avatar classes."
+			sourceCode={avatarComponentCode}
+			sourceFilePath="src/components/ui/avatar.tsx"
 		>
 			<ComponentShowcase
 				id="avatar"
@@ -266,7 +268,10 @@ export default function AvatarPage() {
 
 			<DocSectionDivider />
 
-			<ComponentInstallationTabs name="avatar-install">
+			<ComponentInstallationTabs
+				cliComponent="avatar"
+				name="avatar-install"
+			>
 				<ArticleCodeBlock
 					code={avatarComponentCode}
 					language="tsx"

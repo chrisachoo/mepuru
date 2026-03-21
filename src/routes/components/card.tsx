@@ -290,7 +290,7 @@ export default function CardPage() {
 
 			<DocSectionDivider />
 
-			<ComponentInstallationTabs name="card-install">
+			<ComponentInstallationTabs cliComponent="card" name="card-install">
 				<ArticleCodeBlock
 					code={cardComponentCode}
 					language="tsx"

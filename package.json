@@ -8,6 +8,7 @@
 		"build": "vite build",
 		"start": "vite start",
 		"serve": "vite preview",
+		"copy-component": "bun run ./scripts/copy-ui-component.ts",
 		"generate": "bun run generate:components",
 		"preview": "vite preview",
 		"lint:fix": "eslint --fix",

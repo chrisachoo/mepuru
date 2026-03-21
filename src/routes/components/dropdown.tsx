@@ -199,7 +199,10 @@ export default function DropdownPage() {
 
 			<DocSectionDivider />
 
-			<ComponentInstallationTabs name="dropdown-install">
+			<ComponentInstallationTabs
+				cliComponent="dropdown"
+				name="dropdown-install"
+			>
 				<ArticleCodeBlock
 					code={dropdownComponentCode}
 					language="tsx"

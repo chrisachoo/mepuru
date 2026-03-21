@@ -167,7 +167,7 @@ export default function SelectPage() {
 
 			<DocSectionDivider />
 
-			<ComponentInstallationTabs name="select-install">
+			<ComponentInstallationTabs cliComponent="select" name="select-install">
 				<ArticleCodeBlock
 					code={selectComponentCode}
 					language="tsx"

@@ -7,10 +7,12 @@ const CLAUDE_URL = "https://claude.ai/"
 
 function fileAsMarkdown(
 	sourceCode: string,
-	filename: string,
-	lang: string
+	sourceFilePath: string,
+	lang: string,
+	docTitle?: string,
+	docDescription?: string
 ): string {
-	const ext = filename.split(".").pop() ?? "tsx"
+	const ext = sourceFilePath.split(".").pop() ?? "tsx"
 	let fenceLang = lang
 	if (!fenceLang) {
 		if (ext === "tsx") {
@@ -23,38 +25,58 @@ function fileAsMarkdown(
 			fenceLang = "text"
 		}
 	}
-	return `\`\`\`${fenceLang}\n${sourceCode.trimEnd()}\n\`\`\``
+
+	const title = docTitle?.trim()
+	const blurb = docDescription?.trim()
+	const pathLine = `**File:** \`${sourceFilePath}\``
+
+	const header = [
+		title && `## ${title}`,
+		blurb,
+		"Paste this into your project at the path above. Adjust imports (e.g. `~/lib/cn`) to match your app.",
+		pathLine
+	]
+		.filter(Boolean)
+		.join("\n\n")
+
+	return `${header}\n\n\`\`\`${fenceLang}\n${sourceCode.trimEnd()}\n\`\`\``
 }
 
 function openWithContent(url: string, text: string): void {
-	copyTextToClipboard(text).then(() =>
-		window.open(url, "_blank", "noopener,noreferrer")
-	)
+	copyTextToClipboard(text)
+		.then(() => {
+			window.open(url, "_blank", "noopener,noreferrer")
+		})
+		.catch(() => {
+			window.open(url, "_blank", "noopener,noreferrer")
+		})
 }
 
 type DocSourceActionsProps = {
 	sourceCode: string
 	sourceFilePath: string
 	language?: string
+	docTitle?: string
+	docDescription?: string
 	githubUrl?: string
 	class?: string
 }
 
-type MenuItemProps = {
+const menuItemClass
+	= "group flex w-full cursor-pointer items-center justify-between gap-2 rounded-md border-0 bg-transparent p-2 text-left text-inherit hover:bg-base-300/50"
+
+function MenuLink(props: Readonly<{
 	icon: JSX.Element
 	label: string
-	onClick?: () => void
-	href?: string
-}
-
-function MenuItem(props: Readonly<MenuItemProps>) {
+	href: string
+}>) {
 	return (
 		<li>
 			<a
 				href={props.href}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="group flex items-center justify-between gap-2 rounded-md p-2 hover:bg-base-300/50"
+				class={menuItemClass}
 			>
 				<span class="flex items-center gap-2">
 					{props.icon}
@@ -66,10 +88,39 @@ function MenuItem(props: Readonly<MenuItemProps>) {
 	)
 }
 
+function MenuButton(props: Readonly<{
+	icon: JSX.Element
+	label: string
+	onClick: () => void
+}>) {
+	return (
+		<li>
+			<button
+				type="button"
+				class={menuItemClass}
+				onClick={() => {
+					props.onClick()
+				}}
+			>
+				<span class="flex items-center gap-2">
+					{props.icon}
+					{props.label}
+				</span>
+			</button>
+		</li>
+	)
+}
+
 export function DocSourceActions(props: Readonly<DocSourceActionsProps>) {
 	const lang = () => props.language ?? "tsx"
 	const markdown = () =>
-		fileAsMarkdown(props.sourceCode, props.sourceFilePath, lang())
+		fileAsMarkdown(
+			props.sourceCode,
+			props.sourceFilePath,
+			lang(),
+			props.docTitle,
+			props.docDescription
+		)
 
 	const copyMarkdown = () => {
 		copyTextToClipboard(markdown()).catch(() => {})
@@ -112,7 +163,7 @@ export function DocSourceActions(props: Readonly<DocSourceActionsProps>) {
 					tabIndex={-1}
 					class="dropdown-content menu z-10 my-2 w-52 menu-sm rounded-box border border-white/5 bg-base-200 shadow-2xl outline-(length:--border) outline-black/5"
 				>
-					<MenuItem
+					<MenuButton
 						icon={(
 							<svg
 								fill="currentColor"
@@ -125,9 +176,8 @@ export function DocSourceActions(props: Readonly<DocSourceActionsProps>) {
 						)}
 						label="Open in ChatGPT"
 						onClick={openChatGPT}
-						href="https://chat.openai.com/"
 					/>
-					<MenuItem
+					<MenuButton
 						icon={(
 							<svg
 								fill="currentColor"
@@ -140,10 +190,9 @@ export function DocSourceActions(props: Readonly<DocSourceActionsProps>) {
 						)}
 						label="Open in Claude"
 						onClick={openClaude}
-						href="https://claude.ai/"
 					/>
 					<hr class="my-1 border-gray-500/60" />
-					<MenuItem
+					<MenuButton
 						icon={(
 							<svg
 								fill="currentColor"
@@ -156,30 +205,54 @@ export function DocSourceActions(props: Readonly<DocSourceActionsProps>) {
 						)}
 						label="Copy as Markdown"
 						onClick={copyMarkdown}
-						href="https://claude.ai/"
 					/>
-					<MenuItem
-						icon={(
-							<svg
-								class="size-4 shrink-0"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 24 24"
-							>
-								<g
-									stroke-linejoin="round"
-									stroke-linecap="round"
-									stroke-width="2"
-									fill="none"
-									stroke="currentColor"
-								>
-									<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-								</g>
-							</svg>
-						)}
-						label={props.githubUrl ? "View on GitHub" : "Copy source"}
-						onClick={props.githubUrl ? undefined : copySource}
-						href={props.githubUrl}
-					/>
+					{props.githubUrl
+						? (
+								<MenuLink
+									icon={(
+										<svg
+											class="size-4 shrink-0"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+										>
+											<g
+												stroke-linejoin="round"
+												stroke-linecap="round"
+												stroke-width="2"
+												fill="none"
+												stroke="currentColor"
+											>
+												<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+											</g>
+										</svg>
+									)}
+									label="View on GitHub"
+									href={props.githubUrl}
+								/>
+							)
+						: (
+								<MenuButton
+									icon={(
+										<svg
+											class="size-4 shrink-0"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+										>
+											<g
+												stroke-linejoin="round"
+												stroke-linecap="round"
+												stroke-width="2"
+												fill="none"
+												stroke="currentColor"
+											>
+												<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+											</g>
+										</svg>
+									)}
+									label="Copy source"
+									onClick={copySource}
+								/>
+							)}
 				</ul>
 			</div>
 		</div>

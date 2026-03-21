@@ -200,7 +200,7 @@ export default function ButtonPage() {
 
 			<DocSectionDivider />
 
-			<ComponentInstallationTabs name="button-install">
+			<ComponentInstallationTabs cliComponent="button" name="button-install">
 				<ArticleCodeBlock
 					code={buttonComponentCode}
 					language="tsx"

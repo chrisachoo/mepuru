@@ -45,6 +45,8 @@ export function PageLayout(props: Readonly<PageLayoutProps>) {
 							<DocSourceActions
 								sourceCode={props.sourceCode!}
 								sourceFilePath={props.sourceFilePath!}
+								docTitle={props.title}
+								docDescription={props.description}
 								githubUrl={props.githubUrl}
 								class="shrink-0"
 							/>

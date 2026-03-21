@@ -5,6 +5,7 @@ import { Tabs } from "~/components/ui/tabs"
 
 type ComponentInstallationTabsProps = {
 	name: string
+	cliComponent?: string
 	children: JSX.Element
 }
 
@@ -60,18 +61,59 @@ export function ComponentInstallationTabs(
 						value: "manual"
 					},
 					{
-						content: (
-							<div class="rounded-lg border border-base-300 bg-base-200/50 p-4">
-								<p class="text-sm text-base-content/70">
-									<span class="font-medium text-base-content">
-										Coming soon.
-									</span>
-									{" "}
-									Use the Manual tab to copy the component code until the CLI is
-									available.
-								</p>
-							</div>
-						),
+						content: props.cliComponent
+							? (
+									<div class="space-y-3 rounded-lg border border-base-300 bg-base-200/50 p-4">
+										<p class="text-sm text-base-content/80">
+											From the
+											{" "}
+											<strong class="font-medium text-base-content">mepuru</strong>
+											{" "}
+											repo root, copy the UI file into your project (creates
+											parent folders if needed):
+										</p>
+										<pre class="overflow-x-auto rounded-md bg-base-300/40 p-3 font-mono text-xs text-base-content">
+											<code>
+												bun run copy-component
+												{" "}
+												{props.cliComponent}
+												{" "}
+												./src/components/ui
+											</code>
+										</pre>
+										<p class="text-sm text-base-content/70">
+											Last argument is the destination directory; defaults to
+											{" "}
+											<InlineCode>./src/components/ui</InlineCode>
+											{" "}
+											if omitted. Then fix imports such as
+											{" "}
+											<InlineCode>~/lib/cn</InlineCode>
+											{" "}
+											to match your app.
+										</p>
+									</div>
+								)
+							: (
+									<div class="rounded-lg border border-base-300 bg-base-200/50 p-4">
+										<p class="text-sm text-base-content/70">
+											<span class="font-medium text-base-content">
+												CLI snippet not set for this page.
+											</span>
+											{" "}
+											Use the Manual tab to copy the component source, or run
+											{" "}
+											<InlineCode>
+												bun run copy-component &lt;name&gt; [dest]
+											</InlineCode>
+											{" "}
+											from this repository with a component file under
+											{" "}
+											<InlineCode>src/components/ui/&lt;name&gt;.tsx</InlineCode>
+											.
+										</p>
+									</div>
+								),
 						label: "CLI",
 						value: "cli"
 					}

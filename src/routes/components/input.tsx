@@ -122,7 +122,7 @@ export default function InputPage() {
 
 			<DocSectionDivider />
 
-			<ComponentInstallationTabs name="input-install">
+			<ComponentInstallationTabs cliComponent="input" name="input-install">
 				<ArticleCodeBlock
 					code={inputComponentCode}
 					language="tsx"

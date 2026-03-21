@@ -105,6 +105,8 @@ export default function CheckboxPage() {
 		<PageLayout
 			title="Checkbox"
 			description="Native checkbox styled with daisyUI. Supports labels and indeterminate state."
+			sourceCode={checkboxComponentCode}
+			sourceFilePath="src/components/ui/checkbox.tsx"
 		>
 			<ComponentShowcase
 				code={checkboxDemoCode}
@@ -125,7 +127,10 @@ export default function CheckboxPage() {
 
 			<DocSectionDivider />
 
-			<ComponentInstallationTabs name="card-install">
+			<ComponentInstallationTabs
+				cliComponent="checkbox"
+				name="checkbox-install"
+			>
 				<ArticleCodeBlock
 					code={checkboxComponentCode}
 					language="tsx"
