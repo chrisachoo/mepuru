@@ -1,6 +1,6 @@
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
@@ -217,7 +217,7 @@ const avatarProps = [
 
 export default function AvatarPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Avatar"
 			description="User or entity image with optional fallback. Uses daisyUI avatar classes."
 		>
@@ -342,6 +342,6 @@ export default function AvatarPage() {
 				data={avatarProps}
 				daisyHref="https://daisyui.com/components/avatar/"
 			/>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

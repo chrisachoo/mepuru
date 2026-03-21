@@ -1,4 +1,4 @@
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { PageLayout } from "~/components/layout/page-layout"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import {
 	FieldDescription,
@@ -31,7 +31,7 @@ function FormField() {
 
 export default function FieldsetPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Fieldset"
 			description="Fieldset is a container for grouping related form elements. It includes fieldset-legend as a title and label as a description."
 		>
@@ -67,6 +67,6 @@ export default function FieldsetPage() {
 					</form>
 				}
 			/>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

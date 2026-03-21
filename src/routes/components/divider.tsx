@@ -1,8 +1,8 @@
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { PageLayout } from "~/components/layout/page-layout";
 
 export default function DividerPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Divider"
 			description="Horizontal or vertical separator. Uses daisyUI divider classes."
 		>
@@ -25,6 +25,6 @@ export default function DividerPage() {
 					</p>
 				</section>
 			</section>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

@@ -1,8 +1,8 @@
 import { ArrowRight, Heart, ShoppingCart } from "lucide-solid"
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
+import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
@@ -162,7 +162,7 @@ const buttonProps = [
 
 export default function ButtonPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Button"
 			description="Displays a button with variants and sizes. Built with daisyUI and class-variance-authority."
 			sourceCode={buttonComponentCode}
@@ -235,9 +235,9 @@ export default function ButtonPage() {
 					title="Button sizes"
 					preview={(
 						<div class="flex flex-wrap items-center gap-3">
-							<Button size="sm">Small</Button>
-							<Button>Default</Button>
-							<Button size="lg">Large</Button>
+							<Button variant="outline" size="sm">Small</Button>
+							<Button variant="outline">Default</Button>
+							<Button variant="outline" size="lg">Large</Button>
 						</div>
 					)}
 				/>
@@ -280,6 +280,6 @@ export default function ButtonPage() {
 					PolymorphicProps).
 				</p>
 			</PropsTable>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

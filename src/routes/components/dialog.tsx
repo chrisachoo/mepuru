@@ -1,8 +1,8 @@
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { PageLayout } from "~/components/layout/page-layout";
 
 export default function DialogPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Dialog"
 			description="Native dialog element for modals and overlays. Uses daisyUI modal classes with semantic HTML."
 		>
@@ -25,6 +25,6 @@ export default function DialogPage() {
 					</p>
 				</section>
 			</section>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

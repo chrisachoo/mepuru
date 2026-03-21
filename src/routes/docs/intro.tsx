@@ -1,6 +1,6 @@
 import { For } from "solid-js"
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
+import { PageLayout } from "~/components/layout/page-layout"
 import { CodeBlock } from "~/components/layout/code-block"
 import {
 	Accordion,
@@ -21,7 +21,7 @@ export default function Showcase() {
 
 export default function IntroductionPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Introduction"
 			description="A copy-paste UI component system for SolidJS built with daisyUI and Tailwind."
 		>
@@ -61,7 +61,7 @@ export default function IntroductionPage() {
 					<li>
 						• Place it in
 						{" "}
-						<InlineCode>/components/ui</InlineCode>
+						<InlineCode>&quot;/components/ui&quot;</InlineCode>
 					</li>
 					<li>• Import and use it in your project</li>
 				</ul>
@@ -94,6 +94,6 @@ export default function IntroductionPage() {
 					)}
 				</For>
 			</section>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

@@ -1,8 +1,8 @@
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { PageLayout } from "~/components/layout/page-layout";
 
 export default function BadgePage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Badge"
 			description="Small label or count indicator. Uses daisyUI badge classes."
 		>
@@ -25,6 +25,6 @@ export default function BadgePage() {
 					</p>
 				</section>
 			</section>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

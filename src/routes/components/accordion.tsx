@@ -3,7 +3,7 @@ import { Info } from "lucide-solid"
 import { For } from "solid-js"
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
@@ -164,7 +164,7 @@ const faqData = [
 
 export default function AccordionPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Accordion"
 			description="Accordion is used for showing and hiding content but only one item can stay open at a time."
 		>
@@ -248,6 +248,6 @@ export default function AccordionPage() {
 			</section>
 
 			<PropsTable data={accordionProps} daisyHref="https://daisyui.com/components/accordion/" />
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

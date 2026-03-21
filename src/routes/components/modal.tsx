@@ -1,6 +1,6 @@
 import { createSignal } from "solid-js"
 import { DocDivider } from "~/components/docs/doc-divider"
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { PageLayout } from "~/components/layout/page-layout"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { Button } from "~/components/ui/button"
 import {
@@ -46,10 +46,9 @@ function ModalDemo() {
 
 export default function ModalPage() {
 	const [opened, setOpened] = createSignal<boolean>(false)
-	// let dialog!: HTMLDialogElement
 
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Modal"
 			description="Opens a menu when the trigger is clicked. Uses daisyUI dropdown
 						classes and CVA for alignment. Visibility is controlled by CSS
@@ -100,6 +99,6 @@ export default function ModalPage() {
 			</div>
 
 			<DocDivider />
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

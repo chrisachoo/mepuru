@@ -1,7 +1,7 @@
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
+import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
@@ -92,7 +92,7 @@ const inputHint = (
 
 export default function InputPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Input"
 			description="Native <input> with HTML semantics (styled with daisyUI). Supports sizes and error states; when `error` is enabled it sets aria-invalid per MDN ARIA (native HTML first, minimal abstraction)."
 			sourceCode={inputComponentCode}
@@ -190,6 +190,6 @@ export default function InputPage() {
 			>
 				{inputHint}
 			</PropsTable>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

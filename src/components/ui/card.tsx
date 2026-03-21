@@ -6,7 +6,7 @@ import { cva } from "class-variance-authority"
 import { splitProps } from "solid-js"
 import { cn } from "~/lib/cn"
 
-const cardVariants = cva("card w-full bg-base-100 card-border", {
+const cardVariants = cva("card w-full bg-base-100 card-border shadow-sm", {
 	defaultVariants: {
 		size: "md"
 	},
@@ -71,7 +71,7 @@ export function CardDescription<T extends ValidComponent = "p">(
 	const [local, rest] = splitProps(props, ["class", "children"])
 	return (
 		<p
-			class={cn("text-sm text-primary-content", local.class)}
+			class={cn("text-sm", local.class)}
 			data-slot="card-description"
 			{...rest}
 		>

@@ -1,8 +1,8 @@
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { PageLayout } from "~/components/layout/page-layout";
 
 export default function CollapsePage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Collapse"
 			description="Expandable/collapsible content. Uses daisyUI collapse and checkbox for state."
 		>
@@ -25,6 +25,6 @@ export default function CollapsePage() {
 					</p>
 				</section>
 			</section>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

@@ -1,10 +1,7 @@
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { BashInstall } from "~/components/docs/bash-install"
+import { InlineCode } from "~/components/docs/inline-code"
+import { PageLayout } from "~/components/layout/page-layout"
 import { CodeBlock } from "~/components/layout/code-block"
-
-const createProjectCmd = "bun create solid@latest my-app"
-
-const installDepsCmd =
-	"bun add tailwindcss@latest @tailwindcss/vite@latest daisyui@latest"
 
 const viteConfigCode = `import { solidStart } from "@solidjs/start/config"
 import tailwindcss from "@tailwindcss/vite"
@@ -47,7 +44,7 @@ export function Button<T extends ValidComponent = "button">(
 
 export default function InstallationPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Install daisyUI for Solid"
 			description="How to install Tailwind CSS and daisyUI in a Solid project. Mēpuru
 						components rely on both—set them up, then copy component code from
@@ -61,10 +58,8 @@ export default function InstallationPage() {
 					<p class="text-sm leading-relaxed text-base-content/80">
 						Create a new Solid project in the current directory.
 					</p>
-					<CodeBlock
-						code={createProjectCmd}
-						language="bash"
-					/>
+
+					<BashInstall command="create solid@latest my-app" name="create-new-solid-project" />
 				</section>
 
 				<div class="mx-auto h-px w-full max-w-2xl bg-linear-to-r from-transparent via-primary/30 to-transparent" />
@@ -76,11 +71,8 @@ export default function InstallationPage() {
 					<p class="text-sm leading-relaxed text-base-content/80">
 						From your project root, install Tailwind CSS and daisyUI.
 					</p>
-					<CodeBlock
-						name="Terminal"
-						code={installDepsCmd}
-						language="bash"
-					/>
+
+					<BashInstall command="tailwindcss@latest @tailwindcss/vite@latest daisyui@latest" name="install-tailwind-css-and-daisyui" />
 
 					<p class="pt-1 text-sm leading-relaxed text-base-content/80">
 						Add Tailwind CSS to your Vite config:
@@ -111,10 +103,11 @@ export default function InstallationPage() {
 					<p class="text-sm leading-relaxed text-base-content/80">
 						Add components by copying their code from the docs—open a component
 						page, use the copy button on the code block, and paste into your
-						project (e.g.{" "}
-						<code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-sm">
-							src/components/ui/button.tsx
-						</code>
+						project (e.g.
+						{" "}
+						<InlineCode>
+							&quot;src/components/ui/button.tsx&quot;
+						</InlineCode>
 						).
 					</p>
 					<CodeBlock
@@ -126,11 +119,13 @@ export default function InstallationPage() {
 
 				<section class="rounded-xl border border-base-300 bg-base-200/50 p-4">
 					<p class="text-sm text-base-content/70">
-						<span class="font-medium text-base-content">Coming soon:</span> CLI
+						<span class="font-medium text-base-content">Coming soon:</span>
+						{" "}
+						CLI
 						and package install so you can add components without copy-pasting.
 					</p>
 				</section>
 			</div>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

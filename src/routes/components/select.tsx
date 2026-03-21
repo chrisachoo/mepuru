@@ -1,8 +1,8 @@
 import { For } from "solid-js"
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
+import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
@@ -132,7 +132,7 @@ const selectProps = [
 
 export default function SelectPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Select"
 			description="Native <select> with native keyboard behavior and HTML semantics (styled with daisyUI). Prefer native labels/fieldset+legend; use aria-label only when you can't provide a native label (per MDN ARIA and WAI-ARIA Authoring Practices)."
 			sourceCode={selectComponentCode}
@@ -221,12 +221,19 @@ export default function SelectPage() {
 
 			<PropsTable data={selectProps} daisyHref="https://daisyui.com/components/select/">
 				<p class="mt-2 text-xs text-base-content/60">
-					Prefer a visible label (or <InlineCode>fieldset</InlineCode> +
-					<InlineCode>legend</InlineCode>). Use <InlineCode>aria-label</InlineCode>{" "}
+					Prefer a visible label (or
+					{" "}
+					<InlineCode>fieldset</InlineCode>
+					{" "}
+					+
+					<InlineCode>legend</InlineCode>
+					). Use
+					<InlineCode>aria-label</InlineCode>
+					{" "}
 					only when native labeling isn't available. Labeling behavior follows MDN ARIA
 					and WAI-ARIA Authoring Practices.
 				</p>
 			</PropsTable>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

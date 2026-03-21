@@ -1,8 +1,8 @@
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
+import { PageLayout } from "~/components/layout/page-layout";
 
 export default function CheckboxPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Checkbox"
 			description="Native checkbox styled with daisyUI. Supports labels and indeterminate state."
 		>
@@ -25,6 +25,6 @@ export default function CheckboxPage() {
 					</p>
 				</section>
 			</section>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }

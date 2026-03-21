@@ -1,7 +1,7 @@
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
-import { DocPageLayout } from "~/components/docs/doc-page-layout"
 import { InlineCode } from "~/components/docs/inline-code"
+import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
@@ -245,7 +245,7 @@ const cardProps = [
 
 export default function CardPage() {
 	return (
-		<DocPageLayout
+		<PageLayout
 			title="Card"
 			description="Content container built with daisyUI card classes. Compose Card, CardTitle, CardDescription, CardBody, CardAction, and CardFigure for flexible layouts."
 			sourceCode={cardComponentCode}
@@ -414,6 +414,6 @@ export default function CardPage() {
 					). All are polymorphic and accept native attributes.
 				</p>
 			</PropsTable>
-		</DocPageLayout>
+		</PageLayout>
 	)
 }
