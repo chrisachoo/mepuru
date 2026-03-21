@@ -207,6 +207,10 @@
 	}
 }
 
+.checkbox {
+	border-radius: 8px !important;
+}
+
 @view-transition {
 	navigation: auto;
 }
