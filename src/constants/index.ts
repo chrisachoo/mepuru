@@ -11,7 +11,7 @@ export const linkItems = [
 	{
 		group: [
 			{ href: "/docs/intro/", label: "Introduction" },
-			{ href: "/docs/install/", label: "Install" },
+			{ href: "/docs/install/", label: "Install" }
 		],
 		icon: BookOpen,
 		path: "docs"
@@ -24,7 +24,7 @@ export const linkItems = [
 			{ href: "/components/card/", label: "Card" },
 			{ href: "/components/dropdown/", label: "Dropdown" },
 			{ href: "/components/input/", label: "Input" },
-			{ href: "/components/select/", label: "Select" },
+			{ href: "/components/select/", label: "Select" }
 		],
 		icon: Component,
 		path: "components"

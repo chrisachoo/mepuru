@@ -14,9 +14,8 @@ const PMContext = createContext<{
 const DEFAULT_PACKAGE_MANAGER: PackageManager = "pnpm"
 
 export function PMProvider(props: Readonly<{ children: JSX.Element }>) {
-	const [packageManager, setPackageManagerSignal] = createSignal<PackageManager>(
-		DEFAULT_PACKAGE_MANAGER
-	)
+	const [packageManager, setPackageManagerSignal]
+		= createSignal<PackageManager>(DEFAULT_PACKAGE_MANAGER)
 
 	onMount(() => {
 		const stored = parsePackageManager(
@@ -40,7 +39,7 @@ export function PMProvider(props: Readonly<{ children: JSX.Element }>) {
 
 export function usePackageManager() {
 	const ctx = useContext(PMContext)
-	
+
 	if (!ctx)
 		throw new Error("usePackageManager must be used within PMProvider")
 

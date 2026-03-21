@@ -5,7 +5,7 @@ export function MapleLeaf(props: Readonly<{ class?: string }>) {
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 2 24 16"
-			class={cn("size-10 block", props.class)}
+			class={cn("block size-10", props.class)}
 			aria-hidden
 		>
 			<path

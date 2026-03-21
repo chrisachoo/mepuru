@@ -74,7 +74,10 @@ function AvatarFallback(props: Readonly<JSX.IntrinsicElements["span"]>) {
 	return (
 		<div class="avatar avatar-placeholder">
 			<div class="w-12 rounded-full bg-neutral text-neutral-content">
-				<span class={cn(local.class)} {...rest}>
+				<span
+					class={cn(local.class)}
+					{...rest}
+				>
 					{props.children}
 				</span>
 			</div>

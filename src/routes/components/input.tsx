@@ -1,10 +1,10 @@
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { InlineCode } from "~/components/docs/inline-code"
-import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
+import { PageLayout } from "~/components/layout/page-layout"
 import { Input } from "~/components/ui/input"
 
 const inputComponentCode = `import type { VariantProps } from "class-variance-authority"
@@ -176,7 +176,8 @@ export default function InputPage() {
 					},
 					{
 						default: "false",
-						description: "Applies error styling and sets aria-invalid (MDN ARIA)",
+						description:
+							"Applies error styling and sets aria-invalid (MDN ARIA)",
 						prop: "error",
 						type: "boolean"
 					},

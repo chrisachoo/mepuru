@@ -59,7 +59,10 @@ export default function InstallationPage() {
 						Create a new Solid project in the current directory.
 					</p>
 
-					<BashInstall name="create-new-solid-project" pkg="create solid@latest my-app" />
+					<BashInstall
+						name="create-new-solid-project"
+						pkg="create solid@latest my-app"
+					/>
 				</section>
 
 				<div class="mx-auto h-px w-full max-w-2xl bg-linear-to-r from-transparent via-primary/30 to-transparent" />
@@ -108,9 +111,7 @@ export default function InstallationPage() {
 						page, use the copy button on the code block, and paste into your
 						project (e.g.
 						{" "}
-						<InlineCode>
-							&quot;src/components/ui/button.tsx&quot;
-						</InlineCode>
+						<InlineCode>&quot;src/components/ui/button.tsx&quot;</InlineCode>
 						).
 					</p>
 					<CodeBlock

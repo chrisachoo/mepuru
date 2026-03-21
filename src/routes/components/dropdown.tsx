@@ -2,11 +2,16 @@ import { A } from "@solidjs/router"
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { InlineCode } from "~/components/docs/inline-code"
-import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
-import { Dropdown, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "~/components/ui/dropdown"
+import { PageLayout } from "~/components/layout/page-layout"
+import {
+	Dropdown,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger
+} from "~/components/ui/dropdown"
 
 const dropdownComponentCode = `import type { VariantProps } from "class-variance-authority"
 import type { JSX } from "solid-js"
@@ -162,9 +167,15 @@ export default function DropdownPage() {
 					<Dropdown>
 						<DropdownMenuTrigger>Open menu</DropdownMenuTrigger>
 						<DropdownMenuContent>
-							<DropdownMenuItem><A href="#">Item 1</A></DropdownMenuItem>
-							<DropdownMenuItem><A href="#">Item 2</A></DropdownMenuItem>
-							<DropdownMenuItem><A href="#">Item 3</A></DropdownMenuItem>
+							<DropdownMenuItem>
+								<A href="#">Item 1</A>
+							</DropdownMenuItem>
+							<DropdownMenuItem>
+								<A href="#">Item 2</A>
+							</DropdownMenuItem>
+							<DropdownMenuItem>
+								<A href="#">Item 3</A>
+							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</Dropdown>
 				)}
@@ -210,18 +221,30 @@ export default function DropdownPage() {
 							<Dropdown align="left">
 								<DropdownMenuTrigger>Align left</DropdownMenuTrigger>
 								<DropdownMenuContent>
-									<DropdownMenuItem><A href="#">Item 1</A></DropdownMenuItem>
-									<DropdownMenuItem><A href="#">Item 2</A></DropdownMenuItem>
-									<DropdownMenuItem><A href="#">Item 3</A></DropdownMenuItem>
+									<DropdownMenuItem>
+										<A href="#">Item 1</A>
+									</DropdownMenuItem>
+									<DropdownMenuItem>
+										<A href="#">Item 2</A>
+									</DropdownMenuItem>
+									<DropdownMenuItem>
+										<A href="#">Item 3</A>
+									</DropdownMenuItem>
 								</DropdownMenuContent>
 							</Dropdown>
 
 							<Dropdown align="right">
 								<DropdownMenuTrigger>Align right</DropdownMenuTrigger>
 								<DropdownMenuContent>
-									<DropdownMenuItem><A href="#">Item 1</A></DropdownMenuItem>
-									<DropdownMenuItem><A href="#">Item 2</A></DropdownMenuItem>
-									<DropdownMenuItem><A href="#">Item 3</A></DropdownMenuItem>
+									<DropdownMenuItem>
+										<A href="#">Item 1</A>
+									</DropdownMenuItem>
+									<DropdownMenuItem>
+										<A href="#">Item 2</A>
+									</DropdownMenuItem>
+									<DropdownMenuItem>
+										<A href="#">Item 3</A>
+									</DropdownMenuItem>
 								</DropdownMenuContent>
 							</Dropdown>
 						</div>
@@ -240,7 +263,10 @@ export default function DropdownPage() {
 
 			<DocDivider />
 
-			<PropsTable data={dropdownProps} daisyHref="https://daisyui.com/components/dropdown/">
+			<PropsTable
+				data={dropdownProps}
+				daisyHref="https://daisyui.com/components/dropdown/"
+			>
 				{dropdownItemHint}
 			</PropsTable>
 		</PageLayout>

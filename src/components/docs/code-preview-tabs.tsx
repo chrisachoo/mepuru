@@ -1,4 +1,3 @@
-/* eslint-disable solid/no-innerhtml */
 import type { JSX } from "solid-js"
 import { Copy, SquareCheckBig } from "lucide-solid"
 import { createResource, createSignal, Show } from "solid-js"
@@ -79,10 +78,11 @@ export function CodePreviewTabs(props: Readonly<CodePreviewTabsProps>) {
 								</Show>
 							</Button>
 
-							<div class={cn(
-								"max-h-96 text-xs [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!",
-								"scrollbar-none overflow-auto overscroll-contain scroll-smooth"
-							)}
+							<div
+								class={cn(
+									"max-h-96 text-xs [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!",
+									"scrollbar-none overflow-auto overscroll-contain scroll-smooth"
+								)}
 							>
 								<Show
 									when={source()}

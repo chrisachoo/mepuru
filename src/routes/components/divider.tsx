@@ -1,4 +1,4 @@
-import { PageLayout } from "~/components/layout/page-layout";
+import { PageLayout } from "~/components/layout/page-layout"
 
 export default function DividerPage() {
 	return (
@@ -17,10 +17,12 @@ export default function DividerPage() {
 				<section class="space-y-2">
 					<h2 class="text-xl font-semibold text-base-content">Installation</h2>
 					<p class="text-sm leading-relaxed text-base-content/80">
-						Create{" "}
+						Create
+						{" "}
 						<code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-sm">
 							src/components/ui/divider.tsx
-						</code>{" "}
+						</code>
+						{" "}
 						and paste the source from this page when available.
 					</p>
 				</section>

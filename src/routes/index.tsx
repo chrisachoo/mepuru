@@ -1,4 +1,3 @@
-/* eslint-disable solid/no-innerhtml */
 import { Link, Meta, MetaProvider, Title } from "@solidjs/meta"
 import { useNavigate } from "@solidjs/router"
 import { Accessibility, Code, Leaf, Zap } from "lucide-solid"
@@ -82,7 +81,10 @@ export default function HomePage() {
 		<MetaProvider>
 			<div>
 				<Title>Mēpuru · Simple UI for Solid</Title>
-				<Link rel="canonical" href="/" />
+				<Link
+					rel="canonical"
+					href="/"
+				/>
 				<Meta
 					name="description"
 					content="Mēpuru is a lightweight Solid component library focused on simplicity, accessibility, and a predictable developer experience."
@@ -174,7 +176,12 @@ export default function HomePage() {
 									(keeps runtime size small).
 								</p>
 
-								<Button variant="primary" onClick={() => navigate("/components/", { replace: true })}>Browse components</Button>
+								<Button
+									variant="primary"
+									onClick={() => navigate("/components/", { replace: true })}
+								>
+									Browse components
+								</Button>
 							</div>
 
 							<div class="animate-fade-in overflow-hidden rounded-xl border border-base-300 bg-base-200/80 shadow-lg shadow-base-content/5">
@@ -189,13 +196,11 @@ export default function HomePage() {
 								<div class="overflow-x-auto p-4 text-sm [&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!">
 									<Show
 										when={highlighted()}
-										fallback={
-											(
-												<pre class="font-mono text-base-content/60">
-													<code>{code.trim()}</code>
-												</pre>
-											)
-										}
+										fallback={(
+											<pre class="font-mono text-base-content/60">
+												<code>{code.trim()}</code>
+											</pre>
+										)}
 									>
 										{html => <div innerHTML={html()} />}
 									</Show>

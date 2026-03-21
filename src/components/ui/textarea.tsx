@@ -26,14 +26,18 @@ const textareaVariants = cva("textarea", {
 	}
 })
 
-type TextareaProps = JSX.IntrinsicElements["textarea"] & VariantProps<typeof textareaVariants>
+type TextareaProps = JSX.IntrinsicElements["textarea"]
+	& VariantProps<typeof textareaVariants>
 
 function Textarea(props: Readonly<TextareaProps>) {
 	const [local, rest] = splitProps(props, ["class", "size", "variant"])
 
 	return (
 		<textarea
-			class={cn(textareaVariants({ size: local.size, variant: local.variant }), local.class)}
+			class={cn(
+				textareaVariants({ size: local.size, variant: local.variant }),
+				local.class
+			)}
 			{...rest}
 		/>
 	)

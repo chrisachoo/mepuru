@@ -22,10 +22,8 @@ export function CodeBlock(props: Readonly<ShowcaseCodeBlockProps>) {
 		lang: props.language ?? "tsx"
 	}))
 
-	const [source] = createResource(
-		sourceKey,
-		async ({ code, lang }) => highlight(code.trim(), lang)
-	)
+	const [source] = createResource(sourceKey, async ({ code, lang }) =>
+		highlight(code.trim(), lang))
 
 	const proseSize = () => props.proseSize ?? "xs"
 
@@ -45,17 +43,14 @@ export function CodeBlock(props: Readonly<ShowcaseCodeBlockProps>) {
 				</Show>
 				<Show when={copied()}>
 					<SquareCheckBig
-						class={cn(
-							"size-4",
-							justCopied() && "animate-copy-pop"
-						)}
+						class={cn("size-4", justCopied() && "animate-copy-pop")}
 					/>
 				</Show>
 			</Button>
 
 			<div
 				class={cn(
-					"max-h-96 overflow-auto scrollbar-none",
+					"scrollbar-none max-h-96 overflow-auto",
 					proseSize() === "sm" ? "text-sm" : "text-xs",
 					"[&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!"
 				)}

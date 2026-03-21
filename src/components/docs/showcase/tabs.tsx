@@ -8,14 +8,19 @@ type TabItem = {
 	content: JSX.Element
 }
 
-function Tabs(props: Readonly<{
-	name: string
-	tabs: TabItem[]
-	value: string
-	onChange: (value: string) => void
-}>) {
+function Tabs(
+	props: Readonly<{
+		name: string
+		tabs: TabItem[]
+		value: string
+		onChange: (value: string) => void
+	}>
+) {
 	return (
-		<div class="tabs tabs-md tabs-lift" role="tablist">
+		<div
+			class="tabs-lift tabs tabs-md"
+			role="tablist"
+		>
 			<For each={props.tabs}>
 				{tab => (
 					<>
@@ -30,7 +35,7 @@ function Tabs(props: Readonly<{
 							role="tab"
 						/>
 						<div
-							class="tab-content rounded-b-xl border border-t-0 border-base-300 bg-base-200 shadow-lg shadow-base-content/5 p-4"
+							class="tab-content rounded-b-xl border border-t-0 border-base-300 bg-base-200 p-4 shadow-lg shadow-base-content/5"
 							role="tabpanel"
 						>
 							{tab.content}
@@ -42,11 +47,13 @@ function Tabs(props: Readonly<{
 	)
 }
 
-function PreviewTabs(props: Readonly<{
-	preview: JSX.Element
-	code: string
-	name: string
-}>) {
+function PreviewTabs(
+	props: Readonly<{
+		preview: JSX.Element
+		code: string
+		name: string
+	}>
+) {
 	const [activeTab, setActiveTab] = createSignal<"code" | "preview">("preview")
 
 	return (

@@ -1,10 +1,15 @@
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
-import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
-import { Avatar, AvatarFallback, AvatarGroup, AvatarImage } from "~/components/ui/avatar"
+import { PageLayout } from "~/components/layout/page-layout"
+import {
+	Avatar,
+	AvatarFallback,
+	AvatarGroup,
+	AvatarImage
+} from "~/components/ui/avatar"
 
 const avatarComponentCode = `import type { VariantProps } from "class-variance-authority"
 import type { JSX } from "solid-js"
@@ -228,23 +233,35 @@ export default function AvatarPage() {
 				preview={(
 					<div class="flex w-full items-center justify-center gap-4">
 						<Avatar>
-							<AvatarImage src="https://picsum.photos/id/680/200/300" alt="Milada Vigerova" />
+							<AvatarImage
+								src="https://picsum.photos/id/680/200/300"
+								alt="Milada Vigerova"
+							/>
 							<AvatarFallback>MV</AvatarFallback>
 						</Avatar>
 
 						<AvatarGroup>
 							<Avatar>
-								<AvatarImage src="https://picsum.photos/id/669/200/300" alt="Luke Pamer" />
+								<AvatarImage
+									src="https://picsum.photos/id/669/200/300"
+									alt="Luke Pamer"
+								/>
 								<AvatarFallback>LK</AvatarFallback>
 							</Avatar>
 
 							<Avatar>
-								<AvatarImage src="https://picsum.photos/id/656/200/300" alt="Jessica Polar" />
+								<AvatarImage
+									src="https://picsum.photos/id/656/200/300"
+									alt="Jessica Polar"
+								/>
 								<AvatarFallback>JP</AvatarFallback>
 							</Avatar>
 
 							<Avatar>
-								<AvatarImage src="https://picsum.photos/id/633/200/300" alt="Doug Robichaud" />
+								<AvatarImage
+									src="https://picsum.photos/id/633/200/300"
+									alt="Doug Robichaud"
+								/>
 								<AvatarFallback>DR</AvatarFallback>
 							</Avatar>
 						</AvatarGroup>
@@ -275,17 +292,26 @@ export default function AvatarPage() {
 						<div class="flex w-full items-center justify-center gap-4">
 							<AvatarGroup class="-space-x-6">
 								<Avatar>
-									<AvatarImage src="https://picsum.photos/id/669/200/300" alt="Luke Pamer" />
+									<AvatarImage
+										src="https://picsum.photos/id/669/200/300"
+										alt="Luke Pamer"
+									/>
 									<AvatarFallback>LK</AvatarFallback>
 								</Avatar>
 
 								<Avatar>
-									<AvatarImage src="https://picsum.photos/id/656/200/300" alt="Jessica Polar" />
+									<AvatarImage
+										src="https://picsum.photos/id/656/200/300"
+										alt="Jessica Polar"
+									/>
 									<AvatarFallback>JP</AvatarFallback>
 								</Avatar>
 
 								<Avatar>
-									<AvatarImage src="https://picsum.photos/id/633/200/300" alt="Doug Robichaud" />
+									<AvatarImage
+										src="https://picsum.photos/id/633/200/300"
+										alt="Doug Robichaud"
+									/>
 									<AvatarFallback>DR</AvatarFallback>
 								</Avatar>
 
@@ -303,12 +329,18 @@ export default function AvatarPage() {
 					preview={(
 						<div class="flex w-full items-center justify-center gap-4">
 							<Avatar variant="ring">
-								<AvatarImage src="https://picsum.photos/id/669/200/300" alt="Luke Pamer" />
+								<AvatarImage
+									src="https://picsum.photos/id/669/200/300"
+									alt="Luke Pamer"
+								/>
 								<AvatarFallback>LK</AvatarFallback>
 							</Avatar>
 
 							<Avatar variant="ring">
-								<AvatarImage src="https://picsum.photos/id/656/200/300" alt="Jessica Polar" />
+								<AvatarImage
+									src="https://picsum.photos/id/656/200/300"
+									alt="Jessica Polar"
+								/>
 								<AvatarFallback>JP</AvatarFallback>
 							</Avatar>
 						</div>
@@ -323,12 +355,18 @@ export default function AvatarPage() {
 					preview={(
 						<div class="flex w-full items-center justify-center gap-4">
 							<Avatar class="avatar-online">
-								<AvatarImage src="https://picsum.photos/id/669/200/300" alt="Luke Pamer" />
+								<AvatarImage
+									src="https://picsum.photos/id/669/200/300"
+									alt="Luke Pamer"
+								/>
 								<AvatarFallback>LK</AvatarFallback>
 							</Avatar>
 
 							<Avatar class="avatar-offline">
-								<AvatarImage src="https://picsum.photos/id/656/200/300" alt="Jessica Polar" />
+								<AvatarImage
+									src="https://picsum.photos/id/656/200/300"
+									alt="Jessica Polar"
+								/>
 								<AvatarFallback>JP</AvatarFallback>
 							</Avatar>
 						</div>

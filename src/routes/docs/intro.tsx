@@ -33,7 +33,6 @@ export default function IntroductionPage() {
 					{" "}
 					<strong>SolidJS</strong>
 					, styled with
-					{" "}
 					<strong>daisyUI</strong>
 					{" "}
 					and

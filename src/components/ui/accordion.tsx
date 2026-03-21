@@ -68,13 +68,29 @@ function AccordionContent(props: Readonly<JSX.IntrinsicElements["div"]>) {
 function AccordionJoin(props: Readonly<JSX.IntrinsicElements["div"]>) {
 	const [local, rest] = splitProps(props, ["class"])
 
-	return <div class={cn("join join-vertical", local.class)} {...rest} />
+	return (
+		<div
+			class={cn("join join-vertical", local.class)}
+			{...rest}
+		/>
+	)
 }
 
 function AccordionGroup(props: Readonly<JSX.IntrinsicElements["div"]>) {
 	const [local, rest] = splitProps(props, ["class"])
 
-	return <div class={cn("grid space-y-2", local.class)} {...rest} />
+	return (
+		<div
+			class={cn("grid space-y-2", local.class)}
+			{...rest}
+		/>
+	)
 }
 
-export { Accordion, AccordionContent, AccordionGroup, AccordionJoin, AccordionTrigger }
+export {
+	Accordion,
+	AccordionContent,
+	AccordionGroup,
+	AccordionJoin,
+	AccordionTrigger
+}

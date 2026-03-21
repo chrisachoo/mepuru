@@ -171,17 +171,29 @@
 }
 
 .bg-dot-grid {
-	background-image: radial-gradient(circle, oklch(0% 0 0 / 0.06) 1px, transparent 1px);
+	background-image: radial-gradient(
+		circle,
+		oklch(0% 0 0 / 0.06) 1px,
+		transparent 1px
+	);
 	background-size: 24px 24px;
 }
 
 [data-theme="dark"] .bg-dot-grid,
 :root.dark .bg-dot-grid {
-	background-image: radial-gradient(circle, oklch(100% 0 0 / 0.06) 1px, transparent 1px);
+	background-image: radial-gradient(
+		circle,
+		oklch(100% 0 0 / 0.06) 1px,
+		transparent 1px
+	);
 }
 
 .text-gradient-primary {
-	background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+	background: linear-gradient(
+		135deg,
+		var(--color-primary) 0%,
+		var(--color-secondary) 100%
+	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;

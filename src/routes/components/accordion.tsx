@@ -247,7 +247,10 @@ export default function AccordionPage() {
 				/>
 			</section>
 
-			<PropsTable data={accordionProps} daisyHref="https://daisyui.com/components/accordion/" />
+			<PropsTable
+				data={accordionProps}
+				daisyHref="https://daisyui.com/components/accordion/"
+			/>
 		</PageLayout>
 	)
 }

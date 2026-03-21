@@ -2,10 +2,10 @@ import { ArrowRight, Heart, ShoppingCart } from "lucide-solid"
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { InlineCode } from "~/components/docs/inline-code"
-import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
+import { PageLayout } from "~/components/layout/page-layout"
 import { Button } from "~/components/ui/button"
 
 const buttonComponentCode = `import type { VariantProps } from "class-variance-authority"
@@ -235,9 +235,19 @@ export default function ButtonPage() {
 					title="Button sizes"
 					preview={(
 						<div class="flex flex-wrap items-center gap-3">
-							<Button variant="outline" size="sm">Small</Button>
+							<Button
+								variant="outline"
+								size="sm"
+							>
+								Small
+							</Button>
 							<Button variant="outline">Default</Button>
-							<Button variant="outline" size="lg">Large</Button>
+							<Button
+								variant="outline"
+								size="lg"
+							>
+								Large
+							</Button>
 						</div>
 					)}
 				/>
@@ -269,7 +279,10 @@ export default function ButtonPage() {
 
 			<DocDivider />
 
-			<PropsTable data={buttonProps} daisyHref="https://daisyui.com/components/button/">
+			<PropsTable
+				data={buttonProps}
+				daisyHref="https://daisyui.com/components/button/"
+			>
 				<p class="text-xs text-base-content/60">
 					Button is polymorphic: it accepts all native button attributes and can
 					be rendered as another element via

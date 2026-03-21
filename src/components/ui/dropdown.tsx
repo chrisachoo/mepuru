@@ -19,20 +19,31 @@ const dropdownVariant = cva("dropdown", {
 	}
 })
 
-type DropdownProps = JSX.IntrinsicElements["div"] & VariantProps<typeof dropdownVariant>
+type DropdownProps = JSX.IntrinsicElements["div"]
+	& VariantProps<typeof dropdownVariant>
 
 function Dropdown(props: DropdownProps) {
 	const [local, rest] = splitProps(props, ["class", "align"])
 
 	return (
-		<div class={cn(dropdownVariant({ align: local.align }), local.class)} {...rest} />
+		<div
+			class={cn(dropdownVariant({ align: local.align }), local.class)}
+			{...rest}
+		/>
 	)
 }
 
 function DropdownMenuTrigger(props: Readonly<JSX.IntrinsicElements["div"]>) {
 	const [local, rest] = splitProps(props, ["class"])
 
-	return <div class={cn("btn btn-soft m-1", local.class)} role="button" tabindex="0" {...rest} />
+	return (
+		<div
+			class={cn("btn m-1 btn-soft", local.class)}
+			role="button"
+			tabindex="0"
+			{...rest}
+		/>
+	)
 }
 
 function DropdownMenuContent(props: Readonly<JSX.IntrinsicElements["ul"]>) {
@@ -41,7 +52,7 @@ function DropdownMenuContent(props: Readonly<JSX.IntrinsicElements["ul"]>) {
 	return (
 		<ul
 			class={cn(
-				"menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm",
+				"dropdown-content menu z-1 w-52 rounded-box bg-base-100 p-2 shadow-sm",
 				local.class
 			)}
 			tabIndex="-1"
@@ -53,7 +64,12 @@ function DropdownMenuContent(props: Readonly<JSX.IntrinsicElements["ul"]>) {
 function DropdownMenuItem(props: Readonly<JSX.IntrinsicElements["li"]>) {
 	const [local, rest] = splitProps(props, ["class"])
 
-	return <li class={cn(local.class)} {...rest} />
+	return (
+		<li
+			class={cn(local.class)}
+			{...rest}
+		/>
+	)
 }
 
 export { Dropdown, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger }

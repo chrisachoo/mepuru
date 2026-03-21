@@ -1,5 +1,5 @@
-import { PageLayout } from "~/components/layout/page-layout"
 import { ComponentShowcase } from "~/components/docs/showcase"
+import { PageLayout } from "~/components/layout/page-layout"
 import { Textarea } from "~/components/ui/textarea"
 
 const textareaDemoCode = `import { Textarea } from "~/components/ui/textarea"
@@ -19,9 +19,7 @@ export default function TextareaPage() {
 				code={textareaDemoCode}
 				id="usage"
 				name="button-demo-code"
-				preview={(
-					<Textarea placeholder="Type your message here." />
-				)}
+				preview={<Textarea placeholder="Type your message here." />}
 			/>
 		</PageLayout>
 	)

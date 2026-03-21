@@ -39,7 +39,9 @@ export function PageLayout(props: Readonly<PageLayoutProps>) {
 								{props.title}
 							</h1>
 						</div>
-						<Show when={showFileActions(props.sourceCode, props.sourceFilePath)}>
+						<Show
+							when={showFileActions(props.sourceCode, props.sourceFilePath)}
+						>
 							<PageActions
 								sourceCode={props.sourceCode!}
 								sourceFilePath={props.sourceFilePath!}

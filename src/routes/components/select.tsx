@@ -2,11 +2,15 @@ import { For } from "solid-js"
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { InlineCode } from "~/components/docs/inline-code"
-import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
-import { FieldDescription, FieldLegend, Fieldset } from "~/components/ui/fieldset"
+import { PageLayout } from "~/components/layout/page-layout"
+import {
+	FieldDescription,
+	FieldLegend,
+	Fieldset
+} from "~/components/ui/fieldset"
 import { Select, SelectOption } from "~/components/ui/select"
 
 const selectComponentCode = `import type { JSX } from "solid-js"
@@ -145,14 +149,17 @@ export default function SelectPage() {
 				title="Usage"
 				preview={(
 					<Select class="max-w-xs">
-						<For each={[
-							{ label: "Choose one", value: "" },
-							{ label: "Option A", value: "a" },
-							{ label: "Option B", value: "b" },
-							{ label: "Option C", value: "c" }
-						]}
+						<For
+							each={[
+								{ label: "Choose one", value: "" },
+								{ label: "Option A", value: "a" },
+								{ label: "Option B", value: "b" },
+								{ label: "Option C", value: "c" }
+							]}
 						>
-							{opt => <SelectOption value={opt.value}>{opt.label}</SelectOption>}
+							{opt => (
+								<SelectOption value={opt.value}>{opt.label}</SelectOption>
+							)}
 						</For>
 					</Select>
 				)}
@@ -180,18 +187,28 @@ export default function SelectPage() {
 					preview={(
 						<Fieldset>
 							<FieldLegend>Pick an AI model</FieldLegend>
-							<Select class="max-w-xs" aria-label="Choose option" value="" required>
-								<For each={[
-									{ label: "Pick an AI model", value: "" },
-									{ label: "GPT-4", value: "gpt-4" },
-									{ label: "GPT-4o", value: "gpt-4o" },
-									{ label: "GPT-4o-mini", value: "gpt-4o-mini" }
-								]}
+							<Select
+								class="max-w-xs"
+								aria-label="Choose option"
+								value=""
+								required
+							>
+								<For
+									each={[
+										{ label: "Pick an AI model", value: "" },
+										{ label: "GPT-4", value: "gpt-4" },
+										{ label: "GPT-4o", value: "gpt-4o" },
+										{ label: "GPT-4o-mini", value: "gpt-4o-mini" }
+									]}
 								>
-									{opt => <SelectOption value={opt.value}>{opt.label}</SelectOption>}
+									{opt => (
+										<SelectOption value={opt.value}>{opt.label}</SelectOption>
+									)}
 								</For>
 							</Select>
-							<FieldDescription>Pick an AI model from the list of options.</FieldDescription>
+							<FieldDescription>
+								Pick an AI model from the list of options.
+							</FieldDescription>
 						</Fieldset>
 					)}
 				/>
@@ -202,15 +219,28 @@ export default function SelectPage() {
 					name="select-error-demo"
 					title="Error state"
 					preview={(
-						<Select aria-label="Choose option" class="max-w-xs" variant="destructive" value="gpt-4o">
-							<For each={[
-								{ disabled: true, label: "Pick an AI model", value: "" },
-								{ label: "GPT-4", value: "gpt-4" },
-								{ label: "GPT-4o", value: "gpt-4o" },
-								{ label: "GPT-4o-mini", value: "gpt-4o-mini" }
-							]}
+						<Select
+							aria-label="Choose option"
+							class="max-w-xs"
+							variant="destructive"
+							value="gpt-4o"
+						>
+							<For
+								each={[
+									{ disabled: true, label: "Pick an AI model", value: "" },
+									{ label: "GPT-4", value: "gpt-4" },
+									{ label: "GPT-4o", value: "gpt-4o" },
+									{ label: "GPT-4o-mini", value: "gpt-4o-mini" }
+								]}
 							>
-								{opt => <SelectOption value={opt.value} disabled={opt.disabled}>{opt.label}</SelectOption>}
+								{opt => (
+									<SelectOption
+										value={opt.value}
+										disabled={opt.disabled}
+									>
+										{opt.label}
+									</SelectOption>
+								)}
 							</For>
 						</Select>
 					)}
@@ -219,7 +249,10 @@ export default function SelectPage() {
 
 			<DocDivider />
 
-			<PropsTable data={selectProps} daisyHref="https://daisyui.com/components/select/">
+			<PropsTable
+				data={selectProps}
+				daisyHref="https://daisyui.com/components/select/"
+			>
 				<p class="mt-2 text-xs text-base-content/60">
 					Prefer a visible label (or
 					{" "}
@@ -230,8 +263,9 @@ export default function SelectPage() {
 					). Use
 					<InlineCode>aria-label</InlineCode>
 					{" "}
-					only when native labeling isn't available. Labeling behavior follows MDN ARIA
-					and WAI-ARIA Authoring Practices.
+					only when native labeling isn't
+					available. Labeling behavior follows MDN ARIA and WAI-ARIA Authoring
+					Practices.
 				</p>
 			</PropsTable>
 		</PageLayout>

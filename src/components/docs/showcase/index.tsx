@@ -14,19 +14,16 @@ type ComponentShowcaseProps = {
 } & JSX.IntrinsicElements["div"]
 
 function Description(props: Readonly<{ children?: JSX.Element }>) {
-	return (
-		<div class="text-xs leading-relaxed opacity-80">
-			{props.children}
-		</div>
-	)
+	return <div class="text-xs leading-relaxed opacity-80">{props.children}</div>
 }
 
 function PreviewContainer(props: Readonly<{ children: JSX.Element }>) {
 	return (
-		<div class={cn(
-			"relative flex flex-wrap items-center gap-3 overflow-hidden rounded-xl",
-			"border border-base-300 bg-base-200/50 p-4"
-		)}
+		<div
+			class={cn(
+				"relative flex flex-wrap items-center gap-3 overflow-hidden rounded-xl",
+				"border border-base-300 bg-base-200/50 p-4"
+			)}
 		>
 			{props.children}
 		</div>
@@ -47,8 +44,15 @@ export function ComponentShowcase(props: Readonly<ComponentShowcaseProps>) {
 	])
 
 	return (
-		<div id={local.id} class={cn("space-y-4", local.class)} {...rest}>
-			<Header id={local.id} title={local.title} />
+		<div
+			id={local.id}
+			class={cn("space-y-4", local.class)}
+			{...rest}
+		>
+			<Header
+				id={local.id}
+				title={local.title}
+			/>
 
 			<Description>{local.children}</Description>
 

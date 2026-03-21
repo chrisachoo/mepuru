@@ -1,10 +1,10 @@
 import { ComponentCode } from "~/components/docs/component-code"
 import { DocDivider } from "~/components/docs/doc-divider"
 import { InlineCode } from "~/components/docs/inline-code"
-import { PageLayout } from "~/components/layout/page-layout"
 import { PropsTable } from "~/components/docs/props-table"
 import { ComponentShowcase } from "~/components/docs/showcase"
 import { CodeBlock } from "~/components/layout/code-block"
+import { PageLayout } from "~/components/layout/page-layout"
 import { Button } from "~/components/ui/button"
 import {
 	Card,
@@ -390,7 +390,10 @@ export default function CardPage() {
 
 			<DocDivider />
 
-			<PropsTable data={cardProps} daisyHref="https://daisyui.com/components/card/">
+			<PropsTable
+				data={cardProps}
+				daisyHref="https://daisyui.com/components/card/"
+			>
 				<p class="mt-2 text-xs text-base-content/60">
 					<strong>Subcomponents:</strong>
 					{" "}
