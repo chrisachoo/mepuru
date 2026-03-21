@@ -1,39 +1,42 @@
-/* eslint-disable solid/no-innerhtml */
+import type { DocCodeLang } from "~/lib/shiki"
 import { Copy, SquareCheckBig } from "lucide-solid"
-import { createResource, createSignal, Show } from "solid-js"
+import { createMemo, createResource, Show } from "solid-js"
 import { Button } from "~/components/ui/button"
 import { cn } from "~/lib/cn"
+import { useCopyFeedback } from "~/lib/copy-feedback"
+import { highlight } from "~/lib/shiki"
 
-export function CodeBlock(props: Readonly<{ code: string }>) {
-	const [copied, setCopied] = createSignal(false)
-	const [justCopied, setJustCopied] = createSignal(false)
+type ShowcaseCodeBlockProps = {
+	code: string
+	language?: DocCodeLang
+	class?: string
+	copyButtonClass?: string
+	proseSize?: "sm" | "xs"
+}
+
+export function CodeBlock(props: Readonly<ShowcaseCodeBlockProps>) {
+	const { copied, copy, justCopied } = useCopyFeedback()
+
+	const sourceKey = createMemo(() => ({
+		code: props.code,
+		lang: props.language ?? "tsx"
+	}))
 
 	const [source] = createResource(
-		() => props.code,
-		async (code) => {
-			const { codeToHtml } = await import("shiki")
-			return codeToHtml(code, {
-				lang: "tsx",
-				theme: "tokyo-night"
-			})
-		}
+		sourceKey,
+		async ({ code, lang }) => highlight(code.trim(), lang)
 	)
 
-	const handleCopy = async () => {
-		await navigator.clipboard.writeText(props.code.trim())
-
-		setCopied(true)
-		setJustCopied(true)
-
-		setTimeout(() => setJustCopied(false), 300)
-		setTimeout(() => setCopied(false), 2000)
-	}
+	const proseSize = () => props.proseSize ?? "xs"
 
 	return (
-		<div class="relative">
+		<div class={cn("relative", props.class)}>
 			<Button
-				class="absolute top-2 right-2 z-10 btn-square btn-soft"
-				onClick={handleCopy}
+				class={cn(
+					"absolute top-2 right-2 z-10 btn-square btn-soft",
+					props.copyButtonClass
+				)}
+				onClick={() => void copy(props.code)}
 				variant="ghost"
 				size="sm"
 			>
@@ -42,15 +45,20 @@ export function CodeBlock(props: Readonly<{ code: string }>) {
 				</Show>
 				<Show when={copied()}>
 					<SquareCheckBig
-						class={`size-4 ${justCopied() ? "animate-copy-pop" : ""}`}
+						class={cn(
+							"size-4",
+							justCopied() && "animate-copy-pop"
+						)}
 					/>
 				</Show>
 			</Button>
 
-			<div class={cn(
-				"max-h-96 overflow-auto text-xs scrollbar-none",
-				"[&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!"
-			)}
+			<div
+				class={cn(
+					"max-h-96 overflow-auto scrollbar-none",
+					proseSize() === "sm" ? "text-sm" : "text-xs",
+					"[&_pre]:m-0! [&_pre]:bg-transparent! [&_pre]:p-0!"
+				)}
 			>
 				<Show
 					when={source()}
@@ -61,7 +69,7 @@ export function CodeBlock(props: Readonly<{ code: string }>) {
 					)}
 				>
 					{html => (
-						<div class="font-mono leading-relaxed">
+						<div class="overflow-x-auto font-mono leading-relaxed">
 							<div innerHTML={html()} />
 						</div>
 					)}

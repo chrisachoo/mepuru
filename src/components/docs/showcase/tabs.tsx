@@ -42,7 +42,7 @@ function Tabs(props: Readonly<{
 	)
 }
 
-export function PreviewTabs(props: Readonly<{
+function PreviewTabs(props: Readonly<{
 	preview: JSX.Element
 	code: string
 	name: string
@@ -73,3 +73,6 @@ export function PreviewTabs(props: Readonly<{
 		/>
 	)
 }
+
+export { PreviewTabs, Tabs }
+export type { TabItem }
