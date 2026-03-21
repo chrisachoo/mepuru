@@ -30,6 +30,7 @@ export default antfu(
 			"perfectionist/sort-named-imports": "error",
 			"perfectionist/sort-objects": "error",
 			"perfectionist/sort-union-types": "error",
+			"solid/no-innerhtml": "off",
 			"style/comma-dangle": ["error", { functions: "never" }],
 			"ts/consistent-type-definitions": ["error", "type"],
 			"ts/no-redeclare": "off",

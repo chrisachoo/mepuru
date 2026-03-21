@@ -10,7 +10,8 @@
 		"preview": "vite preview",
 		"lint:fix": "eslint --fix",
 		"lint": "eslint . --max-warnings 0",
-		"prettier": "prettier . --write"
+		"prettier": "prettier . --write",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@fontsource-variable/jetbrains-mono": "^5.2.8",
