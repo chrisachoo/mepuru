@@ -16,6 +16,7 @@ const badgeVariants = cva("badge", {
 		variant: {
 			accent: "badge-accent",
 			destructive: "badge-error",
+			ghost: "badge-ghost",
 			info: "badge-info",
 			light: "badge-soft",
 			neutral: "badge-neutral",
@@ -28,15 +29,15 @@ const badgeVariants = cva("badge", {
 	}
 })
 
-type BadgeProps = JSX.IntrinsicElements["span"] &
-	VariantProps<typeof badgeVariants>
+type BadgeProps = JSX.IntrinsicElements["span"]
+	& VariantProps<typeof badgeVariants>
 
 export function Badge(props: Readonly<BadgeProps>) {
 	const [local, rest] = splitProps(props, ["class", "variant", "size"])
 
 	return (
 		<span
-			class={cn(badgeVariants({ size: local.size, variant: local.variant }))}
+			class={cn(badgeVariants({ size: local.size, variant: local.variant }), local.class)}
 			{...rest}
 		/>
 	)

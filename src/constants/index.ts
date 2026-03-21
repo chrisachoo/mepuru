@@ -20,6 +20,7 @@ export const linkItems = [
 		group: [
 			{ href: "/components/accordion/", label: "Accordion" },
 			{ href: "/components/avatar/", label: "Avatar" },
+			{ href: "/components/badge/", label: "Badge" },
 			{ href: "/components/button/", label: "Button" },
 			{ href: "/components/card/", label: "Card" },
 			{ href: "/components/dropdown/", label: "Dropdown" },
