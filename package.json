@@ -7,6 +7,8 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"start": "vite start",
+		"serve": "vite preview",
+		"generate": "bun run generate:components",
 		"preview": "vite preview",
 		"lint:fix": "eslint --fix",
 		"lint": "eslint . --max-warnings 0",
