@@ -8,7 +8,7 @@ Every component doc page must follow this flow so developers get clear, copy-pas
 
 1. **Introduction** – Brief description of the component (one or two sentences). Use `DocPageLayout` `title` and `description`.
 2. **Installation** – Clear instructions: which file to create (e.g. `src/components/ui/button.tsx`) and a single code block with the full component source. Use `<ComponentCode name="..."><CodeBlock code={...} language="tsx" expand /></ComponentCode>` and, when available, `sourceCode` + `sourceFilePath` on `DocPageLayout` for page-level copy actions.
-3. **Usage** – Minimal, copy-pasteable examples via `<ComponentDemo>` (Preview | Code tabs). One primary "Usage" demo, then optional variants (sizes, states, etc.).
+3. **Usage** – Minimal, copy-pasteable examples via `<ComponentShowcase>` (Preview | Code tabs). One primary "Usage" demo, then optional variants (sizes, states, etc.).
 4. **Properties** – A `<PropsTable data={[...]} />` with `prop`, `type`, `default` (optional), `description`. Add a short note as `children` when relevant (e.g. polymorphic props, native attributes).
 
 ### Beta readiness checklist (per page)
@@ -46,13 +46,13 @@ In component docs, be explicit about which native element is used and which ARIA
 
 ## Patterns
 
-1. **Preview | Code** – Use `<ComponentDemo name="unique-name" preview={...} code="..." />`; tab state is internal. For other tab groups use `<Tabs value={tab} onChange={setTab} tabs={...} />` with parent-owned state.
+1. **Preview | Code** – Use `<ComponentShowcase name="unique-name" preview={...} code="..." />`; tab state is internal. For other tab groups use `<Tabs value={tab} onChange={setTab} tabs={...} />` with parent-owned state.
 2. **Page-level file actions** – Pass `sourceCode` and `sourceFilePath` to `DocPageLayout` to show **Copy source**, **Copy Markdown**, **Open in ChatGPT**, and **Open in Claude** for the entire file (not per code block). Optional `githubUrl` adds “View on GitHub”.
 3. **DocPageLayout** – Wrap the page in `<DocPageLayout title="..." description="..." sourceCode={...} sourceFilePath="...">` for consistent hero, file actions, and width.
 
 ## File layout
 
 - `src/lib/docs/` – Registry and shared doc data.
-- `src/components/docs/` – Doc-only UI: `ComponentDemo`, `DocPageLayout`, `PropsTable`, `ComponentCode`.
+- `src/components/docs/` – Doc-only UI: `ComponentShowcase`, `DocPageLayout`, `PropsTable`, `ComponentCode`.
 - `src/components/ui/code-block.tsx` – Code block with optional AI actions.
 - `src/routes/components/*.tsx` – Component doc routes (Button, Card, Input, etc.).

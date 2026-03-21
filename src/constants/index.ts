@@ -12,7 +12,6 @@ export const linkItems = [
 		group: [
 			{ href: "/docs/intro/", label: "Introduction" },
 			{ href: "/docs/install/", label: "Install" },
-			{ href: "/docs/quickstart/", label: "Quickstart" }
 		],
 		icon: BookOpen,
 		path: "docs"

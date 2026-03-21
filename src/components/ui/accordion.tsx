@@ -16,8 +16,8 @@ const accordionVariant = cva("collapse", {
 	}
 })
 
-type AccordionProps = JSX.IntrinsicElements["details"] &
-	VariantProps<typeof accordionVariant>
+type AccordionProps = JSX.IntrinsicElements["details"]
+	& VariantProps<typeof accordionVariant>
 
 function Accordion(props: Readonly<AccordionProps>) {
 	const [local, rest] = splitProps(props, [
@@ -65,4 +65,16 @@ function AccordionContent(props: Readonly<JSX.IntrinsicElements["div"]>) {
 	)
 }
 
-export { Accordion, AccordionContent, AccordionTrigger }
+function AccordionJoin(props: Readonly<JSX.IntrinsicElements["div"]>) {
+	const [local, rest] = splitProps(props, ["class"])
+
+	return <div class={cn("join join-vertical", local.class)} {...rest} />
+}
+
+function AccordionGroup(props: Readonly<JSX.IntrinsicElements["div"]>) {
+	const [local, rest] = splitProps(props, ["class"])
+
+	return <div class={cn("grid space-y-2", local.class)} {...rest} />
+}
+
+export { Accordion, AccordionContent, AccordionGroup, AccordionJoin, AccordionTrigger }

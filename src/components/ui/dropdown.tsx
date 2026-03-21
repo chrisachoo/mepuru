@@ -5,8 +5,7 @@ import { cva } from "class-variance-authority"
 import { splitProps } from "solid-js"
 import { cn } from "~/lib/cn"
 
-const dropdownVariant = cva("dropdown space-y-1 space-x-1", {
-	defaultVariants: {},
+const dropdownVariant = cva("dropdown", {
 	variants: {
 		align: {
 			bottom: "dropdown-bottom",
@@ -20,71 +19,41 @@ const dropdownVariant = cva("dropdown space-y-1 space-x-1", {
 	}
 })
 
-type DropdownProps = {
-	name: JSX.Element
-	class?: string
-	children?: JSX.Element
-} & VariantProps<typeof dropdownVariant> &
-	JSX.IntrinsicElements["div"]
+type DropdownProps = JSX.IntrinsicElements["div"] & VariantProps<typeof dropdownVariant>
 
 function Dropdown(props: DropdownProps) {
-	const [local, rest] = splitProps(props, [
-		"align",
-		"class",
-		"children",
-		"name"
-	])
+	const [local, rest] = splitProps(props, ["class", "align"])
+
 	return (
-		<div
-			class={cn(dropdownVariant({ align: local.align }), local.class)}
+		<div class={cn(dropdownVariant({ align: local.align }), local.class)} {...rest} />
+	)
+}
+
+function DropdownMenuTrigger(props: Readonly<JSX.IntrinsicElements["div"]>) {
+	const [local, rest] = splitProps(props, ["class"])
+
+	return <div class={cn("btn btn-soft m-1", local.class)} role="button" tabindex="0" {...rest} />
+}
+
+function DropdownMenuContent(props: Readonly<JSX.IntrinsicElements["ul"]>) {
+	const [local, rest] = splitProps(props, ["class"])
+
+	return (
+		<ul
+			class={cn(
+				"menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm",
+				local.class
+			)}
+			tabIndex="-1"
 			{...rest}
-		>
-			<div
-				tabIndex={0}
-				role="button"
-				class="-1 btn"
-				aria-expanded="false"
-				aria-haspopup="true"
-			>
-				{local.name}
-			</div>
-
-			<ul
-				tabIndex="-1"
-				class="dropdown-content menu z-1 min-w-52 rounded-box bg-base-100 p-2 shadow-sm"
-			>
-				{local.children}
-			</ul>
-		</div>
+		/>
 	)
 }
 
-export type DropdownItemProps = JSX.IntrinsicElements["li"] & {
-	class?: string
-	onClick?: () => void
+function DropdownMenuItem(props: Readonly<JSX.IntrinsicElements["li"]>) {
+	const [local, rest] = splitProps(props, ["class"])
+
+	return <li class={cn(local.class)} {...rest} />
 }
 
-function DropdownItem(props: DropdownItemProps) {
-	const [local, rest] = splitProps(props, ["class", "onClick", "children"])
-	return (
-		<li {...rest}>
-			<a
-				role="menuitem"
-				href="#"
-				class={cn("rounded-md", local.class)}
-				onClick={(e) => {
-					e.preventDefault()
-					local.onClick?.()
-					const trigger = e.currentTarget
-						.closest(".dropdown")
-						?.querySelector("[role=button]")
-					if (trigger instanceof HTMLElement) trigger.focus()
-				}}
-			>
-				{local.children}
-			</a>
-		</li>
-	)
-}
-
-export { Dropdown, DropdownItem }
+export { Dropdown, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger }
