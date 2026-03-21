@@ -19,8 +19,8 @@ const selectVariants = cva("select", {
 	}
 })
 
-type SelectProps = JSX.IntrinsicElements["select"] &
-	VariantProps<typeof selectVariants>
+type SelectProps = JSX.IntrinsicElements["select"]
+	& VariantProps<typeof selectVariants>
 
 function Select(props: Readonly<SelectProps>) {
 	const [local, rest] = splitProps(props, ["class", "variant"])

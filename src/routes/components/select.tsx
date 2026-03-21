@@ -138,7 +138,7 @@ export default function SelectPage() {
 	return (
 		<PageLayout
 			title="Select"
-			description="Native <select> with native keyboard behavior and HTML semantics (styled with daisyUI). Prefer native labels/fieldset+legend; use aria-label only when you can't provide a native label (per MDN ARIA and WAI-ARIA Authoring Practices)."
+			description="Select is used to pick a value from a list of options."
 			sourceCode={selectComponentCode}
 			sourceFilePath="src/components/ui/select.tsx"
 		>
