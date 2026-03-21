@@ -3,7 +3,9 @@ import { Hash } from "lucide-solid"
 import { Show } from "solid-js"
 import { cn } from "~/lib/cn"
 
-export function Header(props: Readonly<{ id: string, title?: string }>) {
+export function DocSectionHeading(
+	props: Readonly<{ id: string, title?: string }>
+) {
 	return (
 		<Show when={props.title}>
 			<div class="flex items-center gap-2 pb-2 text-sm font-bold">
