@@ -44,8 +44,15 @@ export function ComponentShowcase(props: Readonly<ComponentShowcaseProps>) {
 	])
 
 	return (
-		<div id={local.id} class={cn("space-y-4", local.class)} {...rest}>
-			<DocSectionHeading id={local.id} title={local.title} />
+		<div
+			id={local.id}
+			class={cn("space-y-4", local.class)}
+			{...rest}
+		>
+			<DocSectionHeading
+				id={local.id}
+				title={local.title}
+			/>
 
 			<ShowcaseDescription>{local.children}</ShowcaseDescription>
 

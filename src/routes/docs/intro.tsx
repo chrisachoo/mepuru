@@ -36,7 +36,6 @@ export default function IntroductionPage() {
 					<strong>daisyUI</strong>
 					{" "}
 					and
-					{" "}
 					<strong>Tailwind CSS</strong>
 					.
 				</p>

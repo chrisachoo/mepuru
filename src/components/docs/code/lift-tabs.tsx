@@ -17,7 +17,10 @@ export function LiftTabGroup(
 	}>
 ) {
 	return (
-		<div class="tabs-lift tabs tabs-md" role="tablist">
+		<div
+			class="tabs-lift tabs tabs-md"
+			role="tablist"
+		>
 			<For each={props.tabs}>
 				{tab => (
 					<>
@@ -57,8 +60,7 @@ export function PreviewCodeTabs(
 		<LiftTabGroup
 			name={props.name}
 			value={activeTab()}
-			onChange={value =>
-				setActiveTab(value as "code" | "preview")}
+			onChange={value => setActiveTab(value as "code" | "preview")}
 			tabs={[
 				{
 					content: (
