@@ -58,8 +58,9 @@ function DaisyUiPropsCredit(props: Readonly<{ href: string }>) {
 				{" "}
 				<A
 					class="link font-medium text-primary"
-					preload
 					href={props.href}
+					target="_blank"
+					preload
 				>
 					DaisyUI documentation
 				</A>

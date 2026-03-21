@@ -64,7 +64,7 @@ export function PreviewCodeTabs(
 			tabs={[
 				{
 					content: (
-						<div class="flex w-full items-center justify-center gap-4 py-4">
+						<div class="w-full flex items-center justify-center gap-4 py-4">
 							{props.preview}
 						</div>
 					),
