@@ -110,7 +110,7 @@ export default function CheckboxPage() {
 		>
 			<ComponentShowcase
 				code={checkboxDemoCode}
-				id="Checkbox"
+				id="checkbox"
 				name="checkbox"
 				preview={(
 					<FieldGroup class="max-w-sm">

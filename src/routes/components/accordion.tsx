@@ -5,6 +5,7 @@ import { ArticleCodeBlock } from "~/components/docs/code/article-code-block"
 import { ComponentInstallationTabs } from "~/components/docs/component-installation-tabs"
 import { ComponentShowcase } from "~/components/docs/component-showcase"
 import { DocSectionDivider } from "~/components/docs/doc-section-divider"
+import { InlineCode } from "~/components/docs/inline-code"
 import { PropsTable } from "~/components/docs/props-table"
 import { PageLayout } from "~/components/layout/page-layout"
 import {
@@ -92,6 +93,34 @@ const faqData = [
 ] as const
 `
 
+function AccordionAlert() {
+	return (
+		<Alert icon={<Info class="size-4" />}>
+			<AlertDescription class="text-xs font-normal">
+				Accordion uses the same style as the
+				{" "}
+				<A
+					href="/components/collapse/"
+					class="link"
+				>
+					collapse component
+				</A>
+				{" "}
+				but it works with
+				{" "}
+				<InlineCode>details</InlineCode>
+				{" "}
+				and
+				{" "}
+				<InlineCode>summary</InlineCode>
+				{" "}
+				tag. You can control which item to be
+				open by setting the open attribute on details element.
+			</AlertDescription>
+		</Alert>
+	)
+}
+
 export default function AccordionPage() {
 	return (
 		<PageLayout
@@ -100,21 +129,7 @@ export default function AccordionPage() {
 			sourceCode={accordionComponentCode}
 			sourceFilePath="src/components/ui/accordion.tsx"
 		>
-			<Alert icon={<Info class="size-4" />}>
-				<AlertDescription class="text-xs font-normal">
-					Accordion uses the same style as the
-					{" "}
-					<A
-						href="/components/collapse/"
-						class="link"
-					>
-						collapse component
-					</A>
-					{" "}
-					but it works with details elements. You can control which item to be
-					open by setting the open attribute on details element.
-				</AlertDescription>
-			</Alert>
+			<AccordionAlert />
 
 			<ComponentShowcase
 				code={accordionDemoCode}
