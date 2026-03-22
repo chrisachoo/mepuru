@@ -4,7 +4,7 @@ import { cva } from "class-variance-authority"
 import { splitProps } from "solid-js"
 import { cn } from "~/lib/cn"
 
-const textareaVariants = cva("textarea", {
+const textareaVariants = cva("textarea w-full", {
 	variants: {
 		size: {
 			lg: "textarea-lg",
