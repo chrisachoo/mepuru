@@ -19,10 +19,10 @@ const collapseVariant = cva("collapse", {
 	}
 })
 
-type CollapseProps = JSX.IntrinsicElements["details"] &
-	VariantProps<typeof collapseVariant>
+type CollapseProps = JSX.IntrinsicElements["details"]
+	& VariantProps<typeof collapseVariant>
 
-function Collapsible(props: Readonly<CollapseProps>) {
+function Collapse(props: Readonly<CollapseProps>) {
 	const [local, rest] = splitProps(props, [
 		"class",
 		"icon",
@@ -42,7 +42,7 @@ function Collapsible(props: Readonly<CollapseProps>) {
 	)
 }
 
-function CollapsibleTrigger(props: Readonly<JSX.IntrinsicElements["summary"]>) {
+function CollapseTrigger(props: Readonly<JSX.IntrinsicElements["summary"]>) {
 	const [local, rest] = splitProps(props, ["class", "children"])
 
 	return (
@@ -55,7 +55,7 @@ function CollapsibleTrigger(props: Readonly<JSX.IntrinsicElements["summary"]>) {
 	)
 }
 
-function CollapsibleContent(props: Readonly<JSX.IntrinsicElements["div"]>) {
+function CollapseContent(props: Readonly<JSX.IntrinsicElements["div"]>) {
 	const [local, rest] = splitProps(props, ["class", "children"])
 
 	return (
@@ -68,4 +68,4 @@ function CollapsibleContent(props: Readonly<JSX.IntrinsicElements["div"]>) {
 	)
 }
 
-export { Collapsible, CollapsibleContent, CollapsibleTrigger }
+export { Collapse, CollapseContent, CollapseTrigger }
