@@ -24,6 +24,7 @@ export const linkItems = [
 			{ href: "/components/button/", label: "Button" },
 			{ href: "/components/card/", label: "Card" },
 			{ href: "/components/checkbox/", label: "Checkbox" },
+			{ href: "/components/collapse/", label: "Collapse" },
 			{ href: "/components/dropdown/", label: "Dropdown" },
 			{ href: "/components/input/", label: "Input" },
 			{ href: "/components/select/", label: "Select" }

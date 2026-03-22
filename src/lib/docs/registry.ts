@@ -36,22 +36,12 @@ export const componentDocs: readonly ComponentDocEntry[] = [
 	{ description: "Actions and triggers", name: "Button", slug: "button" },
 	{ description: "Content containers", name: "Card", slug: "card" },
 	{ description: "Boolean form control", name: "Checkbox", slug: "checkbox" },
-	{
-		description: "Syntax-highlighted code",
-		name: "Code Block",
-		slug: "code-block"
-	},
 	{ description: "Expandable content", name: "Collapse", slug: "collapse" },
 	{ description: "Native dialog element", name: "Dialog", slug: "dialog" },
 	{ description: "Visual separator", name: "Divider", slug: "divider" },
 	{ description: "Menu and options", name: "Dropdown", slug: "dropdown" },
 	{ description: "Form group container", name: "Fieldset", slug: "fieldset" },
 	{ description: "Text and form inputs", name: "Input", slug: "input" },
-	{
-		description: "Decorative logo icon",
-		name: "Maple Leaf",
-		slug: "maple-leaf"
-	},
 	{ description: "Dialogs and overlays", name: "Modal", slug: "modal" },
 	{ description: "Single selection", name: "Select", slug: "select" },
 	{ description: "Tabbed panels", name: "Tabs", slug: "tabs" },
@@ -66,7 +56,7 @@ export function componentHref(entry: ComponentDocEntry): string {
 	return `${componentsBasePath}/${entry.slug}`
 }
 
-export const componentDocLinks: readonly DocLink[] = componentDocs.map((c) => ({
+export const componentDocLinks: readonly DocLink[] = componentDocs.map(c => ({
 	href: componentHref(c),
 	label: c.name
 }))

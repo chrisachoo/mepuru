@@ -16,7 +16,10 @@ const buttonVariants = cva("btn", {
 		},
 		size: {
 			lg: "btn-lg",
-			sm: "btn-sm"
+			md: "btn-md",
+			sm: "btn-sm",
+			xl: "btn-xl",
+			xs: "btn-xs"
 		},
 		variant: {
 			destructive: "btn-error",
