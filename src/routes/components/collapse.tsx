@@ -273,8 +273,8 @@ export default function CollapsePage() {
 			<DocSectionDivider />
 
 			<ComponentInstallationTabs
-				cliComponent="checkbox"
-				name="checkbox-install"
+				cliComponent="collapse"
+				name="collapse-install"
 			>
 				<ArticleCodeBlock
 					code={collapseComponentCode}

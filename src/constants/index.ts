@@ -28,7 +28,11 @@ export const linkItems = [
 			{ href: "/components/divider/", label: "Divider" },
 			{ href: "/components/dropdown/", label: "Dropdown" },
 			{ href: "/components/input/", label: "Input" },
-			{ href: "/components/select/", label: "Select" }
+			{ href: "/components/select/", label: "Select" },
+			{ href: "/components/tabs/", label: "Tabs" },
+			{ href: "/components/textarea/", label: "Textarea" },
+			{ href: "/components/switch/", label: "Switch" },
+			{ href: "/components/tooltip/", label: "Tooltip" }
 		],
 		icon: Component,
 		path: "components"

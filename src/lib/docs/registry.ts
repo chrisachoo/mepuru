@@ -42,12 +42,12 @@ export const componentDocs: readonly ComponentDocEntry[] = [
 	{ description: "Menu and options", name: "Dropdown", slug: "dropdown" },
 	{ description: "Form group container", name: "Fieldset", slug: "fieldset" },
 	{ description: "Text and form inputs", name: "Input", slug: "input" },
+	{ description: "Switch-styled checkbox", name: "Switch", slug: "switch" },
 	{ description: "Dialogs and overlays", name: "Modal", slug: "modal" },
 	{ description: "Single selection", name: "Select", slug: "select" },
-	{ description: "Tabbed panels", name: "Tabs", slug: "tabs" },
-	{ description: "Multi-line text input", name: "Textarea", slug: "textarea" },
-	{ description: "On/off switch", name: "Toggle", slug: "toggle" },
-	{ description: "Hover hints", name: "Tooltip", slug: "tooltip" }
+	{ description: "Tabbed navigation and panels", name: "Tabs", slug: "tabs" },
+	{ description: "Multi-line text field", name: "Textarea", slug: "textarea" },
+	{ description: "Context on hover or focus", name: "Tooltip", slug: "tooltip" }
 ] as const
 
 export const componentsBasePath = "/components"
