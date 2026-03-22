@@ -7,9 +7,6 @@ import { splitProps } from "solid-js"
 import { cn } from "~/lib/cn"
 
 const dividerVariants = cva("divider", {
-	defaultVariants: {
-		orientation: "vertical"
-	},
 	variants: {
 		color: {
 			accent: "divider-accent",
@@ -22,8 +19,8 @@ const dividerVariants = cva("divider", {
 			warning: "divider-warning"
 		},
 		orientation: {
-			horizontal: "divider-horizontal",
-			vertical: "divider-vertical"
+			horizontal: "",
+			vertical: "divider-horizontal"
 		},
 		placement: {
 			end: "divider-end",
