@@ -21,6 +21,7 @@ export const linkItems = [
 			{ href: "/components/accordion/", label: "Accordion" },
 			{ href: "/components/avatar/", label: "Avatar" },
 			{ href: "/components/badge/", label: "Badge" },
+			{ href: "/components/breadcrumb/", label: "Breadcrumb" },
 			{ href: "/components/button/", label: "Button" },
 			{ href: "/components/card/", label: "Card" },
 			{ href: "/components/checkbox/", label: "Checkbox" },
