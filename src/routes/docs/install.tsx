@@ -1,7 +1,20 @@
+import { A } from "@solidjs/router"
 import { ArticleCodeBlock } from "~/components/docs/code/article-code-block"
 import { InlineCode } from "~/components/docs/inline-code"
 import { PackageInstallTabs } from "~/components/docs/install/package-install-tabs"
 import { PageLayout } from "~/components/layout/page-layout"
+import {
+	Alert,
+	AlertDescription,
+	AlertTitle
+} from "~/components/ui/alert"
+import {
+	Card,
+	CardBody,
+	CardDescription,
+	CardTitle
+} from "~/components/ui/card"
+import { Divider } from "~/components/ui/divider"
 
 const viteConfigCode = `import { solidStart } from "@solidjs/start/config"
 import tailwindcss from "@tailwindcss/vite"
@@ -51,6 +64,38 @@ export default function InstallationPage() {
 						the docs."
 		>
 			<div class="mt-10 space-y-10">
+				<Alert variant="info">
+					<AlertTitle>Prerequisites</AlertTitle>
+					<AlertDescription>
+						Mēpuru targets Solid with Vite. You will add Tailwind v4, the
+						daisyUI plugin, then paste components from the docs. For inspiration,
+						see composed examples on
+						{" "}
+						<A
+							class="link font-semibold"
+							href="/blocks/"
+						>
+							Blocks
+						</A>
+						.
+					</AlertDescription>
+				</Alert>
+
+				<Card class="border-base-300/80 bg-base-200/40">
+					<CardBody class="gap-3">
+						<CardTitle class="text-base">Checklist</CardTitle>
+						<CardDescription>
+							Before you dive in, make sure you can run the dev server and edit
+							your CSS entry.
+						</CardDescription>
+						<ul class="list-inside list-disc space-y-1 text-sm text-base-content/80">
+							<li>Node or Bun available on your PATH</li>
+							<li>A git repo (optional but recommended)</li>
+							<li>Familiarity with Solid components and JSX</li>
+						</ul>
+					</CardBody>
+				</Card>
+
 				<section class="space-y-3">
 					<h2 class="text-xl font-semibold text-base-content">
 						1. Create a new Solid project
@@ -121,12 +166,32 @@ export default function InstallationPage() {
 					/>
 				</section>
 
-				<section class="rounded-xl border border-base-300 bg-base-200/50 p-4">
-					<p class="text-sm text-base-content/70">
-						<span class="font-medium text-base-content">Coming soon:</span>
+				<Divider />
+
+				<section class="rounded-xl border border-base-300 bg-base-200/50 p-5">
+					<p class="text-sm leading-relaxed text-base-content/75">
+						<span class="font-semibold text-base-content">Coming soon:</span>
 						{" "}
-						CLI
-						and package install so you can add components without copy-pasting.
+						CLI and package install so you can scaffold components without
+						copy-pasting. Until then, the
+						{" "}
+						<A
+							class="link font-medium"
+							href="/docs/intro/"
+						>
+							Introduction
+						</A>
+						{" "}
+						walkthrough and
+						{" "}
+						<A
+							class="link font-medium"
+							href="/blocks/"
+						>
+							Blocks
+						</A>
+						{" "}
+						page keep the experience feeling polished.
 					</p>
 				</section>
 			</div>

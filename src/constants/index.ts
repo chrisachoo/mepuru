@@ -1,4 +1,4 @@
-import { BookOpen, Component } from "lucide-solid"
+import { BookOpen, Component, LayoutGrid } from "lucide-solid"
 
 export const indexNavLinks = [
 	{ href: "/docs/installation", label: "Docs" },
@@ -6,6 +6,13 @@ export const indexNavLinks = [
 ] as const
 
 export const APP_DRAWER_ID = "app-drawer"
+
+export const blocksNavLinks = [
+	{ href: "/blocks/", label: "Overview" },
+	{ href: "/blocks/hero-section/", label: "Hero section" },
+	{ href: "/blocks/stats/", label: "Stats" },
+	{ href: "/blocks/login/", label: "Login" }
+] as const
 
 export const linkItems = [
 	{
@@ -15,6 +22,11 @@ export const linkItems = [
 		],
 		icon: BookOpen,
 		path: "docs"
+	},
+	{
+		group: [...blocksNavLinks],
+		icon: LayoutGrid,
+		path: "blocks"
 	},
 	{
 		group: [

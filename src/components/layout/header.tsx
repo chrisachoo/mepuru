@@ -74,6 +74,7 @@ export function Header(props: Readonly<{ shouldShowLogo?: boolean }>) {
 								<For
 									each={[
 										{ href: "/docs/install/", path: "Docs" },
+										{ href: "/blocks/", path: "Blocks" },
 										{ href: "/components/", path: "Components" }
 									]}
 								>

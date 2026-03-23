@@ -1,9 +1,10 @@
 import { Link, Meta, MetaProvider, Title } from "@solidjs/meta"
 import { useNavigate } from "@solidjs/router"
-import { Accessibility, Code, Leaf, Zap } from "lucide-solid"
+import { Accessibility, ArrowRight, Code, Leaf, Zap } from "lucide-solid"
 import { codeToHtml } from "shiki"
 import { createResource, For, Show } from "solid-js"
 import { Header } from "~/components/layout/header"
+import { Badge } from "~/components/ui/badge"
 import { Button } from "~/components/ui/button"
 import {
 	Card,
@@ -124,6 +125,7 @@ export default function HomePage() {
 								>
 									Components
 								</Button>
+
 								<Button
 									variant="outline"
 									class="w-full"
@@ -163,6 +165,52 @@ export default function HomePage() {
 							</For>
 						</div>
 
+						<section class="animate-fade-in-delay-4 mx-auto w-full">
+							<div class="flex flex-col gap-8">
+								<div class="flex flex-col gap-4 w-full max-w-2xl mx-auto justify-center items-center">
+									<p class="text-xs font-semibold uppercase tracking-wider text-primary">
+										Blocks
+									</p>
+									<h2 class="text-2xl font-semibold tracking-tight text-base-content sm:text-3xl">
+										Components are copy and paste ready
+									</h2>
+									<p class="text-sm leading-relaxed text-base-content/70 sm:text-base">
+										Each component is designed to be copy and paste ready, with the same lift tabs as component docs so you always know where to paste from.
+									</p>
+									<Button
+										class="w-fit gap-2"
+										variant="primary"
+										onClick={() => navigate("/blocks/", { replace: true })}
+									>
+										Browse blocks
+										<ArrowRight class="size-4" />
+									</Button>
+								</div>
+
+								<div class="grid content-center lg:col-span-3">
+									<div class="stats stats-vertical w-full rounded-box border border-base-300/80 bg-base-100 shadow-md lg:stats-horizontal">
+										<div class="stat place-items-center">
+											<div class="stat-title">Sections</div>
+											<div class="stat-value text-primary">3</div>
+											<div class="stat-desc">With code</div>
+										</div>
+										<div class="stat place-items-center">
+											<div class="stat-title">Tabs</div>
+											<div class="stat-value text-lg">Lift</div>
+											<div class="stat-desc">Like docs</div>
+										</div>
+										<div class="stat place-items-center">
+											<div class="stat-title">Stack</div>
+											<div class="stat-value text-lg">Solid</div>
+											<div class="stat-desc">+ daisyUI</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<div class="mx-auto h-px w-full max-w-2xl bg-linear-to-r from-transparent via-primary/30 to-transparent" />
+
 						<div class="flex w-full flex-col items-center gap-8 pt-6 lg:flex-row">
 							<div class="animate-fade-in max-w-md space-y-5">
 								<h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -176,12 +224,26 @@ export default function HomePage() {
 									(keeps runtime size small).
 								</p>
 
-								<Button
-									variant="primary"
-									onClick={() => navigate("/components/", { replace: true })}
-								>
-									Browse components
-								</Button>
+								<div class="flex flex-wrap gap-2">
+									<Badge
+										size="sm"
+										variant="info"
+									>
+										Solid
+									</Badge>
+									<Badge
+										size="sm"
+										variant="secondary"
+									>
+										daisyUI
+									</Badge>
+									<Badge
+										size="sm"
+										variant="accent"
+									>
+										Tailwind v4
+									</Badge>
+								</div>
 							</div>
 
 							<div class="animate-fade-in overflow-hidden rounded-xl border border-base-300 bg-base-200/80 shadow-lg shadow-base-content/5">
