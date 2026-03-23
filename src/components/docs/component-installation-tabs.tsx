@@ -5,7 +5,7 @@ import { Tabs } from "~/components/ui/tabs"
 
 type ComponentInstallationTabsProps = {
 	name: string
-	cliComponent?: string
+	cliComponent: string
 	children: JSX.Element
 }
 
@@ -61,59 +61,92 @@ export function ComponentInstallationTabs(
 						value: "manual"
 					},
 					{
-						content: props.cliComponent
-							? (
-									<div class="space-y-3 rounded-lg border border-base-300 bg-base-200/50 p-4">
-										<p class="text-sm text-base-content/80">
-											From the
+						content: (
+							<div class="relative overflow-hidden rounded-xl border border-primary/20 bg-linear-to-br from-primary/10 via-base-200/60 to-base-200/40 p-6 shadow-sm">
+								<div
+									aria-hidden
+									class="pointer-events-none absolute -right-10 -top-10 size-36 rounded-full bg-primary/15 blur-3xl"
+								/>
+								<div
+									aria-hidden
+									class="pointer-events-none absolute -bottom-8 -left-8 size-28 rounded-full bg-secondary/10 blur-2xl"
+								/>
+								<div class="relative flex flex-col gap-5">
+									<div class="flex flex-wrap items-center gap-2">
+										<span class="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+											Coming soon
+										</span>
+										<span class="text-sm text-base-content/60">
+											<InlineCode>{props.cliComponent}</InlineCode>
+										</span>
+									</div>
+
+									<div class="space-y-2">
+										<h3 class="text-lg font-semibold tracking-tight text-base-content">
+											No CLI yet — same flow as Manual
+										</h3>
+										<p class="max-w-prose text-sm leading-relaxed text-base-content/75">
+											A one-shot install command is not available for
 											{" "}
-											<strong class="font-medium text-base-content">mepuru</strong>
+											<InlineCode>{props.cliComponent}</InlineCode>
 											{" "}
-											repo root, copy the UI file into your project (creates
-											parent folders if needed):
-										</p>
-										<pre class="overflow-x-auto rounded-md bg-base-300/40 p-3 font-mono text-xs text-base-content">
-											<code>
-												bun run copy-component
-												{" "}
-												{props.cliComponent}
-												{" "}
-												./src/components/ui
-											</code>
-										</pre>
-										<p class="text-sm text-base-content/70">
-											Last argument is the destination directory; defaults to
+											yet. Switch to the
 											{" "}
-											<InlineCode>./src/components/ui</InlineCode>
+											<span class="font-medium text-base-content">Manual</span>
 											{" "}
-											if omitted. Then fix imports such as
-											{" "}
-											<InlineCode>~/lib/cn</InlineCode>
-											{" "}
-											to match your app.
+											tab for the source; it is the same two-step workflow
+											summarized here.
 										</p>
 									</div>
-								)
-							: (
-									<div class="rounded-lg border border-base-300 bg-base-200/50 p-4">
-										<p class="text-sm text-base-content/70">
-											<span class="font-medium text-base-content">
-												CLI snippet not set for this page.
-											</span>
-											{" "}
-											Use the Manual tab to copy the component source, or run
-											{" "}
-											<InlineCode>
-												bun run copy-component &lt;name&gt; [dest]
-											</InlineCode>
-											{" "}
-											from this repository with a component file under
-											{" "}
-											<InlineCode>src/components/ui/&lt;name&gt;.tsx</InlineCode>
-											.
+
+									<div class="rounded-lg border border-base-300/80 bg-base-100/60 p-4">
+										<p class="mb-3 text-xs font-semibold uppercase tracking-wide text-base-content/50">
+											How Manual install works
 										</p>
+										<ol class="list-decimal space-y-3 pl-5 text-sm leading-relaxed text-base-content/80 marker:font-semibold marker:text-base-content">
+											<li>
+												Copy and paste the code from the
+												{" "}
+												<span class="font-medium text-base-content">Manual</span>
+												{" "}
+												tab into your project (use the path shown on the code
+												block, e.g.
+												{" "}
+												<InlineCode>
+													components/ui/
+													{props.cliComponent}
+													.tsx
+												</InlineCode>
+												).
+											</li>
+											<li>
+												Update the import paths to match your project setup (e.g.
+												{" "}
+												<InlineCode>~/lib/cn</InlineCode>
+												,
+												{" "}
+												<InlineCode>~/lib/polymorphic</InlineCode>
+												). You also need
+												{" "}
+												<InlineCode>class-variance-authority</InlineCode>
+												,
+												{" "}
+												<InlineCode>clsx</InlineCode>
+												, and
+												{" "}
+												<InlineCode>tailwind-merge</InlineCode>
+												{" "}
+												for
+												{" "}
+												<InlineCode>cn</InlineCode>
+												—details stay with the code on Manual so nothing drifts
+												out of sync.
+											</li>
+										</ol>
 									</div>
-								),
+								</div>
+							</div>
+						),
 						label: "CLI",
 						value: "cli"
 					}
