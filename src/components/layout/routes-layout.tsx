@@ -1,5 +1,5 @@
 import type { JSX } from "solid-js"
-import { A, useLocation } from "@solidjs/router"
+import { A } from "@solidjs/router"
 import { For } from "solid-js"
 import { Header } from "~/components/layout/header"
 import { SidebarNavLink } from "~/components/layout/sidebar-nav-link"
@@ -32,8 +32,6 @@ function Aside(props: Readonly<{ children: JSX.Element }>) {
 }
 
 export function RoutesLayout(props: Readonly<{ children: JSX.Element }>) {
-	const { pathname } = useLocation()
-
 	return (
 		<div class="drawer h-full lg:drawer-open">
 			<input
@@ -78,7 +76,6 @@ export function RoutesLayout(props: Readonly<{ children: JSX.Element }>) {
 											<SidebarNavLink
 												href={link.href}
 												label={link.label}
-												pathname={pathname}
 											/>
 										)}
 									</For>

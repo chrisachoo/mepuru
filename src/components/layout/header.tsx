@@ -1,4 +1,4 @@
-import { A, useLocation } from "@solidjs/router"
+import { A } from "@solidjs/router"
 import { Menu } from "lucide-solid"
 import { createSignal, For, onCleanup, onMount, Show } from "solid-js"
 import { MapleLeaf } from "~/components/layout/maple-leaf"
@@ -8,8 +8,6 @@ import { linkItems } from "~/constants"
 import { cn } from "~/lib/cn"
 
 export function Header(props: Readonly<{ shouldShowLogo?: boolean }>) {
-	const { pathname } = useLocation()
-
 	const [isScrolled, setIsScrolled] = createSignal(false)
 
 	onMount(() => {
@@ -149,7 +147,6 @@ export function Header(props: Readonly<{ shouldShowLogo?: boolean }>) {
 											<SidebarNavLink
 												href={link.href}
 												label={link.label}
-												pathname={pathname}
 											/>
 										)}
 									</For>
