@@ -2,6 +2,7 @@ import type { JSX } from "solid-js"
 import { createSignal } from "solid-js"
 import { InlineCode } from "~/components/docs/inline-code"
 import { Tabs } from "~/components/ui/tabs"
+import { Badge } from "../ui/badge"
 
 type ComponentInstallationTabsProps = {
 	name: string
@@ -73,12 +74,10 @@ export function ComponentInstallationTabs(
 								/>
 								<div class="relative flex flex-col gap-5">
 									<div class="flex flex-wrap items-center gap-2">
-										<span class="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+										<Badge variant="primary">
 											Coming soon
-										</span>
-										<span class="text-sm text-base-content/60">
-											<InlineCode>{props.cliComponent}</InlineCode>
-										</span>
+										</Badge>
+										<Badge size="sm">{props.cliComponent}</Badge>
 									</div>
 
 									<div class="space-y-2">
