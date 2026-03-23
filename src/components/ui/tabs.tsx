@@ -40,7 +40,7 @@ type TabsProps = {
 	class?: string
 } & VariantProps<typeof tabsVariants>
 
-export function Tabs(props: Readonly<TabsProps>) {
+function Tabs(props: Readonly<TabsProps>) {
 	return (
 		<div
 			class={cn(
@@ -50,7 +50,7 @@ export function Tabs(props: Readonly<TabsProps>) {
 			role="tablist"
 		>
 			<For each={[...props.tabs]}>
-				{(tab) => (
+				{tab => (
 					<>
 						<input
 							type="radio"
@@ -74,3 +74,5 @@ export function Tabs(props: Readonly<TabsProps>) {
 		</div>
 	)
 }
+
+export { Tabs, tabsVariants }
