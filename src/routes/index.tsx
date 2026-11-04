@@ -83,11 +83,43 @@ export default function HomePage() {
 				<Title>Mēpuru · Simple UI for Solid</Title>
 				<Link
 					rel="canonical"
-					href="/"
+					href="https://chrisachoo.github.io/mepuru"
 				/>
 				<Meta
 					name="description"
 					content="Mēpuru is a lightweight Solid component library focused on simplicity, accessibility, and a predictable developer experience."
+				/>
+				<Meta
+					name="og:title"
+					property="og:title"
+					content="Mēpuru · Simple UI for Solid"
+				/>
+				<Meta
+					name="og:description"
+					property="og:description"
+					content="A lightweight component library for Solid with accessibility-first design and reactive primitives."
+				/>
+				<Meta
+					name="og:type"
+					property="og:type"
+					content="website"
+				/>
+				<Meta
+					name="og:url"
+					property="og:url"
+					content="https://chrisachoo.github.io/mepuru"
+				/>
+				<Meta
+					name="twitter:card"
+					content="summary_large_image"
+				/>
+				<Meta
+					name="twitter:title"
+					content="Mēpuru · Simple UI for Solid"
+				/>
+				<Meta
+					name="twitter:description"
+					content="Lightweight, accessible Solid UI components built with reactive primitives."
 				/>
 			</div>
 			<Header shouldShowLogo />

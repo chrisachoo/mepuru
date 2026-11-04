@@ -10,7 +10,7 @@ import "./app.css"
 function Layout(props: Readonly<ParentProps>) {
 	return (
 		<MetaProvider>
-			<Title>Mepuru — Simple reactive UI for Solid</Title>
+			<Title>Mēpuru — Simple reactive UI for Solid</Title>
 			<PMProvider>
 				<Suspense>{props.children}</Suspense>
 			</PMProvider>
