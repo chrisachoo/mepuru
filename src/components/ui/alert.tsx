@@ -27,8 +27,8 @@ const alertVariants = cva("alert", {
 
 type AlertProps = {
 	icon?: JSX.Element
-} & JSX.IntrinsicElements["div"] &
-	VariantProps<typeof alertVariants>
+} & JSX.IntrinsicElements["div"]
+& VariantProps<typeof alertVariants>
 
 function Alert(props: Readonly<AlertProps>) {
 	const [local, rest] = splitProps(props, [
@@ -44,7 +44,7 @@ function Alert(props: Readonly<AlertProps>) {
 			class={cn(alertVariants({ variant: local.variant }), local.class)}
 			{...rest}
 		>
-			<Show when={local.icon}>{(Icon) => <Icon />}</Show>
+			<Show when={local.icon}>{Icon => <Icon />}</Show>
 
 			<div>{local.children}</div>
 		</div>

@@ -19,8 +19,8 @@ const collapseVariant = cva("collapse", {
 	}
 })
 
-type CollapseProps = JSX.IntrinsicElements["details"] &
-	VariantProps<typeof collapseVariant>
+type CollapseProps = JSX.IntrinsicElements["details"]
+	& VariantProps<typeof collapseVariant>
 
 function Collapsible(props: Readonly<CollapseProps>) {
 	const [local, rest] = splitProps(props, [

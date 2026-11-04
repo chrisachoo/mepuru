@@ -37,8 +37,8 @@ const loadingVariants = cva("loading", {
 	}
 })
 
-type LoadingProps = JSX.IntrinsicElements["span"] &
-	VariantProps<typeof loadingVariants>
+type LoadingProps = JSX.IntrinsicElements["span"]
+	& VariantProps<typeof loadingVariants>
 
 export function Loading(props: Readonly<LoadingProps>) {
 	const [local, rest] = splitProps(props, ["class", "color", "variant", "size"])

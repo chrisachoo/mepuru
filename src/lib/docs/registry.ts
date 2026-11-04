@@ -66,7 +66,7 @@ export function componentHref(entry: ComponentDocEntry): string {
 	return `${componentsBasePath}/${entry.slug}`
 }
 
-export const componentDocLinks: readonly DocLink[] = componentDocs.map((c) => ({
+export const componentDocLinks: readonly DocLink[] = componentDocs.map(c => ({
 	href: componentHref(c),
 	label: c.name
 }))
