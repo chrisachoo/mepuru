@@ -68,14 +68,10 @@ jobs:
       - name: Build with Vite
         run: bun run build
 
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: .output/public
 
   deploy:
     name: Deploy to GitHub Pages

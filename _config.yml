@@ -3,24 +3,6 @@ description: Simple, predictable, and accessible UI components for Solid
 url: https://chrisachoo.github.io/mepuru
 baseurl: /mepuru
 
-# Jekyll build settings
-exclude:
-  - node_modules
-  - bun.lockb
-  - .git
-  - .github
-  - .vscode
-  - .cursor
-  - .husky
-  - src
-  - vite.config.ts
-  - tsconfig.json
-  - eslint.config.js
-  - package.json
-
-# GitHub Pages settings
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-
+# Disable Jekyll processing - we're using Vite for the build
+plugins: []
 theme: null
